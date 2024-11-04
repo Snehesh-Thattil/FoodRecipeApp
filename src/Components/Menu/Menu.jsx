@@ -1,11 +1,12 @@
 import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import './Menu.css'
 import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
+import { MealsData } from '../Context'
 
 function Menu() {
-    const [meals, setMeals] = useState([])
+    const { setMealsData } = useContext(MealsData)
 
     useEffect(() => {
         getMenu()
@@ -14,27 +15,14 @@ function Menu() {
     function getMenu() {
         axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=s')
             .then((res) => {
-                setMeals(res.data.meals)
+                setMealsData(res.data.meals)
             })
             .catch((err) => {
                 console.log(err.message)
             })
     }
 
-    // console.log('The Menus Are : ||', meals)
-
     return (
-        // <div className='Menu'>
-        //     {meals.map((meal) => {
-        //         // console.log(meal)
-        //         return (
-        //             <div key={meal.idMeal} className="meal">
-        //                 <img className='meal_img' src={meal.strMealThumb} alt="meal_error" />
-        //                 <h4>{meal.strMeal}</h4>
-        //             </div>
-        //         )
-        //     })}
-        // </div>
         <div className="Menu">
             <Landing />
             <SpecialDishes />

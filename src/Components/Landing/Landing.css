@@ -19,6 +19,9 @@
   right: 100px;
   transform: translateY(-50%);
 }
+.Landing_tagline h2 {
+  text-align: center;
+}
 .Landing_tagline p {
   font-weight: 500;
 }

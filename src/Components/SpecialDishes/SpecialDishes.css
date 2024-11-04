@@ -1,5 +1,25 @@
 .SpecialDishes_content {
-  max-width: 800px;
+  max-width: 750px;
   margin: auto;
   text-align: center;
+}
+.SpecialDishes_list {
+  margin-top: 30px;
+}
+.SpecialDishes_list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.SpecialDishes_list ul li {
+  width: 23%;
+  border-radius: 10px;
+}
+.SpecialDishes_list ul li img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.SpecialDishes_list ul li h4 {
+  margin-top: 10px;
 }/*# sourceMappingURL=SpecialDishes.css.map */

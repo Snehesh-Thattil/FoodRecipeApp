@@ -1,7 +1,32 @@
 .SpecialDishes {
     &_content {
-        max-width: 800px;
+        max-width: 750px;
         margin: auto;
         text-align: center;
+    }
+
+    &_list {
+        margin-top: 30px;
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            li {
+                width: 23%;
+                border-radius: 10px;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+
+                h4 {
+                    margin-top: 10px;
+                }
+            }
+        }
     }
 }
