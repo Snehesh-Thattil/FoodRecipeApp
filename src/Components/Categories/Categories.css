@@ -26,4 +26,25 @@
 }
 .categories_list ul li:hover {
   color: white;
+}
+.categories_view {
+  margin-top: 30px;
+}
+.categories_view ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.categories_view ul li {
+  width: 18%;
+  border-radius: 10px;
+}
+.categories_view ul li img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.categories_view ul li h4 {
+  margin-top: 10px;
 }/*# sourceMappingURL=Categories.css.map */

@@ -6,7 +6,7 @@ function SpecialDishes() {
     const { mealsData } = useContext(MealsContext)
     // console.log('|| Meals Data From Context : ', mealsData)
 
-    let specialDishes = (mealsData ? mealsData.map((item, index) => {
+    let specialDishes = mealsData.map((item, index) => {
         if (index < 8) {
             return (
                 <li key={index}>
@@ -15,7 +15,7 @@ function SpecialDishes() {
                 </li>
             )
         }
-    }) : null)
+    })
 
     return (
         <section className='SpecialDishes'>
