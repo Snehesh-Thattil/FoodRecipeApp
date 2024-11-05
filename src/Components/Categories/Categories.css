@@ -1,0 +1,29 @@
+.categories_content {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+}
+.categories_list {
+  margin-top: 30px;
+}
+.categories_list ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.categories_list ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb904;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+}
+.categories_list ul li:hover {
+  color: white;
+}/*# sourceMappingURL=Categories.css.map */

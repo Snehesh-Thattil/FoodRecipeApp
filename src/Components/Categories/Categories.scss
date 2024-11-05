@@ -1,0 +1,35 @@
+.categories {
+    &_content {
+        max-width: 750px;
+        margin: auto;
+        text-align: center;
+    }
+
+    &_list {
+        margin-top: 30px;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #ffb904;
+                font-weight: bold;
+                padding: 12px 30px;
+                border-radius: 30px;
+                margin: 10px;
+                cursor: pointer;
+                transition: all ease-in-out 0.25s;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
+    }
+}

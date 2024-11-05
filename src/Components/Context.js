@@ -1,12 +1,26 @@
 import { createContext, useState } from "react";
 
 // Meals Data Context
-export const MealsData = createContext(null)
-export function MealsDataContext({ children }) {
+export const MealsContext = createContext(null)
+
+export function MealsContextWrapper({ children }) {
     const [mealsData, setMealsData] = useState()
     return (
-        <MealsData.Provider value={{ mealsData, setMealsData }}>
+        <MealsContext.Provider value={{ mealsData, setMealsData }}>
             {children}
-        </MealsData.Provider>
+        </MealsContext.Provider>
+    )
+}
+
+
+// Categories Data Context
+export const CategoriesContext = createContext(null)
+
+export function CategoriesContextWrapper({ children }) {
+    const [categoriesData, setCategoriesData] = useState()
+    return (
+        <CategoriesContext.Provider value={{ categoriesData, setCategoriesData }}>
+            {children}
+        </CategoriesContext.Provider>
     )
 }

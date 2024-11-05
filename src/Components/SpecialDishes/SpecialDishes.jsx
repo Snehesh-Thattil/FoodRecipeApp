@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
 import './SpecialDishes.css'
-import { MealsData } from '../Context'
+import { MealsContext } from '../Context'
 
 function SpecialDishes() {
-    const { mealsData } = useContext(MealsData)
-    console.log('|| Data With Context : ', mealsData)
+    const { mealsData } = useContext(MealsContext)
+    // console.log('|| Meals Data From Context : ', mealsData)
 
     let specialDishes = (mealsData ? mealsData.map((item, index) => {
         if (index < 8) {
             return (
-                <li>
+                <li key={index}>
                     <img src={item.strMealThumb} alt="meal-img" />
                     <h4>{item.strMeal}</h4>
                 </li>

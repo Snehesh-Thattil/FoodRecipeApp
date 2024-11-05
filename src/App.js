@@ -1,13 +1,19 @@
 import './App.css';
 import Menu from './Components/Menu/Menu';
-import { MealsDataContext } from './Components/Context';
+import { CategoriesContextWrapper, MealsContextWrapper } from './Components/Context';
 
 function App() {
   return (
     <div className="App">
-      <MealsDataContext>
-        <Menu />
-      </MealsDataContext>
+
+      <MealsContextWrapper>
+        <CategoriesContextWrapper>
+
+          <Menu />
+
+        </CategoriesContextWrapper>
+      </MealsContextWrapper>
+
     </div>
   )
 }
