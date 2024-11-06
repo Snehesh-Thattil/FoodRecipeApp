@@ -1,24 +1,35 @@
 import React, { useContext, useState } from 'react'
 import './Categories.css'
-import { CategoriesContext, MealsContext } from '../Context'
+import { CategoriesContext, DefCategoryContext, MealsContext } from '../Context'
 
 function Categories() {
     const [categoryDishes, setCategoryDishes] = useState([])
-    const [activeCategory, setActiveCategory] = useState('')
+    const [activeCategory, setActiveCategory] = useState('Vegetarian')
 
     const { categoriesData } = useContext(CategoriesContext)
     const { mealsData } = useContext(MealsContext)
+    const { defCategoryData } = useContext(DefCategoryContext)
 
     // Buttons of Categories
     let categoryLists = categoriesData.map((item, index) => {
         return (
-            <li className={activeCategory === item.strCategory ? 'active' : ''} key={index} onClick={() => { CategoryViewHandle(item.strCategory) }}> {item.strCategory} </li>
+            <li className={activeCategory === item.strCategory ? 'active' : ''} key={index}
+                onClick={() => { CategoryViewHandle(item.strCategory) }}> {item.strCategory} </li>
+        )
+    })
+
+    //Default Category Items
+    let DefCategoryItems = defCategoryData.map((item, index) => {
+        return (
+            <li key={index}>
+                <img src={item.strMealThumb} alt="cousine-img" />
+                <h5>{item.strMeal}</h5>
+            </li>
         )
     })
 
     // Filtering Categories
     function CategoryViewHandle(Category) {
-
         setActiveCategory(Category)
 
         let Dishes = mealsData.filter((item) => {
@@ -49,6 +60,8 @@ function Categories() {
             </div>
             <div className="categories_view">
                 <ul>
+                    {/* {categoryDishes ? null : DefCategoryItems} */}
+                    {DefCategoryItems}
                     {categoryDishes.length !== 0 ? categoryDishes :
                         <div className='categories_view_empty'>
                             <h2>No Dishes Found</h2>

@@ -24,3 +24,15 @@ export function CategoriesContextWrapper({ children }) {
         </CategoriesContext.Provider>
     )
 }
+
+// Default Category Context
+export const DefCategoryContext = createContext(null)
+
+export function DefCategoryContextWrapper({ children }) {
+    const [defCategoryData, setDefCategoryData] = useState()
+    return (
+        <DefCategoryContext.Provider value={{ defCategoryData, setDefCategoryData }}>
+            {children}
+        </DefCategoryContext.Provider>
+    )
+}
