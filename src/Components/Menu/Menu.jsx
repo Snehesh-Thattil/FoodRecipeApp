@@ -5,6 +5,7 @@ import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
 import { CategoriesContext, MealsContext } from '../Context'
+import Loader from './Loader'
 
 function Menu() {
     const { setMealsData } = useContext(MealsContext)
@@ -13,6 +14,7 @@ function Menu() {
     const [menuLoaded, setMenuLoaded] = useState(false)
     const [categoryLoaded, setCategoryLoaded] = useState(false)
 
+    // Fetching All Meals with API
     function getMenu() {
         axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=s')
             .then((res) => {
@@ -24,6 +26,7 @@ function Menu() {
             })
     }
 
+    // Fetching Meal Categories with API
     function getCategories() {
         axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
             .then((res) => {
@@ -38,13 +41,15 @@ function Menu() {
     useEffect(() => {
         getMenu()
         getCategories()
+        console.log('Rendering')
     }, [])
 
+    // Rendering
     return (
         <div className="Menu">
             <Landing />
-            {menuLoaded ? <SpecialDishes /> : <p>Loading...</p>}
-            {categoryLoaded ? <Categories /> : <p>Loading...</p>}
+            {menuLoaded ? <SpecialDishes /> : <Loader />}
+            {categoryLoaded ? <Categories /> : null}
         </div>
     )
 }

@@ -1,3 +1,7 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+}
 .categories_content {
   max-width: 750px;
   margin: auto;
@@ -24,6 +28,10 @@
   cursor: pointer;
   transition: all ease-in-out 0.25s;
 }
+.categories_list ul li.active {
+  background-color: rgb(31, 29, 29);
+  color: white;
+}
 .categories_list ul li:hover {
   color: white;
 }
@@ -36,15 +44,26 @@
   justify-content: center;
   gap: 15px;
 }
+.categories_view ul .categories_view_empty {
+  width: 95%;
+  height: 7.5rem;
+  border-radius: 15px;
+  background-color: #ffb904;
+  color: rgb(31, 29, 29);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  outline: solid rgb(31, 29, 29);
+}
 .categories_view ul li {
   width: 18%;
   border-radius: 10px;
 }
 .categories_view ul li img {
   width: 100%;
-  height: auto;
   border-radius: 10px;
 }
-.categories_view ul li h4 {
-  margin-top: 10px;
+.categories_view ul li h5 {
+  margin-left: 5px;
 }/*# sourceMappingURL=Categories.css.map */

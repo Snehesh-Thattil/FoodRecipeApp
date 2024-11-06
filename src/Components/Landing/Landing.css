@@ -6,18 +6,19 @@
   overflow: hidden;
 }
 .Landing img {
-  max-width: 100%;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   transform: translateY(-30%);
 }
 .Landing_tagline {
   position: absolute;
-  max-width: 350px;
+  max-width: 400px;
   text-align: justify;
   top: 50%;
-  right: 100px;
+  left: 50px;
   transform: translateY(-50%);
+  color: rgb(231, 224, 224);
 }
 .Landing_tagline h2 {
   text-align: center;
@@ -27,5 +28,5 @@
 }
 .Landing_tagline h3,
 .Landing_tagline p {
-  text-shadow: 4px 4px 17px #4e4e4e;
+  text-shadow: 4px 4px 17px #131212;
 }/*# sourceMappingURL=Landing.css.map */

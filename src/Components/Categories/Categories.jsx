@@ -4,20 +4,22 @@ import { CategoriesContext, MealsContext } from '../Context'
 
 function Categories() {
     const [categoryDishes, setCategoryDishes] = useState([])
+    const [activeCategory, setActiveCategory] = useState('')
 
     const { categoriesData } = useContext(CategoriesContext)
     const { mealsData } = useContext(MealsContext)
 
-    // Categories List
+    // Buttons of Categories
     let categoryLists = categoriesData.map((item, index) => {
         return (
-            <li key={index} onClick={(e) => { CategoryViewHandle(e, item.strCategory) }}> {item.strCategory} </li>
+            <li className={activeCategory === item.strCategory ? 'active' : ''} key={index} onClick={() => { CategoryViewHandle(item.strCategory) }}> {item.strCategory} </li>
         )
     })
 
-    // Filtering Category Dishes
-    function CategoryViewHandle(e, Category) {
-        e.preventDefault()
+    // Filtering Categories
+    function CategoryViewHandle(Category) {
+
+        setActiveCategory(Category)
 
         let Dishes = mealsData.filter((item) => {
             return item.strCategory === Category
@@ -25,7 +27,7 @@ function Categories() {
             return (
                 <li key={index}>
                     <img src={item.strMealThumb} alt="cousine-img" />
-                    <h4>{item.strMeal}</h4>
+                    <h5>{item.strMeal}</h5>
                 </li>
             )
         })
@@ -37,17 +39,22 @@ function Categories() {
     return (
         <section className='categories'>
             <div className="categories_content">
-                <h3>Our Categories</h3>
+                <h3>Categories</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem distinctio illum aspernatur, vero autem tempora, ipsum labore explicabo eum, deserunt amet. Dolorem soluta quod totam numquam perspiciatis.</p>
-            </div>
-            <div className="categories_view">
-                <ul>
-                    {categoryDishes}
-                </ul>
             </div>
             <div className="categories_list">
                 <ul>
                     {categoryLists}
+                </ul>
+            </div>
+            <div className="categories_view">
+                <ul>
+                    {categoryDishes.length !== 0 ? categoryDishes :
+                        <div className='categories_view_empty'>
+                            <h2>No Dishes Found</h2>
+                            <p> <strong>Try Another Category</strong></p>
+                        </div>
+                    }
                 </ul>
             </div>
         </section>

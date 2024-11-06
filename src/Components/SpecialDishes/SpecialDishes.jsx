@@ -4,17 +4,17 @@ import { MealsContext } from '../Context'
 
 function SpecialDishes() {
     const { mealsData } = useContext(MealsContext)
-    // console.log('|| Meals Data From Context : ', mealsData)
 
     let specialDishes = mealsData.map((item, index) => {
-        if (index < 8) {
+        if (index > 0 && index < 9) {
             return (
                 <li key={index}>
                     <img src={item.strMealThumb} alt="meal-img" />
-                    <h4>{item.strMeal}</h4>
+                    <h5>{item.strMeal}</h5>
                 </li>
             )
         }
+        return null
     })
 
     return (
