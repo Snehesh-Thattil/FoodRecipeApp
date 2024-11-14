@@ -17,9 +17,9 @@ export function MealsContextWrapper({ children }) {
 export const CategoriesContext = createContext(null)
 
 export function CategoriesContextWrapper({ children }) {
-    const [categoriesData, setCategoriesData] = useState()
+    const [allCategoriesList, setAllCategoriesList] = useState()
     return (
-        <CategoriesContext.Provider value={{ categoriesData, setCategoriesData }}>
+        <CategoriesContext.Provider value={{ allCategoriesList, setAllCategoriesList }}>
             {children}
         </CategoriesContext.Provider>
     )

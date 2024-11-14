@@ -9,55 +9,56 @@ import Loader from './Loader'
 
 function Menu() {
     const { setMealsData } = useContext(MealsContext)
-    const { setCategoriesData } = useContext(CategoriesContext)
+    const { setAllCategoriesList } = useContext(CategoriesContext)
     const { setDefCategoryData } = useContext(DefCategoryContext)
 
     const [specialDishesLoaded, setSpecialDishesLoaded] = useState(false)
     const [categoryLoaded, setCategoryLoaded] = useState(false)
     const [defCategoryLoaded, setDefCategoryLoaded] = useState(false)
 
-    // Fetching Special Dishes with API
-    function getMenu() {
-        axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=c')
-            .then((res) => {
-                setMealsData(res.data.meals)
-                setSpecialDishesLoaded(true)
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-    }
-
-    // Fetching Meal Categories with API
-    function getCategories() {
-        axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
-            .then((res) => {
-                setCategoriesData(res.data.categories)
-                setCategoryLoaded(true)
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-    }
-
-    // Fetching Default Category with API
-    function getDefaultCategory() {
-        axios.get('https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian')
-            .then((res) => {
-                setDefCategoryData(res.data.meals)
-                setDefCategoryLoaded(true)
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-    }
-
     // UseEffect
     useEffect(() => {
+
+        // Fetching Special Dishes with API
+        function getMenu() {
+            axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=c')
+                .then((res) => {
+                    setMealsData(res.data.meals)
+                    setSpecialDishesLoaded(true)
+                })
+                .catch((err) => {
+                    console.log(err.message)
+                })
+        }
+
+        // Fetching Meal Categories with API
+        function getCategories() {
+            axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
+                .then((res) => {
+                    setAllCategoriesList(res.data.categories)
+                    setCategoryLoaded(true)
+                })
+                .catch((err) => {
+                    console.log(err.message)
+                })
+        }
+
+        // Fetching Default Category with API
+        function getDefaultCategory() {
+            axios.get('https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian')
+                .then((res) => {
+                    setDefCategoryData(res.data.meals)
+                    setDefCategoryLoaded(true)
+                })
+                .catch((err) => {
+                    console.log(err.message)
+                })
+        }
+
         getMenu()
         getCategories()
         getDefaultCategory()
-    }, [])
+    }, [setAllCategoriesList, setMealsData, setDefCategoryData])
 
     // Rendering
     return (
