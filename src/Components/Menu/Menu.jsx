@@ -18,7 +18,7 @@ function Menu() {
 
     // Fetching Special Dishes with API
     function getMenu() {
-        axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=s')
+        axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=c')
             .then((res) => {
                 setMealsData(res.data.meals)
                 setSpecialDishesLoaded(true)

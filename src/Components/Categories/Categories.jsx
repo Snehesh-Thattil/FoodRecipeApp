@@ -8,15 +8,7 @@ function Categories() {
 
     const { categoriesData } = useContext(CategoriesContext)
     const { mealsData } = useContext(MealsContext)
-    const { defCategoryData } = useContext(DefCategoryContext)
-
-    // Buttons of Categories
-    let categoryLists = categoriesData.map((item, index) => {
-        return (
-            <li className={activeCategory === item.strCategory ? 'active' : ''} key={index}
-                onClick={() => { CategoryViewHandle(item.strCategory) }}> {item.strCategory} </li>
-        )
-    })
+    const { defCategoryData, setDefCategoryData } = useContext(DefCategoryContext)
 
     //Default Category Items
     let DefCategoryItems = defCategoryData.map((item, index) => {
@@ -28,9 +20,18 @@ function Categories() {
         )
     })
 
+    // Buttons of Categories
+    let categoryLists = categoriesData.map((item, index) => {
+        return (
+            <li className={activeCategory === item.strCategory ? 'active' : ''} key={index}
+                onClick={() => CategoryViewHandle(item.strCategory)}> {item.strCategory} </li>
+        )
+    })
+
     // Filtering Categories
     function CategoryViewHandle(Category) {
         setActiveCategory(Category)
+        setDefCategoryData([])
 
         let Dishes = mealsData.filter((item) => {
             return item.strCategory === Category
@@ -60,13 +61,12 @@ function Categories() {
             </div>
             <div className="categories_view">
                 <ul>
-                    {/* {categoryDishes ? null : DefCategoryItems} */}
-                    {DefCategoryItems}
                     {categoryDishes.length !== 0 ? categoryDishes :
-                        <div className='categories_view_empty'>
-                            <h2>No Dishes Found</h2>
-                            <p> <strong>Try Another Category</strong></p>
-                        </div>
+                        DefCategoryItems.length !== 0 ? DefCategoryItems :
+                            <div className='categories_view_empty'>
+                                <h2>No Dishes Found</h2>
+                                <p> <strong>Try Another Category</strong></p>
+                            </div>
                     }
                 </ul>
             </div>
