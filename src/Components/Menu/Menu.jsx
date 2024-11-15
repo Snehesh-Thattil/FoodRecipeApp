@@ -4,8 +4,9 @@ import './Menu.css'
 import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
-import { CategoriesContext, DefCategoryContext, MealsContext } from '../Context'
+import { CategoriesContext, DefCategoryContext, MealsContext } from '../Contexts'
 import Loader from './Loader'
+import Header from './Header'
 
 function Menu() {
     const { setMealsData } = useContext(MealsContext)
@@ -63,6 +64,7 @@ function Menu() {
     // Rendering
     return (
         <div className="Menu">
+            <Header />
             <Landing />
             {specialDishesLoaded ? <SpecialDishes /> : <Loader />}
             {categoryLoaded && defCategoryLoaded ? <Categories /> : null}

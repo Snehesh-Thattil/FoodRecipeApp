@@ -1,17 +1,15 @@
 import React, { useContext } from 'react'
 import './SpecialDishes.css'
-import { MealsContext } from '../Context'
+import { MealsContext } from '../Contexts'
+import ItemCards from '../ItemCards'
 
 function SpecialDishes() {
     const { mealsData } = useContext(MealsContext)
 
     let specialDishes = mealsData.map((item, index) => {
-        if (index > 0 && index < 9) {
+        if (index > 10 && index < 19) {
             return (
-                <li key={index}>
-                    <img src={item.strMealThumb} alt="meal-img" />
-                    <h5>{item.strMeal}</h5>
-                </li>
+                <ItemCards key={index} item={item} /> // Componentization of Cards
             )
         }
         return null

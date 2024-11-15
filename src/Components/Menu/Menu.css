@@ -1,6 +1,46 @@
 .Menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+.Menu .Navbar {
+  width: 100%;
+  height: 4rem;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(0, 0, 0, 0.226);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Menu .Navbar .icon {
+  margin: 0 30px;
+  scale: 2;
+  border-radius: 50%;
+  background-color: orange;
+  border: 1.5px solid white;
+  cursor: pointer;
+}
+.Menu .Navbar ul {
+  display: flex;
+  height: 100%;
+}
+.Menu .Navbar ul li {
+  min-width: 7.5rem;
+  font-weight: 600;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  cursor: pointer;
+  color: white;
+  transition: all ease-in-out 0.35s;
+}
+.Menu .Navbar ul li:hover {
+  background-color: orange;
+}/*# sourceMappingURL=Menu.css.map */

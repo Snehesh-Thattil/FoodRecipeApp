@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Categories.css'
-import { CategoriesContext, DefCategoryContext, MealsContext } from '../Context'
+import { CategoriesContext, DefCategoryContext, MealsContext } from '../Contexts'
 import Pagination from './Pagination'
+import ItemCards from '../ItemCards'
 
 function Categories() {
     const { allCategoriesList } = useContext(CategoriesContext)
@@ -52,10 +53,7 @@ function Categories() {
             return item.strCategory === Category
         }).map((item, index) => {
             return (
-                <li key={index}>
-                    <img src={item.strMealThumb} alt="cousine-img" />
-                    <h5>{item.strMeal}</h5>
-                </li>
+                <ItemCards key={index} item={item} /> // Componentization of Cards
             )
         })
         setCategoryDishes(Dishes)

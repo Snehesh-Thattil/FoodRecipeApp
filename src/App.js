@@ -1,6 +1,6 @@
 import './App.css';
 import Menu from './Components/Menu/Menu';
-import { CategoriesContextWrapper, DefCategoryContextWrapper, MealsContextWrapper } from './Components/Context';
+import { CategoriesContextWrapper, DefCategoryContextWrapper, MealsContextWrapper } from './Components/Contexts';
 
 function App() {
   return (
