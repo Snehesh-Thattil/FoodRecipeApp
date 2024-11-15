@@ -5,6 +5,7 @@ import Pagination from './Pagination'
 import ItemCards from '../ItemCards'
 
 function Categories() {
+    // From Contexts.js
     const { allCategoriesList } = useContext(CategoriesContext)
     const { mealsData } = useContext(MealsContext)
     const { defCategoryData, setDefCategoryData } = useContext(DefCategoryContext)
@@ -14,7 +15,7 @@ function Categories() {
 
     // Pagination Codes
     const [currentPage, setCurrentPage] = useState(1)
-    const [numberOfItems, setNumberOfItems] = useState(5)
+    const [numberOfItems, setNumberOfItems] = useState(10)
     const [currentPgItems, setCurrentPgItems] = useState([])
 
     useEffect(() => {
@@ -27,12 +28,12 @@ function Categories() {
 
     // Default Category Items
     let DefCategoryItems = defCategoryData.map((item, index) => {
-        return (
-            <li key={index}>
-                <img src={item.strMealThumb} alt="cousine-img" />
-                <h5>{item.strMeal}</h5>
-            </li>
-        )
+        if (index < numberOfItems) {
+            return (
+                <ItemCards key={index} item={item} /> // Componentization of Cards
+            )
+        }
+        return null
     })
 
     // Buttons of Categories
@@ -90,7 +91,6 @@ function Categories() {
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 setNumberOfItems={setNumberOfItems} />
-
         </section>
     )
 }

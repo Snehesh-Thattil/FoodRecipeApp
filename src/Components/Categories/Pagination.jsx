@@ -1,18 +1,15 @@
 import React from 'react'
 
 function Pagination({ categoryDishes, numberOfItems, currentPage, setCurrentPage, setNumberOfItems }) {
-
-    let pagesCount = Math.ceil(categoryDishes.length / numberOfItems)
     let numberOfPages = [];
 
-    for (let i = 1; i <= pagesCount; i++) {
+    for (let i = 1; i <= (Math.ceil(categoryDishes.length / numberOfItems)); i++) {
         numberOfPages.push(i)
     }
 
     let pagesList = numberOfPages.map((pageNumber, index) => {
         return (
-            <li className={pageNumber === currentPage ? 'active' : ''} key={index}
-                onClick={() => setCurrentPage(pageNumber)}>
+            <li className={pageNumber === currentPage ? 'active' : ''} onClick={() => setCurrentPage(pageNumber)} key={index}>
                 {pageNumber}
             </li>
         )
@@ -45,6 +42,7 @@ function Pagination({ categoryDishes, numberOfItems, currentPage, setCurrentPage
             <ul>
                 {pagesList}
             </ul>
+
         </div>
     )
 }
