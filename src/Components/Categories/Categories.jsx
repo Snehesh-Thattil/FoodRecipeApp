@@ -90,7 +90,8 @@ function Categories() {
             <Pagination categoryDishes={categoryDishes}
                 numberOfItems={numberOfItems}
                 currentPage={currentPage}
-                setCurrentPage={setCurrentPage} />
+                setCurrentPage={setCurrentPage}
+                setNumberOfItems={setNumberOfItems} />
 
         </section>
     )
