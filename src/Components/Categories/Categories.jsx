@@ -12,6 +12,7 @@ function Categories() {
     const { defCategoryData, setDefCategoryData } = useContext(DefCategoryContext)
 
     const [categoryDishes, setCategoryDishes] = useState([])
+    const [defCategoryDishes, SetDefCategoryDishes] = useState([])
     const [activeCategory, setActiveCategory] = useState('Vegetarian')
     const [popUp, setPopUp] = useState(false)
 
@@ -24,19 +25,14 @@ function Categories() {
         let IndexOfLastItem = currentPage * numberOfItems
         let IndexOfFirstItem = IndexOfLastItem - numberOfItems
 
-        let pageItems = categoryDishes.slice(IndexOfFirstItem, IndexOfLastItem)
-        setCurrentPgItems(pageItems)
-    }, [categoryDishes, currentPage, numberOfItems])
-
-    // Default Category Items
-    let DefCategoryItems = defCategoryData.map((item, index) => {
-        if (index < numberOfItems) {
-            return (
-                <ItemCards key={index} item={item} setPopUp={setPopUp} /> // Componentization of Cards
-            )
+        if (defCategoryData.length !== 0) {
+            let pageItems = defCategoryDishes.slice(IndexOfFirstItem, IndexOfLastItem)
+            setCurrentPgItems(pageItems)
+        } else {
+            let pageItems = categoryDishes.slice(IndexOfFirstItem, IndexOfLastItem)
+            setCurrentPgItems(pageItems)
         }
-        return null
-    })
+    }, [categoryDishes, currentPage, numberOfItems, defCategoryData, defCategoryDishes])
 
     // Buttons of Categories
     let categoryLists = allCategoriesList.map((item, index) => {
@@ -46,7 +42,17 @@ function Categories() {
         )
     })
 
-    // Filtering Category Dishes
+    // Default Dishes List Filtering
+    useEffect(() => {
+        let DefDishes = defCategoryData.map((item, index) => {
+            return (
+                <ItemCards key={index} item={item} setPopUp={setPopUp} /> // Componentization of Cards
+            )
+        })
+        SetDefCategoryDishes(DefDishes)
+    }, [defCategoryData, SetDefCategoryDishes])
+
+    // Selected Category Dishes List Filtering
     function CategoryDishesFilter(Category) {
         setActiveCategory(Category) // for css style class
         setDefCategoryData([]) // for emptying while selecting
@@ -80,16 +86,16 @@ function Categories() {
             <div className="categories_view">
                 <ul>
                     {currentPgItems.length !== 0 ? currentPgItems :
-                        DefCategoryItems.length !== 0 ? DefCategoryItems :
-                            <div className='categories_view_empty'>
-                                <h2>No Dishes Found</h2>
-                                <p> <strong>Try Another Category</strong></p>
-                            </div>
+                        <div className='categories_view_empty'>
+                            <h2>No Dishes Found</h2>
+                            <p> <strong>Try Another Category</strong></p>
+                        </div>
                     }
                 </ul>
             </div>
 
             <Pagination categoryDishes={categoryDishes}
+                defCategoryData={defCategoryData}
                 numberOfItems={numberOfItems}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}

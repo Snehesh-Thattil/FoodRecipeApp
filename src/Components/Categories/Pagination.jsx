@@ -1,10 +1,17 @@
 import React from 'react'
 
-function Pagination({ categoryDishes, numberOfItems, currentPage, setCurrentPage, setNumberOfItems }) {
+function Pagination({ defCategoryData, categoryDishes, numberOfItems, currentPage, setCurrentPage, setNumberOfItems }) {
+
     let numberOfPages = [];
 
-    for (let i = 1; i <= (Math.ceil(categoryDishes.length / numberOfItems)); i++) {
-        numberOfPages.push(i)
+    if (defCategoryData.length !== 0) { // page nums with default category items
+        for (let i = 1; i <= (Math.ceil(defCategoryData.length / numberOfItems)); i++) {
+            numberOfPages.push(i)
+        }
+    } else { // pages nums with selected category items
+        for (let i = 1; i <= (Math.ceil(categoryDishes.length / numberOfItems)); i++) {
+            numberOfPages.push(i)
+        }
     }
 
     let pagesList = numberOfPages.map((pageNumber, index) => {
