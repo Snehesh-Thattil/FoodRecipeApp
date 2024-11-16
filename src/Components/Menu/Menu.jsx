@@ -62,7 +62,6 @@ function Menu() {
         function getDishDetails(mealId) {
             axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
                 .then((res) => {
-                    console.log(res.data.meals[0])
                     setIdMealDetails(res.data.meals[0])
                 })
                 .catch((err) => {
