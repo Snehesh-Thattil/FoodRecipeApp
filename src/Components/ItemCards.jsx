@@ -1,13 +1,12 @@
 import React, { useContext } from 'react'
-import { ItemViewContext } from './Contexts'
+import { MealIdContext } from './Contexts'
 
 function ItemCards({ item, setPopUp }) {
-
-    const { setItemDetails } = useContext(ItemViewContext)
+    const { setMealId } = useContext(MealIdContext)
 
     function cardClickHandle(item) {
+        setMealId(item.idMeal)
         setPopUp(true)
-        setItemDetails(item)
     }
 
     // Rendering

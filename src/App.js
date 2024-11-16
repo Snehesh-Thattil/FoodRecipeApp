@@ -1,6 +1,6 @@
 import './App.css';
 import Menu from './Components/Menu/Menu';
-import { CategoriesContextWrapper, DefCategoryContextWrapper, ItemViewContextWrapper, MealsContextWrapper } from './Components/Contexts';
+import { CategoriesContextWrapper, DefCategoryContextWrapper, ItemViewContextWrapper, MealIdContextWrapper, MealIdDetailsContextWrapper, MealsContextWrapper } from './Components/Contexts';
 
 function App() {
   return (
@@ -10,9 +10,13 @@ function App() {
         <CategoriesContextWrapper>
           <MealsContextWrapper>
             <ItemViewContextWrapper>
+              <MealIdContextWrapper>
+                <MealIdDetailsContextWrapper>
 
-              <Menu />
+                  <Menu />
 
+                </MealIdDetailsContextWrapper>
+              </MealIdContextWrapper>
             </ItemViewContextWrapper>
           </MealsContextWrapper>
         </CategoriesContextWrapper>

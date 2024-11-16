@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
 import './ItemPopUp.css'
-import { ItemViewContext } from '../Contexts'
+import { MealIdDetailsContext } from '../Contexts'
 
 function ItemPop({ setPopUp }) {
 
-    const { itemDetails } = useContext(ItemViewContext)
+    const { idMealDetails } = useContext(MealIdDetailsContext)
+    console.log('LOOKING IT :', idMealDetails)
 
+    // Rendering
     return (
         <div className='popUp'>
             <div className="popUp_content">
-                <h2>{itemDetails.strMeal}</h2>
+                <h2>{idMealDetails.strMeal}</h2>
                 <button>Order Now</button>
             </div>
 

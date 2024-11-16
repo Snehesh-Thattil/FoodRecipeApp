@@ -4,7 +4,7 @@ import './Menu.css'
 import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
-import { CategoriesContext, DefCategoryContext, MealsContext } from '../Contexts'
+import { CategoriesContext, DefCategoryContext, MealIdContext, MealIdDetailsContext, MealsContext } from '../Contexts'
 import Loader from './Loader'
 import Header from './Header'
 
@@ -12,6 +12,8 @@ function Menu() {
     const { setMealsData } = useContext(MealsContext)
     const { setAllCategoriesList } = useContext(CategoriesContext)
     const { setDefCategoryData } = useContext(DefCategoryContext)
+    const { mealId } = useContext(MealIdContext)
+    const { setIdMealDetails } = useContext(MealIdDetailsContext)
 
     const [specialDishesLoaded, setSpecialDishesLoaded] = useState(false)
     const [categoryLoaded, setCategoryLoaded] = useState(false)
@@ -56,10 +58,24 @@ function Menu() {
                 })
         }
 
+        // Fetching Dish Id Details with API
+        function getDishDetails(mealId) {
+            axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+                .then((res) => {
+                    console.log(res.data.meals[0])
+                    setIdMealDetails(res.data.meals[0])
+                })
+                .catch((err) => {
+                    console.log(err.message)
+                })
+        }
+
         getMenu()
         getCategories()
         getDefaultCategory()
-    }, [setAllCategoriesList, setMealsData, setDefCategoryData])
+        getDishDetails(mealId)
+
+    }, [setAllCategoriesList, setMealsData, setDefCategoryData, mealId, setIdMealDetails])
 
     // Rendering
     return (
