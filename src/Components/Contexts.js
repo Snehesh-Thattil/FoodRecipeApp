@@ -36,3 +36,15 @@ export function DefCategoryContextWrapper({ children }) {
         </DefCategoryContext.Provider>
     )
 }
+
+// CardItem View Context
+export const ItemViewContext = createContext(null)
+
+export function ItemViewContextWrapper({ children }) {
+    const [itemDetails, setItemDetails] = useState()
+    return (
+        <ItemViewContext.Provider value={{ itemDetails, setItemDetails }}>
+            {children}
+        </ItemViewContext.Provider>
+    )
+}

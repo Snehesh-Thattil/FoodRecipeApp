@@ -3,6 +3,7 @@ import './Categories.css'
 import { CategoriesContext, DefCategoryContext, MealsContext } from '../Contexts'
 import Pagination from './Pagination'
 import ItemCards from '../ItemCards'
+import ItemPop from '../ItemPopUp/ItemPopUp'
 
 function Categories() {
     // From Contexts.js
@@ -12,6 +13,7 @@ function Categories() {
 
     const [categoryDishes, setCategoryDishes] = useState([])
     const [activeCategory, setActiveCategory] = useState('Vegetarian')
+    const [popUp, setPopUp] = useState(false)
 
     // Pagination Codes
     const [currentPage, setCurrentPage] = useState(1)
@@ -30,7 +32,7 @@ function Categories() {
     let DefCategoryItems = defCategoryData.map((item, index) => {
         if (index < numberOfItems) {
             return (
-                <ItemCards key={index} item={item} /> // Componentization of Cards
+                <ItemCards key={index} item={item} setPopUp={setPopUp} /> // Componentization of Cards
             )
         }
         return null
@@ -54,7 +56,7 @@ function Categories() {
             return item.strCategory === Category
         }).map((item, index) => {
             return (
-                <ItemCards key={index} item={item} /> // Componentization of Cards
+                <ItemCards key={index} item={item} setPopUp={setPopUp} /> // Componentization of Cards
             )
         })
         setCategoryDishes(Dishes)
@@ -63,6 +65,7 @@ function Categories() {
     // Rendering
     return (
         <section className='categories'>
+            {popUp && <ItemPop setPopUp={setPopUp} />}
             <div className="categories_content">
                 <h3>Categories</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem distinctio illum aspernatur, vero autem tempora, ipsum labore explicabo eum, deserunt amet. Dolorem soluta quod totam numquam perspiciatis.</p>
