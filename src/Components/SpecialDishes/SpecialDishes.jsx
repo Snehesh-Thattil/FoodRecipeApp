@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react'
 import './SpecialDishes.css'
-import { MealsContext } from '../Contexts'
 import ItemCards from '../ItemCards'
 import ItemPopUP from '../ItemPopUp/ItemPopUp'
+import { MealsDataContext } from '../../Contexts/MealsDataContext'
 
 function SpecialDishes() {
     const [popUp, setPopUp] = useState(false)
-    const { mealsData } = useContext(MealsContext)
+    const { mealsData } = useContext(MealsDataContext)
 
     let specialDishes = mealsData.map((item, index) => {
         if (index > 10 && index < 19) {

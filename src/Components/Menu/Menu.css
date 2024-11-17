@@ -43,4 +43,12 @@
 }
 .Menu .Navbar ul li:hover {
   background-color: orange;
+}
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=Menu.css.map */

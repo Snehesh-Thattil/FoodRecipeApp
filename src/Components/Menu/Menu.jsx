@@ -4,33 +4,19 @@ import './Menu.css'
 import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
-import { CategoriesContext, DefCategoryContext, MealIdContext, MealIdDetailsContext, MealsContext } from '../Contexts'
-import Loader from './Loader'
+import { CategoriesContext, DefCategoryContext, MealIdContext, MealIdDetailsContext } from '../Contexts'
 import Header from './Header'
 
 function Menu() {
-    const { setMealsData } = useContext(MealsContext)
     const { setAllCategoriesList } = useContext(CategoriesContext)
     const { setDefCategoryData } = useContext(DefCategoryContext)
     const { mealId } = useContext(MealIdContext)
     const { setIdMealDetails } = useContext(MealIdDetailsContext)
 
-    const [specialDishesLoaded, setSpecialDishesLoaded] = useState(false)
     const [categoryLoaded, setCategoryLoaded] = useState(false)
     const [defCategoryLoaded, setDefCategoryLoaded] = useState(false)
 
     useEffect(() => {
-        // Fetching Special Dishes with API
-        function getMenu() {
-            axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=c')
-                .then((res) => {
-                    setMealsData(res.data.meals)
-                    setSpecialDishesLoaded(true)
-                })
-                .catch((err) => {
-                    console.log(err.message)
-                })
-        }
 
         // Fetching Meal Categories with API
         function getCategories() {
@@ -56,11 +42,10 @@ function Menu() {
                 })
         }
 
-        getMenu()
         getCategories()
         getDefaultCategory()
 
-    }, [setAllCategoriesList, setMealsData, setDefCategoryData])
+    }, [setAllCategoriesList, setDefCategoryData])
 
     // Fetching Dish Id Details with API
     useEffect(() => {
@@ -81,7 +66,7 @@ function Menu() {
         <div className="Menu">
             <Header />
             <Landing />
-            {specialDishesLoaded ? <SpecialDishes /> : <Loader />}
+            <SpecialDishes />
             {categoryLoaded && defCategoryLoaded ? <Categories /> : null}
         </div>
     )
