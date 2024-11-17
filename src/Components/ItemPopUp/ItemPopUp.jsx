@@ -4,8 +4,15 @@ import { MealIdDetailsContext } from '../Contexts'
 
 function ItemPop({ setPopUp }) {
 
-    const { idMealDetails } = useContext(MealIdDetailsContext)
+    const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
     console.log('||idMealDetails  :', idMealDetails)
+
+    // On Closing PopUp
+    function HandleClosePopUp(e) {
+        e.preventDefault()
+        setIdMealDetails([])
+        setPopUp(false)
+    }
 
     // Rendering
     return (
@@ -14,18 +21,23 @@ function ItemPop({ setPopUp }) {
 
                 <div className="imageSection">
                     <img src={idMealDetails.strMealThumb} alt="recipe-image" />
+                    <div className="imageTags">
+                        <button>{idMealDetails.strCategory}</button>
+                        <button>{idMealDetails.strArea}</button>
+                    </div>
                 </div>
 
                 <div className="dishName">
                     <h2>{idMealDetails.strMeal}</h2>
 
                     <div className="sourcebuttons">
-                        <button><a href={idMealDetails.strSource}></a> ↗️ </button>
-                        <button><a href={idMealDetails.strYoutube}></a> ▶️ </button>
+                        <button><a href={idMealDetails.strSource}> ↗️ </a>Website</button>
+                        <button><a href={idMealDetails.strYoutube}> ▶️ </a>Youtube</button>
                     </div>
                 </div>
 
                 <div className="recipe">
+
                     <div className="ingredients">
                         <table>
                             <thead>
@@ -78,13 +90,14 @@ function ItemPop({ setPopUp }) {
                             </tbody>
                         </table>
                     </div>
+
                     <div className="instructions">
                         <div className="instruction">
                             <h2>Recipe :-</h2>
                             {idMealDetails.strInstructions}
                         </div>
                         <div className="order">
-                            <button> 🤍 </button>
+                            <button> 🩶 </button>
                             <button className='buyButton'> 🛍️ Order Now</button>
                             <button> 🛒 </button>
                         </div>
@@ -92,12 +105,9 @@ function ItemPop({ setPopUp }) {
 
                 </div>
 
-
-                {/* <button>Order Now</button> */}
-
             </div>
 
-            <li className='popUp_close' onClick={() => setPopUp(false)}> ✖️ </li>
+            <li className='popUp_close' onClick={(e) => HandleClosePopUp(e)}> ✖️ </li>
         </div>
     )
 }

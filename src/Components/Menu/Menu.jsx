@@ -19,9 +19,7 @@ function Menu() {
     const [categoryLoaded, setCategoryLoaded] = useState(false)
     const [defCategoryLoaded, setDefCategoryLoaded] = useState(false)
 
-    // UseEffect
     useEffect(() => {
-
         // Fetching Special Dishes with API
         function getMenu() {
             axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=c')
@@ -58,7 +56,14 @@ function Menu() {
                 })
         }
 
-        // Fetching Dish Id Details with API
+        getMenu()
+        getCategories()
+        getDefaultCategory()
+
+    }, [setAllCategoriesList, setMealsData, setDefCategoryData])
+
+    // Fetching Dish Id Details with API
+    useEffect(() => {
         function getDishDetails(mealId) {
             axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
                 .then((res) => {
@@ -68,13 +73,8 @@ function Menu() {
                     console.log(err.message)
                 })
         }
-
-        getMenu()
-        getCategories()
-        getDefaultCategory()
         getDishDetails(mealId)
-
-    }, [setAllCategoriesList, setMealsData, setDefCategoryData, mealId, setIdMealDetails])
+    }, [mealId, setIdMealDetails])
 
     // Rendering
     return (

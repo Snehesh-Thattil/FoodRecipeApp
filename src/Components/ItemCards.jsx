@@ -4,14 +4,15 @@ import { MealIdContext } from './Contexts'
 function ItemCards({ item, setPopUp }) {
     const { setMealId } = useContext(MealIdContext)
 
-    function cardClickHandle(item) {
+    function cardClickHandle(e, item) {
+        e.preventDefault()
         setMealId(item.idMeal)
         setPopUp(true)
     }
 
     // Rendering
     return (
-        <li onClick={() => cardClickHandle(item)}>
+        <li onClick={(e) => cardClickHandle(e, item)}>
             <img src={item.strMealThumb} alt="cousine-img" />
             <h5>{item.strMeal}</h5>
         </li>

@@ -38,7 +38,7 @@ function Categories() {
     let categoryLists = allCategoriesList.map((item, index) => {
         return (
             <li className={activeCategory === item.strCategory ? 'active' : ''} key={index}
-                onClick={() => CategoryDishesFilter(item.strCategory)}> {item.strCategory} </li>
+                onClick={(e) => CategoryDishesFilter(e, item.strCategory)}> {item.strCategory} </li>
         )
     })
 
@@ -53,7 +53,8 @@ function Categories() {
     }, [defCategoryData, SetDefCategoryDishes])
 
     // Selected Category Dishes List Filtering
-    function CategoryDishesFilter(Category) {
+    function CategoryDishesFilter(e, Category) {
+        e.preventDefault()
         setActiveCategory(Category) // for css style class
         setDefCategoryData([]) // for emptying while selecting
         setCurrentPage(1) // change pageNum on category change
