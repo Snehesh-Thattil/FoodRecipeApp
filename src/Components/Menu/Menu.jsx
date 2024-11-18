@@ -6,7 +6,6 @@ import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
 
 function Menu() {
-    // Rendering
     return (
         <div className="Menu">
             <Header />

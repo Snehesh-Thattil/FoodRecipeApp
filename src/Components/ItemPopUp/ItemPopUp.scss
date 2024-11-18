@@ -20,6 +20,8 @@
         margin-top: 2.5rem;
         border-radius: 40px 2.5px 40px 2.5px;
         background-color: rgb(240, 233, 233);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -85,12 +87,13 @@
                     border: none;
                     cursor: pointer;
                     font-weight: bold;
-                    background-color: white;
+                    background-color: black;
+                    color: white;
                     transition: all ease-in-out .25s;
 
                     &:hover {
-                        background-color: black;
-                        color: white;
+                        background-color: white;
+                        color: black;
                     }
                 }
             }
@@ -161,12 +164,13 @@
                         border-radius: 5px;
                         cursor: pointer;
                         font-weight: bold;
-                        background-color: white;
+                        background-color: black;
+                        color: white;
                         transition: all ease-in-out .25s;
 
                         &:hover {
-                            background-color: black;
-                            color: white;
+                            background-color: white;
+                            color: black;
                         }
                     }
                 }

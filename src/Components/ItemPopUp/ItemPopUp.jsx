@@ -7,7 +7,6 @@ function ItemPop({ setPopUp }) {
 
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
     const { setMealId } = useContext(MealIdContext)
-    console.log('||idMealDetails  :', idMealDetails)
 
     // On Closing PopUp
     function HandleClosePopUp(e) {
