@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import './ItemPopUp.css'
-import { MealIdContext, MealIdDetailsContext } from '../../Contexts/OtherContexts'
+import { MealIdContext } from '../../Contexts/OtherContexts'
+import { MealIdDetailsContext } from '../../Contexts/MealIdDetailsContext'
 
 function ItemPop({ setPopUp }) {
 

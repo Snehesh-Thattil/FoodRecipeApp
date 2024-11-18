@@ -1,29 +1,5 @@
 import { createContext, useState } from "react";
 
-// Categories Data Context
-export const CategoriesContext = createContext(null)
-
-export function CategoriesContextWrapper({ children }) {
-    const [allCategoriesList, setAllCategoriesList] = useState()
-    return (
-        <CategoriesContext.Provider value={{ allCategoriesList, setAllCategoriesList }}>
-            {children}
-        </CategoriesContext.Provider>
-    )
-}
-
-// Default Category Context
-export const DefCategoryContext = createContext(null)
-
-export function DefCategoryContextWrapper({ children }) {
-    const [defCategoryData, setDefCategoryData] = useState()
-    return (
-        <DefCategoryContext.Provider value={{ defCategoryData, setDefCategoryData }}>
-            {children}
-        </DefCategoryContext.Provider>
-    )
-}
-
 // CardItem View Context
 export const ItemViewContext = createContext(null)
 

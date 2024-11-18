@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Categories.css'
-import { CategoriesContext, DefCategoryContext } from '../../Contexts/OtherContexts'
+import { DefCategoryContext } from '../../Contexts/DefCategoryContext'
+import { CategoriesContext } from '../../Contexts/CategoriesContext'
 import Pagination from '../Pagination/Pagination'
 import ItemCards from '../ItemCards/ItemCards'
 import ItemPop from '../ItemPopUp/ItemPopUp'
@@ -8,9 +9,9 @@ import { MealsDataContext } from '../../Contexts/MealsDataContext'
 
 function Categories() {
     // From Contexts.js
-    const { allCategoriesList } = useContext(CategoriesContext)
     const { mealsData } = useContext(MealsDataContext)
     const { defCategoryData, setDefCategoryData } = useContext(DefCategoryContext)
+    const { allCategoriesList } = useContext(CategoriesContext)
 
     const [categoryDishes, setCategoryDishes] = useState([])
     const [defCategoryDishes, SetDefCategoryDishes] = useState([])

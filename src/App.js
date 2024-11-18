@@ -1,16 +1,17 @@
 import './App.css';
 import Menu from './Components/Menu/Menu';
-import { CategoriesContextWrapper, DefCategoryContextWrapper, ItemViewContextWrapper, MealIdContextWrapper, MealIdDetailsContextWrapper } from './Contexts/OtherContexts';
-// import { CategoriesContextWrapper, DefCategoryContextWrapper, ItemViewContextWrapper, MealIdContextWrapper, MealIdDetailsContextWrapper } from './Contexts/Contexts';
+import { ItemViewContextWrapper, MealIdContextWrapper } from './Contexts/OtherContexts';
 import { MealDataContextWrapper } from './Contexts/MealsDataContext';
+import { DefCategoryContextWrapper } from './Contexts/DefCategoryContext'
+import { CategoriesContextWrapper } from './Contexts/CategoriesContext'
+import { MealIdDetailsContextWrapper } from './Contexts/MealIdDetailsContext';
 
 function App() {
   return (
     <div className="App">
-
-      <DefCategoryContextWrapper>
-        <CategoriesContextWrapper>
-          <MealDataContextWrapper> {/*  New */}
+      <MealDataContextWrapper>
+        <DefCategoryContextWrapper>
+          <CategoriesContextWrapper>
             <ItemViewContextWrapper>
               <MealIdContextWrapper>
                 <MealIdDetailsContextWrapper>
@@ -20,10 +21,9 @@ function App() {
                 </MealIdDetailsContextWrapper>
               </MealIdContextWrapper>
             </ItemViewContextWrapper>
-          </MealDataContextWrapper> {/*  New */}
-        </CategoriesContextWrapper>
-      </DefCategoryContextWrapper>
-
+          </CategoriesContextWrapper>
+        </DefCategoryContextWrapper>
+      </MealDataContextWrapper>
     </div >
   )
 }
