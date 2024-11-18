@@ -1,0 +1,93 @@
+.Pagination {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    height: 8rem;
+
+    .editCount {
+        display: flex;
+        justify-content: flex-end;
+        transform: translateY(1.5rem);
+
+        p {
+            font-weight: bold;
+            font-size: small;
+            margin: 0 20px;
+        }
+
+        .dropdown {
+            button {
+                background-color: #ffb904;
+                padding: 5px 7px;
+                min-width: 3.25rem;
+                border: none;
+                border-radius: 5px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .changeList {
+                display: none;
+                position: absolute;
+                min-width: 3.25rem;
+                margin-top: 1px;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                background-color: #ffb904;
+                border-radius: 5px;
+
+                li {
+                    padding: 5px;
+                    font-weight: 600;
+                    font-size: small;
+
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            &:hover {
+                .changeList {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        li {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffb904;
+            margin: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                color: white;
+            }
+
+            &.active {
+                background-color: rgb(31, 29, 29);
+                color: white;
+                cursor: default;
+                transform: scale(0.75);
+            }
+        }
+    }
+}

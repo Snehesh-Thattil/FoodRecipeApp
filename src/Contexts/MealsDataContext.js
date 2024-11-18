@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import Loader from "../Components/Menu/Loader";
+import Loader from "../Components/Loader/Loader";
 import axios from "axios";
 
 // Context

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Categories.css'
-import { CategoriesContext, DefCategoryContext } from '../Contexts'
-import Pagination from './Pagination'
-import ItemCards from '../ItemCards'
+import { CategoriesContext, DefCategoryContext } from '../../Contexts/OtherContexts'
+import Pagination from '../Pagination/Pagination'
+import ItemCards from '../ItemCards/ItemCards'
 import ItemPop from '../ItemPopUp/ItemPopUp'
 import { MealsDataContext } from '../../Contexts/MealsDataContext'
 

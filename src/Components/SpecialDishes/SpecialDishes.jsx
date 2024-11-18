@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './SpecialDishes.css'
-import ItemCards from '../ItemCards'
+import ItemCards from '../ItemCards/ItemCards'
 import ItemPopUP from '../ItemPopUp/ItemPopUp'
 import { MealsDataContext } from '../../Contexts/MealsDataContext'
 

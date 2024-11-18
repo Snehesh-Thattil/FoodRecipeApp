@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { MealIdContext } from './Contexts'
+import { MealIdContext } from '../../Contexts/OtherContexts'
 
 function ItemCards({ item, setPopUp }) {
     const { setMealId } = useContext(MealIdContext)

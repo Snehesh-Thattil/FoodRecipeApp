@@ -1,6 +1,7 @@
 import './App.css';
 import Menu from './Components/Menu/Menu';
-import { CategoriesContextWrapper, DefCategoryContextWrapper, ItemViewContextWrapper, MealIdContextWrapper, MealIdDetailsContextWrapper } from './Components/Contexts';
+import { CategoriesContextWrapper, DefCategoryContextWrapper, ItemViewContextWrapper, MealIdContextWrapper, MealIdDetailsContextWrapper } from './Contexts/OtherContexts';
+// import { CategoriesContextWrapper, DefCategoryContextWrapper, ItemViewContextWrapper, MealIdContextWrapper, MealIdDetailsContextWrapper } from './Contexts/Contexts';
 import { MealDataContextWrapper } from './Contexts/MealsDataContext';
 
 function App() {

@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
 import './ItemPopUp.css'
-import { MealIdDetailsContext } from '../Contexts'
+import { MealIdContext, MealIdDetailsContext } from '../../Contexts/OtherContexts'
 
 function ItemPop({ setPopUp }) {
 
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
+    const { setMealId } = useContext(MealIdContext)
     console.log('||idMealDetails  :', idMealDetails)
 
     // On Closing PopUp
     function HandleClosePopUp(e) {
         e.preventDefault()
+        setMealId(null)
         setIdMealDetails([])
         setPopUp(false)
     }

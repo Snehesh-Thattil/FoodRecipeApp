@@ -4,8 +4,8 @@ import './Menu.css'
 import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
-import { CategoriesContext, DefCategoryContext, MealIdContext, MealIdDetailsContext } from '../Contexts'
-import Header from './Header'
+import { CategoriesContext, DefCategoryContext, MealIdContext, MealIdDetailsContext } from '../../Contexts/OtherContexts'
+import Header from '../Header/Header'
 
 function Menu() {
     const { setAllCategoriesList } = useContext(CategoriesContext)

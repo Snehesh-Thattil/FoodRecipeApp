@@ -1,4 +1,5 @@
 import React from 'react'
+import './Pagination.css'
 
 function Pagination({ defCategoryData, categoryDishes, numberOfItems, currentPage, setCurrentPage, setNumberOfItems }) {
 
@@ -24,13 +25,15 @@ function Pagination({ defCategoryData, categoryDishes, numberOfItems, currentPag
 
     // Change No. of Items in one page
     function handleCountChange(selection) {
-        setNumberOfItems(selection)
-        setCurrentPage(1)
+        if (selection !== numberOfItems) {
+            setNumberOfItems(selection)
+            setCurrentPage(1)
+        }
     }
 
     // Rendering
     return (
-        <div className='categories_pagination'>
+        <div className='Pagination'>
 
             <div className="editCount">
                 <p>Number of Items in one Page</p>

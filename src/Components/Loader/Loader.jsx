@@ -1,5 +1,5 @@
 import React from 'react'
-import './Menu.css'
+import './Loader.css'
 
 function Loader() {
     return (
