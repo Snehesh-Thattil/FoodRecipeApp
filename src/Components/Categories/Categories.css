@@ -59,6 +59,11 @@
 .categories_view ul li {
   width: 18%;
   border-radius: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+}
+.categories_view ul li:hover {
+  transform: scale(0.95);
 }
 .categories_view ul li img {
   width: 100%;

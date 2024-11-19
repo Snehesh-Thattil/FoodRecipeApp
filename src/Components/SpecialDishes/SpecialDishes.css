@@ -15,6 +15,11 @@
 .SpecialDishes_list ul li {
   width: 23%;
   border-radius: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+}
+.SpecialDishes_list ul li:hover {
+  transform: scale(0.95);
 }
 .SpecialDishes_list ul li img {
   width: 100%;

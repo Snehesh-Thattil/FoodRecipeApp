@@ -17,6 +17,12 @@
             li {
                 width: 23%;
                 border-radius: 10px;
+                cursor: pointer;
+                transition: all ease-in-out 0.25s;
+
+                &:hover {
+                    transform: scale(0.95);
+                }
 
                 img {
                     width: 100%;
