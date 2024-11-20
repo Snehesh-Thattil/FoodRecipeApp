@@ -9,7 +9,7 @@
 
 body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -19,8 +19,13 @@ body {
   font-size: 16px;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
   margin-bottom: 7.5rem;
+  height: 100%;
 }
 
 section {

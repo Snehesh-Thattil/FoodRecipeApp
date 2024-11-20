@@ -1,12 +1,46 @@
 import React, { useContext } from 'react'
 import './ItemPopUp.css'
-import { MealIdContext } from '../../Contexts/OtherContexts'
+import { cartToggleContext, MealIdContext } from '../../Contexts/OtherContexts'
 import { MealIdDetailsContext } from '../../Contexts/MealIdDetailsContext'
+import { cartContext } from '../../Contexts/CartContext'
 
 function ItemPop({ setPopUp }) {
 
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
+    const { setToggle } = useContext(cartToggleContext)
+    const { cartItems, setCartItems } = useContext(cartContext)
     const { setMealId } = useContext(MealIdContext)
+
+
+    // Order Button
+    function HandleAddToCart(idMealDetails) {
+        let existingItemindex = cartItems.findIndex((item) => item.dishArr.idMeal === idMealDetails.idMeal)
+
+        if (existingItemindex !== -1) {
+            let updatedItem = [...cartItems]
+            updatedItem[existingItemindex].dishQuantity += 1
+            setCartItems(updatedItem)
+        } else {
+            setCartItems([
+                ...cartItems,
+                {
+                    dishName: idMealDetails.strMeal,
+                    dishImg: idMealDetails.strMealThumb,
+                    dishQuantity: 1,
+                    dishArr: idMealDetails
+                }
+            ])
+        }
+        setMealId(null)
+        setIdMealDetails([])
+        setPopUp(false)
+        
+        // Cartpanel div showup and remove
+        setToggle(true)
+        setTimeout(() => {
+            setToggle(false)
+        }, 5000);
+    }
 
     // On Closing PopUp
     function HandleClosePopUp(e) {
@@ -101,7 +135,7 @@ function ItemPop({ setPopUp }) {
                         <div className="order">
                             <button> 🩶 </button>
                             <button className='buyButton'> 🛍️ Order Now</button>
-                            <button> 🛒 </button>
+                            <button onClick={() => HandleAddToCart(idMealDetails)}> 🛒 </button>
                         </div>
                     </div>
 

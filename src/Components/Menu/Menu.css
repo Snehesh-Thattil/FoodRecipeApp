@@ -1,6 +1,26 @@
 .Menu {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+.Menu .cartTogglediv {
+  position: absolute;
+  top: 61vh;
+  right: 0;
+  z-index: 1;
+  transition: all ease-in-out 0.5;
+}
+.Menu .cartTogglediv.Enabled {
+  transform: rotate(180deg);
+  right: 10.25rem;
+}
+.Menu .cartTogglediv button {
+  background-color: rgb(253, 194, 84);
+  padding: 7.5px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
 }/*# sourceMappingURL=Menu.css.map */

@@ -35,3 +35,15 @@ export function MealIdDetailsContextWrapper({ children }) {
         </MealIdDetailsContext.Provider>
     )
 }
+
+// Cart Toggle Context
+export const cartToggleContext = createContext(null)
+
+export function CartToggleContextWrapper({ children }) {
+    const [toggle, setToggle] = useState(false)
+    return (
+        <cartToggleContext.Provider value={{ toggle, setToggle }}>
+            {children}
+        </cartToggleContext.Provider>
+    )
+}
