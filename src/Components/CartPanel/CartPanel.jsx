@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
 import './CartPanel.css'
 import { cartContext } from '../../Contexts/CartContext'
+import { cartToggleContext } from '../../Contexts/OtherContexts'
 
-function CartPanel({ toggle }) {
+function CartPanel() {
     const { cartItems } = useContext(cartContext)
+    const { toggle } = useContext(cartToggleContext)
 
     return (
         <div className={toggle ? "cartpanel-wrapper Enabled" : "cartpanel-wrapper"}>

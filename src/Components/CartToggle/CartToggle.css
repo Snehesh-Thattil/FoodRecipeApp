@@ -1,0 +1,26 @@
+.cartTogglediv {
+  position: absolute;
+  top: 61vh;
+  right: 0;
+  z-index: 1;
+  transition: all ease-in-out 0.5;
+}
+
+.cartTogglediv.Enabled {
+  transform: rotate(180deg);
+  right: 10.25rem;
+}
+
+.cartTogglediv button {
+  background-color: rgb(253, 194, 84);
+  padding: 7.5px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+
+.cartTogglediv button:hover {
+  background-color: rgb(29, 29, 28);
+  transform: rotate(540deg);
+}

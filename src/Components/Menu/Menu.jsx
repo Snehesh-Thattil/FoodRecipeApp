@@ -1,28 +1,22 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './Menu.css'
 import Header from '../Header/Header'
 import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
 import CartPanel from '../CartPanel/CartPanel'
-import { cartToggleContext } from '../../Contexts/OtherContexts'
+import CartToggle from '../CartToggle/CartToggle'
 
 function Menu() {
-    const { toggle, setToggle } = useContext(cartToggleContext)
 
     return (
         <div className="Menu">
-
-            <div className={toggle ? "cartTogglediv Enabled" : "cartTogglediv"}>
-                <button onClick={() => setToggle(!toggle)}>⬅️</button>
-            </div>
-
+            <CartToggle />
             <Header />
             <Landing />
-            <CartPanel toggle={toggle} />
+            <CartPanel />
             <SpecialDishes />
             <Categories />
-
         </div>
     )
 }
