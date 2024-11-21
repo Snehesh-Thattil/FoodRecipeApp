@@ -6,17 +6,27 @@ import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
 import CartPanel from '../CartPanel/CartPanel'
 import CartToggle from '../CartToggle/CartToggle'
+import { Route, Routes } from 'react-router-dom'
+import Checkout from '../Checkout/Checkout'
 
 function Menu() {
 
     return (
+
         <div className="Menu">
-            <CartToggle />
             <Header />
-            <Landing />
-            <CartPanel />
-            <SpecialDishes />
-            <Categories />
+            <Routes>
+                <Route exact path='/' element={
+                    <>
+                        <CartToggle />
+                        <Landing />
+                        <CartPanel />
+                        <SpecialDishes />
+                        <Categories />
+                    </>
+                } />
+                <Route path='/checkout' element={<Checkout />} />
+            </Routes>
         </div>
     )
 }

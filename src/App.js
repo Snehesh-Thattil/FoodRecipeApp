@@ -6,29 +6,36 @@ import { CartContextWrapper } from './Contexts/CartContext';
 import { DefCategoryContextWrapper } from './Contexts/DefCategoryContext'
 import { CategoriesContextWrapper } from './Contexts/CategoriesContext'
 import { MealIdDetailsContextWrapper } from './Contexts/MealIdDetailsContext';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <MealDataContextWrapper>
-        <DefCategoryContextWrapper>
-          <CategoriesContextWrapper>
-            <ItemViewContextWrapper>
-              <MealIdContextWrapper>
-                <MealIdDetailsContextWrapper>
-                  <CartContextWrapper>
+      <Router future={{
+        v7_relativeSplatPath: true,
+      }}>
+
+        <MealDataContextWrapper>
+          <DefCategoryContextWrapper>
+            <CategoriesContextWrapper>
+              <ItemViewContextWrapper>
+                <MealIdContextWrapper>
+                  <MealIdDetailsContextWrapper>
                     <CartToggleContextWrapper>
+                      <CartContextWrapper>
 
-                      <Menu />
+                        <Menu />
 
+                      </CartContextWrapper>
                     </CartToggleContextWrapper>
-                  </CartContextWrapper>
-                </MealIdDetailsContextWrapper>
-              </MealIdContextWrapper>
-            </ItemViewContextWrapper>
-          </CategoriesContextWrapper>
-        </DefCategoryContextWrapper>
-      </MealDataContextWrapper>
+                  </MealIdDetailsContextWrapper>
+                </MealIdContextWrapper>
+              </ItemViewContextWrapper>
+            </CategoriesContextWrapper>
+          </DefCategoryContextWrapper>
+        </MealDataContextWrapper>
+
+      </Router>
     </div >
   )
 }
