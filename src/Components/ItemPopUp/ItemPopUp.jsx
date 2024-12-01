@@ -11,7 +11,6 @@ function ItemPop({ setPopUp }) {
     const { cartItems, setCartItems } = useContext(cartContext)
     const { setMealId } = useContext(MealIdContext)
 
-
     // Order Button
     function HandleAddToCart(idMealDetails) {
         let existingItemindex = cartItems.findIndex((item) => item.dishArr.idMeal === idMealDetails.idMeal)
