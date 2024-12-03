@@ -8,6 +8,7 @@ import CartPanel from '../CartPanel/CartPanel'
 import CartToggle from '../CartToggle/CartToggle'
 import { Route, Routes } from 'react-router-dom'
 import Checkout from '../Checkout/Checkout'
+import Footer from '../Footer/Footer'
 
 function Menu() {
 
@@ -23,8 +24,10 @@ function Menu() {
                         <CartPanel />
                         <SpecialDishes />
                         <Categories />
+                        <Footer/>
                     </>
                 } />
+
                 <Route path='/checkout' element={<Checkout />} />
             </Routes>
         </div>

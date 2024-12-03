@@ -1,0 +1,184 @@
+.footer {
+    width: 100%;
+    height: 30rem;
+    background-color: #ffb904;
+    padding: 2rem 5rem;
+
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr;
+    grid-template-rows: 80% 20%;
+
+    .brand,
+    .resturants {
+        grid-column: 1/1;
+        grid-row: 1/1;
+
+        // background-color: #f1bd38;
+        width: 100%;
+        border-radius: 15px;
+        padding: 2rem 1rem;
+
+        display: flex;
+        align-items: start;
+        justify-content: space-around;
+        position: relative;
+        gap: 15px;
+
+        .logo {
+            color: white;
+            padding: 5px 15px;
+            outline: double white;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .about,
+        .universe,
+        .learnmore,
+        .for-resturants {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-top: 2rem;
+
+            h4 {
+                margin: 10px 0;
+            }
+
+            a {
+                text-decoration: none;
+                line-height: 20px;
+                margin: 5px 0;
+                font-weight: 500;
+                color: black;
+            }
+        }
+    }
+
+    .resturants {
+        grid-column: 2/2;
+    }
+
+    .links {
+        grid-column: 3/3;
+        grid-row: 1/1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .dropdowns {
+            display: flex;
+            gap: 10px;
+
+            .dropdown {
+                position: relative;
+                font-weight: 300;
+
+                button {
+                    width: 7rem;
+                    padding: 10px;
+                    border-radius: 2.5px;
+                    border: none;
+                    cursor: pointer;
+                    background-color: white;
+                    font-weight: bold;
+                    transition: all ease-in-out 0.25s;
+
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                    }
+                }
+
+                &:hover .items {
+                    display: block;
+                }
+
+                .items {
+                    width: 7rem;
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    background-color: white;
+                    border-radius: 2.5px;
+                    z-index: 2;
+
+                    li {
+                        padding: 10px;
+                        cursor: pointer;
+                        font-weight: 500;
+
+                        &:hover {
+                            background-color: black;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sociallinks {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            h4 {
+                margin: 10px 0;
+            }
+
+            .linkicons {
+                a {
+                    color: black;
+                    margin: 0 20px;
+                    scale: 1.75;
+
+                    i {
+                        scale: 1.75;
+                        margin: 10px 0;
+                    }
+                }
+            }
+
+            .storeimages {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 20px;
+
+                a {
+                    img {
+                        width: 10rem;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom {
+        grid-column: 1/4;
+        grid-row: 2/2;
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            font-size: smaller;
+        }
+
+        .line {
+            width: 100%;
+            height: 2px;
+            margin: auto;
+            background-color: white;
+            border-radius: 5px;
+        }
+    }
+}

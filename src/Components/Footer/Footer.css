@@ -1,0 +1,170 @@
+.footer {
+  width: 100%;
+  height: 30rem;
+  background-color: #ffb904;
+  padding: 2rem 5rem;
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr;
+  grid-template-rows: 80% 20%;
+}
+.footer .brand,
+.footer .resturants {
+  grid-column: 1/1;
+  grid-row: 1/1;
+  width: 100%;
+  border-radius: 15px;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+  position: relative;
+  gap: 15px;
+}
+.footer .brand .logo,
+.footer .resturants .logo {
+  color: white;
+  padding: 5px 15px;
+  outline: double white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.footer .brand .about,
+.footer .brand .universe,
+.footer .brand .learnmore,
+.footer .brand .for-resturants,
+.footer .resturants .about,
+.footer .resturants .universe,
+.footer .resturants .learnmore,
+.footer .resturants .for-resturants {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.footer .brand .about h4,
+.footer .brand .universe h4,
+.footer .brand .learnmore h4,
+.footer .brand .for-resturants h4,
+.footer .resturants .about h4,
+.footer .resturants .universe h4,
+.footer .resturants .learnmore h4,
+.footer .resturants .for-resturants h4 {
+  margin: 10px 0;
+}
+.footer .brand .about a,
+.footer .brand .universe a,
+.footer .brand .learnmore a,
+.footer .brand .for-resturants a,
+.footer .resturants .about a,
+.footer .resturants .universe a,
+.footer .resturants .learnmore a,
+.footer .resturants .for-resturants a {
+  text-decoration: none;
+  line-height: 20px;
+  margin: 5px 0;
+  font-weight: 500;
+  color: black;
+}
+.footer .resturants {
+  grid-column: 2/2;
+}
+.footer .links {
+  grid-column: 3/3;
+  grid-row: 1/1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.footer .links .dropdowns {
+  display: flex;
+  gap: 10px;
+}
+.footer .links .dropdowns .dropdown {
+  position: relative;
+  font-weight: 300;
+}
+.footer .links .dropdowns .dropdown button {
+  width: 7rem;
+  padding: 10px;
+  border-radius: 2.5px;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  font-weight: bold;
+  transition: all ease-in-out 0.25s;
+}
+.footer .links .dropdowns .dropdown button:hover {
+  background-color: black;
+  color: white;
+}
+.footer .links .dropdowns .dropdown:hover .items {
+  display: block;
+}
+.footer .links .dropdowns .dropdown .items {
+  width: 7rem;
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 2.5px;
+  z-index: 2;
+}
+.footer .links .dropdowns .dropdown .items li {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.footer .links .dropdowns .dropdown .items li:hover {
+  background-color: black;
+  color: white;
+}
+.footer .links .sociallinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer .links .sociallinks h4 {
+  margin: 10px 0;
+}
+.footer .links .sociallinks .linkicons a {
+  color: black;
+  margin: 0 20px;
+  scale: 1.75;
+}
+.footer .links .sociallinks .linkicons a i {
+  scale: 1.75;
+  margin: 10px 0;
+}
+.footer .links .sociallinks .storeimages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+.footer .links .sociallinks .storeimages a img {
+  width: 10rem;
+  border-radius: 10px;
+}
+.footer .bottom {
+  grid-column: 1/4;
+  grid-row: 2/2;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  align-items: center;
+  justify-content: center;
+}
+.footer .bottom p {
+  font-size: smaller;
+}
+.footer .bottom .line {
+  width: 100%;
+  height: 2px;
+  margin: auto;
+  background-color: white;
+  border-radius: 5px;
+}/*# sourceMappingURL=Footer.css.map */

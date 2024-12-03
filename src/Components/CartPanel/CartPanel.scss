@@ -10,7 +10,7 @@
     // height: 100vh;
     overflow: scroll;
     background-color: #eeb118;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -22,6 +22,7 @@
     }
 
     &.Enabled {
+        display: flex;
         transform: translateX(0);
     }
 
