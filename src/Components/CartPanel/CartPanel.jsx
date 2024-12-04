@@ -4,13 +4,13 @@ import { cartContext } from '../../Contexts/CartContext'
 import { cartToggleContext } from '../../Contexts/OtherContexts'
 
 function CartPanel() {
-    const { cartItems } = useContext(cartContext)
+    const { cartState } = useContext(cartContext)
     const { toggle } = useContext(cartToggleContext)
 
     return (
         <div className={toggle ? "cartpanel-wrapper Enabled" : "cartpanel-wrapper"}>
 
-            {cartItems.map((item, index) => {
+            {cartState.map((item, index) => {
                 return (
                     <div key={index} className="cart_item">
                         <img src={item.dishImg} alt="cart_img" />
@@ -25,7 +25,7 @@ function CartPanel() {
             })}
 
             <div className="cart_item_total">
-                {cartItems.length !== 0 ? <h5>₹ 2999 /-</h5> : ''}
+                {cartState.length !== 0 ? <h5>₹ 2999 /-</h5> : ''}
             </div>
         </div>
     )

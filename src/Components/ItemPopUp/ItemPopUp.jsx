@@ -8,37 +8,22 @@ function ItemPop({ setPopUp }) {
 
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
     const { setToggle } = useContext(cartToggleContext)
-    const { cartItems, setCartItems } = useContext(cartContext)
+    const { dispatch } = useContext(cartContext)
     const { setMealId } = useContext(MealIdContext)
 
     // Order Button
     function HandleAddToCart(idMealDetails) {
-        let existingItemindex = cartItems.findIndex((item) => item.dishArr.idMeal === idMealDetails.idMeal)
+        dispatch({
+            type: 'add-to-cart',
+            payload: idMealDetails
+        })
 
-        if (existingItemindex !== -1) {
-            let updatedItem = [...cartItems]
-            updatedItem[existingItemindex].dishQuantity += 1
-            setCartItems(updatedItem)
-        } else {
-            setCartItems([
-                ...cartItems,
-                {
-                    dishName: idMealDetails.strMeal,
-                    dishImg: idMealDetails.strMealThumb,
-                    dishQuantity: 1,
-                    dishArr: idMealDetails
-                }
-            ])
-        }
         setMealId(null)
         setIdMealDetails([])
         setPopUp(false)
-        
+
         // Cartpanel div showup and remove
         setToggle(true)
-        setTimeout(() => {
-            setToggle(false)
-        }, 5000);
     }
 
     // On Closing PopUp

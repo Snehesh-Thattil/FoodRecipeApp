@@ -2,8 +2,30 @@
   width: 100vw;
   height: 100vh;
   margin: 4rem 0;
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+}
+.Checkout .tile {
+  display: flex;
+  justify-content: flex-start;
+  width: 75%;
+  height: 10rem;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #ffb904;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+.Checkout .tile img {
+  border-radius: 5px 0 0 5px;
+  margin-right: 1rem;
+  width: 15rem;
+  height: 100%;
+}
+.Checkout .tile .details .dishtags {
+  display: flex;
 }/*# sourceMappingURL=Checkout.css.map */
