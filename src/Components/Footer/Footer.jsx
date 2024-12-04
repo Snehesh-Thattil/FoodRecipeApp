@@ -57,7 +57,7 @@ function Footer() {
         <div className="dropdowns">
 
           <div className="dropdown">
-            <button>Country <i class="fa-solid fa-caret-down"></i> </button>
+            <button>Country <i className="fa-solid fa-caret-down"></i> </button>
             <div className="items">
               <li>India</li>
               <li>Australia</li>
@@ -67,7 +67,7 @@ function Footer() {
           </div>
 
           <div className="dropdown">
-            <button>Language <i class="fa-solid fa-caret-down"></i> </button>
+            <button>Language <i className="fa-solid fa-caret-down"></i> </button>
             <div className="items">
               <li>English</li>
               <li>Malayalam</li>
@@ -82,11 +82,11 @@ function Footer() {
           <h4>Social Links</h4>
 
           <div className="linkicons">
-            <a href="https://in.linkedin.com/company/zomato"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/zomato/"><i class="fa-brands fa-square-instagram"></i></a>
-            <a href="https://twitter.com/zomato"><i class="fa-brands fa-square-x-twitter"></i></a>
-            <a href="https://www.youtube.com/zomato"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.facebook.com/zomato"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="https://in.linkedin.com/company/zomato"><i className="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/zomato/"><i className="fa-brands fa-square-instagram"></i></a>
+            <a href="https://twitter.com/zomato"><i className="fa-brands fa-square-x-twitter"></i></a>
+            <a href="https://www.youtube.com/zomato"><i className="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/zomato"><i className="fa-brands fa-square-facebook"></i></a>
           </div>
 
           <div className="storeimages">

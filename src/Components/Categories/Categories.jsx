@@ -100,8 +100,8 @@ function Categories() {
             <Pagination categoryDishes={categoryDishes}
                 defCategoryData={defCategoryData}
                 numberOfItems={numberOfItems}
-                currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
                 setNumberOfItems={setNumberOfItems} />
         </section>
     )
