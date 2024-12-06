@@ -1,31 +1,163 @@
 .Checkout {
   width: 100vw;
-  height: 100vh;
-  margin: 4rem 0;
-  padding: 1rem 0;
+  min-height: 100vh;
+  margin-top: 4rem;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: start;
 }
-.Checkout .tile {
+.Checkout .tiles {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Checkout .tiles .tile {
   display: flex;
   justify-content: flex-start;
-  width: 75%;
+  align-items: center;
   height: 10rem;
   padding: 10px;
-  margin: 10px 0;
   background-color: #ffb904;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
+  outline: 2px solid black;
+  position: relative;
 }
-.Checkout .tile img {
+.Checkout .tiles .tile img {
   border-radius: 5px 0 0 5px;
   margin-right: 1rem;
   width: 15rem;
   height: 100%;
 }
-.Checkout .tile .details .dishtags {
+.Checkout .tiles .tile .details .dishtags {
   display: flex;
+}
+.Checkout .tiles .tile .details .dishtags button {
+  width: 100px;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border: none;
+  background-color: wheat;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-weight: bold;
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+.Checkout .tiles .tile .details .dishtags button:hover {
+  background-color: black;
+  color: white;
+}
+.Checkout .tiles .tile .remove {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Checkout .tiles .tile .remove li {
+  cursor: pointer;
+}
+.Checkout .tiles .tile .remove li i {
+  scale: 1.25;
+}
+.Checkout .overview {
+  background-color: #ffb904;
+  width: 30%;
+  height: 85vh;
+  border-radius: 5px;
+  outline: 2px solid black;
+  padding: 10px;
+  position: fixed;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.Checkout .overview .breakdown {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.Checkout .overview .breakdown .line {
+  width: 90%;
+  background-color: rgb(29, 28, 28);
+  height: 2px;
+}
+.Checkout .overview .breakdown table {
+  width: 100%;
+  border: 1px solid black;
+  padding: 1rem;
+}
+.Checkout .overview .breakdown table tr {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  height: 2rem;
+}
+.Checkout .overview .breakdown table tr th {
+  display: flex;
+  width: 50%;
+  justify-content: start;
+}
+.Checkout .overview .breakdown table tr td {
+  display: flex;
+  width: 50%;
+  justify-content: first baseline;
+}
+.Checkout .overview .breakdown .totalline {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+.Checkout .overview button {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition-duration: 0.5s;
+}
+.Checkout .overview button:hover {
+  background-color: black;
+  color: white;
+}
+.Checkout .emptyCart {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 90%;
+  height: 20rem;
+  background-color: #ffb904;
+  border-radius: 10px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.Checkout .emptyCart button {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 2.5px;
+  cursor: pointer;
+  transition: all ease-in-out 0.35s;
+}
+.Checkout .emptyCart button:hover {
+  color: white;
+  background-color: black;
 }/*# sourceMappingURL=Checkout.css.map */

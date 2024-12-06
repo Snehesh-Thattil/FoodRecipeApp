@@ -8,12 +8,12 @@ function ItemPop({ setPopUp }) {
 
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
     const { setToggle } = useContext(cartToggleContext)
-    const { dispatch } = useContext(cartContext)
+    const { cartDispatch } = useContext(cartContext)
     const { setMealId } = useContext(MealIdContext)
 
     // Order Button
     function HandleAddToCart(idMealDetails) {
-        dispatch({
+        cartDispatch({
             type: 'add-to-cart',
             payload: idMealDetails
         })

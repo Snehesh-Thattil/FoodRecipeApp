@@ -5,7 +5,8 @@ export const cartContext = createContext(null)
 export function CartContextWrapper({ children }) {
     let cartItems = [];
 
-    const [cartState, dispatch] = useReducer((cartState, action) => {
+    const [cartState, cartDispatch] = useReducer((cartState, action) => {
+        console.log(action)
         switch (action.type) {
             case 'add-to-cart':
                 let existingItemindex = cartState.findIndex((item) => item.dishArr.idMeal === action.payload.idMeal)
@@ -22,19 +23,24 @@ export function CartContextWrapper({ children }) {
                     let newItem = {
                         dishName: action.payload.strMeal,
                         dishImg: action.payload.strMealThumb,
-                        dishQuantity: 0, // why not 1 = reactStrictMode renders twice first
+                        dishQuantity: 0, // why not 1? = reactStrictMode renders twice first
+                        dishPrice: 799, // API didn't provide price
                         dishArr: action.payload
                     }
                     cartState.push(newItem)
                     return cartState
                 }
+            case 'remove-from-cart':
+                return cartState.filter((Item) =>
+                    Item.dishArr.idMeal !== action.removeId
+                )
             default:
                 return cartState
         }
     }, cartItems)
 
     return (
-        <cartContext.Provider value={{ cartState, dispatch }}>
+        <cartContext.Provider value={{ cartState, cartDispatch }}>
             {children}
         </cartContext.Provider>
     )
