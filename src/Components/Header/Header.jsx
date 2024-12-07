@@ -10,6 +10,7 @@ function Header() {
       <ul>
         <li onClick={() => navigate('/')}> Home 🏠</li>
         <li onClick={() => navigate('/location')}> Location 🔍</li>
+        <li onClick={() => navigate('/wishlists')}> Wishlists 🩶</li>
         <li onClick={() => navigate('/checkout')}> Checkout 🛒</li>
       </ul>
     </div>

@@ -7,10 +7,8 @@ import { useNavigate } from 'react-router-dom'
 function Checkout() {
     const { cartDispatch, cartState } = useContext(cartContext)
     const { setToggle } = useContext(cartToggleContext)
-
-    const navigate = useNavigate()
-
     const [totalValue, setTotalValue] = useState(0)
+    const navigate = useNavigate()
 
     useEffect(() => {
         let total = cartState.reduce((acc, item) => {
@@ -95,7 +93,7 @@ function Checkout() {
                 </div>
                 :
                 <div className="emptyCart">
-                    <h2>Cart is Empty</h2>
+                    <h2>Oops... Cart is empty</h2>
                     <button onClick={() => navigate('/')}>Add Items</button>
                 </div>
             }

@@ -3,13 +3,15 @@ import './ItemPopUp.css'
 import { cartToggleContext, MealIdContext } from '../../Contexts/OtherContexts'
 import { MealIdDetailsContext } from '../../Contexts/MealIdDetailsContext'
 import { cartContext } from '../../Contexts/CartContext'
+import { wishlistsContext } from '../../Contexts/WishlistsContext'
 
 function ItemPop({ setPopUp }) {
 
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
-    const { setToggle } = useContext(cartToggleContext)
-    const { cartDispatch } = useContext(cartContext)
     const { setMealId } = useContext(MealIdContext)
+    const { cartDispatch } = useContext(cartContext)
+    const { setToggle } = useContext(cartToggleContext)
+    const { wishlistDispatch } = useContext(wishlistsContext)
 
     // Order Button
     function HandleAddToCart(idMealDetails) {
@@ -26,6 +28,18 @@ function ItemPop({ setPopUp }) {
         setToggle(true)
     }
 
+    // Wishlists Button
+    function HandleAddToWishlist(idMealDetails) {
+        wishlistDispatch({
+            type: 'add-to-wishlists',
+            payload: idMealDetails
+        })
+
+        setMealId(null)
+        setIdMealDetails([])
+        setPopUp(false)
+    }
+
     // On Closing PopUp
     function HandleClosePopUp(e) {
         e.preventDefault()
@@ -34,7 +48,6 @@ function ItemPop({ setPopUp }) {
         setPopUp(false)
     }
 
-    // Rendering
     return (
         <div className='popUp'>
             <div className="popUp_content">
@@ -117,7 +130,7 @@ function ItemPop({ setPopUp }) {
                             {idMealDetails.strInstructions}
                         </div>
                         <div className="order">
-                            <button> 🩶 </button>
+                            <button onClick={() => HandleAddToWishlist(idMealDetails)}> 🩶 </button>
                             <button className='buyButton'> 🛍️ Order Now</button>
                             <button onClick={() => HandleAddToCart(idMealDetails)}> 🛒 </button>
                         </div>

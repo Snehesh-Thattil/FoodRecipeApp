@@ -1,11 +1,11 @@
 .Checkout {
     width: 100vw;
     min-height: 100vh;
-    margin-top: 4rem;
-    padding: 1rem;
+    padding: 5rem 1rem;
     display: flex;
     align-items: flex-start;
     justify-content: start;
+    background-color: rgb(231, 201, 146);
 
     .tiles {
         width: 65%;
