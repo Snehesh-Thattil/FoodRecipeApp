@@ -64,8 +64,8 @@ function ItemPop({ setPopUp }) {
                     <h2>{idMealDetails.strMeal}</h2>
 
                     <div className="sourcebuttons">
-                        <button><a href={idMealDetails.strSource}> ↗️ </a>Website</button>
-                        <button><a href={idMealDetails.strYoutube}> ▶️ </a>Youtube</button>
+                        {idMealDetails.strSource ? <button><a href={idMealDetails.strSource}> ↗️ </a>Website</button> : null}
+                        {idMealDetails.strYoutube ? <button><a href={idMealDetails.strYoutube}> ▶️ </a>Youtube</button> : null}
                     </div>
                 </div>
 

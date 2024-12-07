@@ -20,14 +20,14 @@
   height: 10rem;
   padding: 10px;
   background-color: #ffb904;
-  -o-object-fit: cover;
-     object-fit: cover;
   border-radius: 5px;
   outline: 2px solid black;
   position: relative;
 }
 .Checkout .tiles .tile img {
   border-radius: 5px 0 0 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
   margin-right: 1rem;
   width: 15rem;
   height: 100%;
@@ -37,27 +37,22 @@
 }
 .Checkout .tiles .tile .details .dishtags button {
   width: 100px;
-  padding: 10px 20px;
+  padding: 5px 10px;
   margin: 5px 0;
   border: none;
   background-color: wheat;
   border-radius: 5px;
   margin-right: 10px;
   font-weight: bold;
-  transition: all ease-in-out 0.3s;
-  cursor: pointer;
-}
-.Checkout .tiles .tile .details .dishtags button:hover {
-  background-color: black;
-  color: white;
 }
 .Checkout .tiles .tile .remove {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: white;
+  top: 15px;
+  right: 15px;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgb(44, 44, 44);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,10 +60,45 @@
   cursor: pointer;
 }
 .Checkout .tiles .tile .remove li {
-  cursor: pointer;
+  transition-duration: 0.35s;
 }
-.Checkout .tiles .tile .remove li i {
+.Checkout .tiles .tile .remove:hover {
+  background-color: black;
+}
+.Checkout .tiles .tile .remove:hover li {
+  transform: rotate(-30deg);
+}
+.Checkout .tiles .tile .move-to-wishlist {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  padding: 5px 7.5px;
+  background-color: white;
+  color: rgb(255, 98, 98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.Checkout .tiles .tile .move-to-wishlist:hover {
+  background-color: rgb(255, 204, 204);
+}
+.Checkout .tiles .tile .move-to-wishlist:hover i {
+  color: red;
   scale: 1.25;
+  transform: rotate(30deg);
+}
+.Checkout .tiles .tile .move-to-wishlist p {
+  color: black;
+  font-weight: 500;
+}
+.Checkout .tiles .tile .move-to-wishlist i {
+  scale: 1.1;
+  margin-right: 5px;
+  transition-duration: 0.3s;
 }
 .Checkout .overview {
   background-color: #ffb904;

@@ -22,7 +22,7 @@ export function CartContextWrapper({ children }) {
                     let newItem = {
                         dishName: action.payload.strMeal,
                         dishImg: action.payload.strMealThumb,
-                        dishQuantity: 0, // why not 1? = reactStrictMode renders twice first
+                        dishQuantity: 1,
                         dishPrice: 799, // API didn't provide price
                         dishArr: action.payload
                     }

@@ -53,6 +53,11 @@ function Checkout() {
                                 <li><i className="fa-solid fa-trash"></i></li>
                             </div>
 
+                            <div className="move-to-wishlist">
+                                <p>Move to wishlist</p>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+
                         </div>
                     )
                 })}
