@@ -24,13 +24,24 @@
   outline: 2px solid black;
   position: relative;
 }
-.Checkout .tiles .tile img {
+.Checkout .tiles .tile .imgdiv {
+  width: 30%;
+  height: 100%;
   border-radius: 5px 0 0 5px;
   -o-object-fit: cover;
      object-fit: cover;
   margin-right: 1rem;
-  width: 15rem;
+}
+.Checkout .tiles .tile .imgdiv img {
+  width: 100%;
   height: 100%;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 1rem;
+}
+.Checkout .tiles .tile .details {
+  width: 70%;
 }
 .Checkout .tiles .tile .details .dishtags {
   display: flex;
@@ -180,6 +191,7 @@
   justify-content: space-evenly;
 }
 .Checkout .emptyCart button {
+  width: 10rem;
   padding: 10px 20px;
   font-weight: bold;
   border: none;
@@ -188,6 +200,16 @@
   transition: all ease-in-out 0.35s;
 }
 .Checkout .emptyCart button:hover {
-  color: white;
   background-color: black;
+  color: white;
+}
+.Checkout .emptyCart button:hover i {
+  transform: translateX(0px) rotate(-20deg);
+  color: greenyellow;
+}
+.Checkout .emptyCart button i {
+  scale: 1.25;
+  margin: 0 10px;
+  transform: translateX(15px);
+  transition-duration: 0.5s;
 }/*# sourceMappingURL=Checkout.css.map */

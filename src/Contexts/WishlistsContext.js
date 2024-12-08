@@ -6,7 +6,6 @@ export function WishlistsContextWrapper({ children }) {
     const wishlistItems = [];
 
     const [wishlistsState, wishlistDispatch] = useReducer((wishlistsState, action) => {
-        console.log(action.payload)
         switch (action.type) {
             case 'add-to-wishlists':
 
@@ -14,6 +13,7 @@ export function WishlistsContextWrapper({ children }) {
                     dishName: action.payload.strMeal,
                     dishImg: action.payload.strMealThumb,
                     dishPrice: 799, // API didn't provide price
+                    dishQuantity: 1,
                     dishArr: action.payload
                 }
 
@@ -29,8 +29,6 @@ export function WishlistsContextWrapper({ children }) {
                 return wishlistsState
         }
     }, wishlistItems)
-
-    console.log('WISHLIST STATE:', wishlistsState)
 
     return (
         <wishlistsContext.Provider value={{ wishlistsState, wishlistDispatch }}>

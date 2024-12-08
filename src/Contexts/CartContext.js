@@ -28,8 +28,19 @@ export function CartContextWrapper({ children }) {
                     }
                     return [...cartState, newItem]
                 }
+
             case 'remove-from-cart':
                 return cartState.filter((Item) => Item.dishArr.idMeal !== action.removeId)
+
+            case 'add-to-cart-from-wishlists':
+                let isExists = cartState.some((Item) => Item.dishArr.idMeal === action.newItem.dishArr.idMeal)
+
+                if (isExists) {
+                    return cartState
+                } else {
+                    return [...cartState, action.newItem]
+                }
+
             default:
                 return cartState
         }

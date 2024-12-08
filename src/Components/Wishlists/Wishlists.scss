@@ -83,8 +83,21 @@
                         cursor: pointer;
 
                         &:hover {
+                            i {
+                                transform: translateX(0px) rotate(-20deg);
+                                color: greenyellow;
+
+                            }
+
                             background-color: black;
                             color: white;
+                        }
+
+                        i {
+                            scale: 1.25;
+                            margin-left: 5px;
+                            transform: translateX(15px);
+                            transition-duration: 0.5s;
                         }
                     }
                 }
@@ -144,6 +157,7 @@
 
         button {
             padding: 10px 20px;
+            width: 10rem;
             font-weight: bold;
             border: none;
             border-radius: 2.5px;
@@ -151,8 +165,21 @@
             transition: all ease-in-out 0.35s;
 
             &:hover {
-                color: white;
+                i {
+                    transform: translateX(0px) rotate(-20deg);
+                    color: rgb(255, 98, 98);
+
+                }
+
                 background-color: black;
+                color: white;
+            }
+
+            i {
+                scale: 1.25;
+                margin: 0 10px;
+                transform: translateX(15px);
+                transition-duration: 0.5s;
             }
         }
     }

@@ -24,15 +24,25 @@
             outline: 2px solid black;
             position: relative;
 
-            img {
+            .imgdiv {
+                width: 30%;
+                height: 100%;
                 border-radius: 5px 0 0 5px;
                 object-fit: cover;
                 margin-right: 1rem;
-                width: 15rem;
-                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                    object-fit: cover;
+                    margin-right: 1rem;
+                }
             }
 
             .details {
+                width: 70%;
+
                 .dishtags {
                     display: flex;
 
@@ -208,6 +218,7 @@
         justify-content: space-evenly;
 
         button {
+            width: 10rem;
             padding: 10px 20px;
             font-weight: bold;
             border: none;
@@ -216,8 +227,21 @@
             transition: all ease-in-out 0.35s;
 
             &:hover {
-                color: white;
+                i {
+                    transform: translateX(0px) rotate(-20deg);
+                    color: greenyellow;
+
+                }
+
                 background-color: black;
+                color: white;
+            }
+
+            i {
+                scale: 1.25;
+                margin: 0 10px;
+                transform: translateX(15px);
+                transition-duration: 0.5s;
             }
         }
     }

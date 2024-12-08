@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import './CartPanel.css'
 import { cartContext } from '../../Contexts/CartContext'
 import { cartToggleContext } from '../../Contexts/OtherContexts'
+import { useNavigate } from 'react-router-dom'
 
 function CartPanel() {
     const { cartState } = useContext(cartContext)
     const { toggle } = useContext(cartToggleContext)
     const [cartTotal, setCartTotal] = useState(0)
+    const navigate = useNavigate()
 
     useEffect(() => {
         let total = cartState.reduce((acc, item) => {
@@ -35,7 +37,7 @@ function CartPanel() {
             {cartState.length !== 0 ?
                 <div className="cart_item_total">
                     <h5>₹ {cartTotal} /-</h5>
-                    <button>view cart</button>
+                    <button onClick={() => navigate('/checkout')}>view cart</button>
                 </div>
                 :
                 null

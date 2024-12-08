@@ -29,7 +29,9 @@ function Checkout() {
                         item &&
                         <div className="tile" key={index}>
 
-                            <img src={item.dishImg} alt="itemImg" />
+                            <div className="imgdiv">
+                                <img src={item.dishImg} alt="itemImg" />
+                            </div>
 
                             <div className="details">
                                 <h2>{item.dishName}</h2>
@@ -99,7 +101,7 @@ function Checkout() {
                 :
                 <div className="emptyCart">
                     <h2>Oops... Cart is empty</h2>
-                    <button onClick={() => navigate('/')}>Add Items</button>
+                    <button onClick={() => navigate('/')}>Add Items <i className="fa-solid fa-cart-shopping"></i> </button>
                 </div>
             }
 
