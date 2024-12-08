@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import './CartPanel.css'
+import './PanelCart.css'
 import { cartContext } from '../../Contexts/CartContext'
 import { cartToggleContext } from '../../Contexts/OtherContexts'
 import { useNavigate } from 'react-router-dom'
@@ -37,7 +37,7 @@ function CartPanel() {
             {cartState.length !== 0 ?
                 <div className="cart_item_total">
                     <h5>₹ {cartTotal} /-</h5>
-                    <button onClick={() => navigate('/checkout')}>view cart</button>
+                    <button onClick={() => navigate('/cart')}>view cart</button>
                 </div>
                 :
                 null

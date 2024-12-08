@@ -38,10 +38,12 @@
   border-radius: 5px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin-right: 1rem;
 }
 .Checkout .tiles .tile .details {
   width: 70%;
+}
+.Checkout .tiles .tile .details h2 {
+  font-size: 20px;
 }
 .Checkout .tiles .tile .details .dishtags {
   display: flex;
@@ -174,6 +176,16 @@
   background-color: black;
   color: white;
 }
+.Checkout .overview button:hover i {
+  transform: translateX(0px) rotate(-20deg);
+  color: greenyellow;
+}
+.Checkout .overview button i {
+  scale: 1.25;
+  margin-left: 5px;
+  transform: translateX(15px);
+  transition-duration: 0.5s;
+}
 .Checkout .emptyCart {
   position: absolute;
   top: 7rem;
@@ -212,4 +224,4 @@
   margin: 0 10px;
   transform: translateX(15px);
   transition-duration: 0.5s;
-}/*# sourceMappingURL=Checkout.css.map */
+}/*# sourceMappingURL=Cart.css.map */

@@ -6,23 +6,21 @@ import { cartContext } from '../../Contexts/CartContext'
 
 function Wishlists() {
     const { wishlistsState, wishlistDispatch } = useContext(wishlistsContext)
-    const { cartState, cartDispatch } = useContext(cartContext)
+    const { cartDispatch } = useContext(cartContext)
     const navigate = useNavigate()
 
     function HandleMoveToCart(item) {
         cartDispatch({
             type: 'add-to-cart-from-wishlists',
-            payload: cartState,
             newItem: item,
         })
 
         wishlistDispatch({
             type: 'remove-from-wishlists',
-            payload: wishlistsState,
             removeId: item.dishArr.idMeal
         })
     }
-    
+
     return (
         <div className='Wishlists'>
             <div className="tiles">
@@ -49,7 +47,6 @@ function Wishlists() {
 
                             <div className="remove" onClick={() => wishlistDispatch({
                                 type: 'remove-from-wishlists',
-                                payload: wishlistsState,
                                 removeId: item.dishArr.idMeal
                             })}>
                                 <li><i className="fa-solid fa-trash"></i></li>

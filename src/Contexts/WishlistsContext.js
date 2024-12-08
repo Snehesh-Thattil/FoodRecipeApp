@@ -25,6 +25,15 @@ export function WishlistsContextWrapper({ children }) {
             case 'remove-from-wishlists':
                 return wishlistsState.filter((item) => item.dishArr.idMeal !== action.removeId)
 
+            case 'add-from-cart':
+                let isExist = wishlistsState.some((item) => item.dishArr.idMeal === action.newItem.dishArr.idMeal)
+
+                if (isExist) {
+                    return wishlistsState
+                } else {
+                    return [...wishlistsState, action.newItem]
+                }
+
             default:
                 return wishlistsState
         }

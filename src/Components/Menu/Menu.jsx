@@ -4,10 +4,10 @@ import Header from '../Header/Header'
 import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
-import CartPanel from '../CartPanel/CartPanel'
+import PanelCart from '../PanelCart/PanelCart'
 import CartToggle from '../CartToggle/CartToggle'
 import { Route, Routes } from 'react-router-dom'
-import Checkout from '../Checkout/Checkout'
+import Cart from '../Cart/Cart'
 import Footer from '../Footer/Footer'
 import Wishlists from '../Wishlists/Wishlists'
 
@@ -22,16 +22,16 @@ function Menu() {
                     <>
                         <CartToggle />
                         <Landing />
-                        <CartPanel />
+                        <PanelCart />
                         <SpecialDishes />
                         <Categories />
                         <Footer />
                     </>
                 } />
 
-                <Route path='/checkout' element={<Checkout />} />
+                <Route path='/cart' element={<Cart />} />
                 <Route path='/wishlists' element={<Wishlists />} />
-                
+
             </Routes>
         </div>
     )

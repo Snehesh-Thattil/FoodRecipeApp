@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
-import './Checkout.css'
+import './Cart.css'
+import { wishlistsContext } from '../../Contexts/WishlistsContext'
 import { cartContext } from '../../Contexts/CartContext'
 import { cartToggleContext } from '../../Contexts/OtherContexts'
 import { useNavigate } from 'react-router-dom'
 
 function Checkout() {
-    const { cartDispatch, cartState } = useContext(cartContext)
+    const { cartState, cartDispatch } = useContext(cartContext)
+    const { wishlistDispatch } = useContext(wishlistsContext)
     const { setToggle } = useContext(cartToggleContext)
     const [totalValue, setTotalValue] = useState(0)
     const navigate = useNavigate()
@@ -19,6 +21,17 @@ function Checkout() {
         cartState.length === 0 && setToggle(false)
 
     }, [cartState, setToggle])
+
+    function HandleMoveToWishlists(item) {
+        wishlistDispatch({
+            type: 'add-from-cart',
+            newItem: item
+        })
+        cartDispatch({
+            type: 'remove-from-cart',
+            removeId: item.dishArr.idMeal
+        })
+    }
 
     return (
         <div className='Checkout'>
@@ -49,15 +62,14 @@ function Checkout() {
 
                             <div className="remove" onClick={() => cartDispatch({
                                 type: 'remove-from-cart',
-                                payload: cartState,
                                 removeId: item.dishArr.idMeal
                             })}>
                                 <li><i className="fa-solid fa-trash"></i></li>
                             </div>
 
-                            <div className="move-to-wishlist">
+                            <div className="move-to-wishlist" onClick={() => HandleMoveToWishlists(item)}>
                                 <p>Move to wishlist</p>
-                                <i class="fa-solid fa-heart"></i>
+                                <i className="fa-solid fa-heart"></i>
                             </div>
 
                         </div>
@@ -70,22 +82,24 @@ function Checkout() {
                     <div className="breakdown">
 
                         <table>
-                            <tr>
-                                <th>Cart value</th>
-                                <td>: {totalValue}</td>
-                            </tr>
-                            <tr>
-                                <th>Discount</th>
-                                <td>: {totalValue !== 0 ? 299 : 0}</td>
-                            </tr>
-                            <tr>
-                                <th>Coupon applied</th>
-                                <td>: {totalValue !== 0 ? 'GET199' : 'Not-available'}</td>
-                            </tr>
-                            <tr>
-                                <th>Coupon value</th>
-                                <td>: {totalValue !== 0 ? 199 : 0}</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <th>Cart value</th>
+                                    <td>: {totalValue}</td>
+                                </tr>
+                                <tr>
+                                    <th>Discount</th>
+                                    <td>: {totalValue !== 0 ? 299 : 0}</td>
+                                </tr>
+                                <tr>
+                                    <th>Coupon applied</th>
+                                    <td>: {totalValue !== 0 ? 'GET199' : 'Not-available'}</td>
+                                </tr>
+                                <tr>
+                                    <th>Coupon value</th>
+                                    <td>: {totalValue !== 0 ? 199 : 0}</td>
+                                </tr>
+                            </tbody>
                         </table>
 
                         <div className="line"></div>
@@ -96,7 +110,7 @@ function Checkout() {
                         </div>
 
                     </div>
-                    <button>Order Now</button>
+                    <button> Order Now <i className="fa-solid fa-bag-shopping"></i></button>
                 </div>
                 :
                 <div className="emptyCart">
