@@ -1,7 +1,7 @@
-.Checkout {
+.Cart {
     width: 100vw;
     min-height: 100vh;
-    padding: 5rem 1rem;
+    padding: 5rem 4rem;
     display: flex;
     align-items: flex-start;
     justify-content: start;
@@ -131,13 +131,14 @@
     .overview {
         background-color: #ffb904;
         width: 30%;
-        height: 85vh;
+        height: 60vh;
         border-radius: 5px;
         outline: 2px solid black;
         padding: 10px;
 
-        position: fixed;
-        right: 20px;
+        position: sticky;
+        top: 10px;
+        margin-left: auto;
         display: flex;
         flex-direction: column;
 

@@ -1,0 +1,112 @@
+import React from 'react'
+import './Checkout.css'
+
+function Checkout() {
+    return (
+        <div className='Checkout'>
+            <div className="contents">
+                <div className="address">
+                    <form action="">
+                        <input type="text" placeholder='Addressline 1' />
+                        <input type="text" placeholder='Addressline 2' />
+                        <input type="tel" maxLength={10} placeholder='Mobile' />
+                        <div className='small'>
+                            <input type="number" placeholder='Pincode' className='no-arrows' />
+                            <input type="text" placeholder='District' />
+                            <input type="text" placeholder='State' />
+                        </div>
+                        <div className="radios">
+                            <label htmlFor="">Adress Type :</label>
+                            <div className="radio">
+                                <input type="radio" id='office' name='adress-type' />
+                                <label htmlFor="office">office</label>
+                            </div>
+                            <div className="radio">
+                                <input type="radio" id='work' name='adress-type' />
+                                <label htmlFor="work">work</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div className="tiles">
+                    {/* {cartState.map((item, index) => {
+                        return (
+                            item &&
+                            <div className="tile" key={index}>
+
+                                <div className="imgdiv">
+                                    <img src={item.dishImg} alt="itemImg" />
+                                </div>
+
+                                <div className="details">
+                                    <h2>{item.dishName}</h2>
+
+                                    <div className="dishtags">
+                                        <button>{item.dishArr.strCategory}</button>
+                                        <button>{item.dishArr.strArea}</button>
+                                    </div>
+                                    <div className="ordervalues">
+                                        <h4>Price : {item.dishPrice}</h4>
+                                        <h5> Qty : {item.dishQuantity}</h5>
+                                    </div>
+                                    <h2>{item.dishPrice * item.dishQuantity}</h2>
+                                </div>
+
+                                <div className="remove" onClick={() => cartDispatch({
+                                    type: 'remove-from-cart',
+                                    removeId: item.dishArr.idMeal
+                                })}>
+                                    <li><i className="fa-solid fa-trash"></i></li>
+                                </div>
+
+                                <div className="move-to-wishlist" onClick={() => HandleMoveToWishlists(item)}>
+                                    <p>Move to wishlist</p>
+                                    <i className="fa-solid fa-heart"></i>
+                                </div>
+
+                            </div>
+                        )
+                    })} */}
+                </div>
+            </div>
+
+            <div className="overview">
+                <div className="breakdown">
+
+                    {/* <table>
+                        <tbody>
+                            <tr>
+                                <th>Cart value</th>
+                                <td>: {totalValue}</td>
+                            </tr>
+                            <tr>
+                                <th>Discount</th>
+                                <td>: {totalValue !== 0 ? 299 : 0}</td>
+                            </tr>
+                            <tr>
+                                <th>Coupon applied</th>
+                                <td>: {totalValue !== 0 ? 'GET199' : 'Not-available'}</td>
+                            </tr>
+                            <tr>
+                                <th>Coupon value</th>
+                                <td>: {totalValue !== 0 ? 199 : 0}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div className="line"></div>
+
+                    <div className="totalline">
+                        <h3>Total</h3>
+                        <h3>: {totalValue ? totalValue - (299 + 199) : 0}</h3>
+                    </div> */}
+
+                </div>
+                <button> Place Order <i className="fa-solid fa-bag-shopping"></i></button>
+            </div>
+        </div>
+    )
+}
+
+export default Checkout

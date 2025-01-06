@@ -85,8 +85,15 @@
   color: white;
   transition: all ease-in-out 0.25s;
 }
+.popUp_content .dishName .sourcebuttons button a {
+  text-decoration: none;
+  color: white;
+}
 .popUp_content .dishName .sourcebuttons button:hover {
-  background-color: white;
+  background-color: rgb(255, 239, 239);
+  color: black;
+}
+.popUp_content .dishName .sourcebuttons button:hover a {
   color: black;
 }
 .popUp_content .recipe {

@@ -1,19 +1,19 @@
-.Checkout {
+.Cart {
   width: 100vw;
   min-height: 100vh;
-  padding: 5rem 1rem;
+  padding: 5rem 4rem;
   display: flex;
   align-items: flex-start;
   justify-content: start;
   background-color: rgb(231, 201, 146);
 }
-.Checkout .tiles {
+.Cart .tiles {
   width: 65%;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.Checkout .tiles .tile {
+.Cart .tiles .tile {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -24,7 +24,7 @@
   outline: 2px solid black;
   position: relative;
 }
-.Checkout .tiles .tile .imgdiv {
+.Cart .tiles .tile .imgdiv {
   width: 30%;
   height: 100%;
   border-radius: 5px 0 0 5px;
@@ -32,23 +32,23 @@
      object-fit: cover;
   margin-right: 1rem;
 }
-.Checkout .tiles .tile .imgdiv img {
+.Cart .tiles .tile .imgdiv img {
   width: 100%;
   height: 100%;
   border-radius: 5px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.Checkout .tiles .tile .details {
+.Cart .tiles .tile .details {
   width: 70%;
 }
-.Checkout .tiles .tile .details h2 {
+.Cart .tiles .tile .details h2 {
   font-size: 20px;
 }
-.Checkout .tiles .tile .details .dishtags {
+.Cart .tiles .tile .details .dishtags {
   display: flex;
 }
-.Checkout .tiles .tile .details .dishtags button {
+.Cart .tiles .tile .details .dishtags button {
   width: 100px;
   padding: 5px 10px;
   margin: 5px 0;
@@ -58,7 +58,7 @@
   margin-right: 10px;
   font-weight: bold;
 }
-.Checkout .tiles .tile .remove {
+.Cart .tiles .tile .remove {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -72,16 +72,16 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.Checkout .tiles .tile .remove li {
+.Cart .tiles .tile .remove li {
   transition-duration: 0.35s;
 }
-.Checkout .tiles .tile .remove:hover {
+.Cart .tiles .tile .remove:hover {
   background-color: black;
 }
-.Checkout .tiles .tile .remove:hover li {
+.Cart .tiles .tile .remove:hover li {
   transform: rotate(-30deg);
 }
-.Checkout .tiles .tile .move-to-wishlist {
+.Cart .tiles .tile .move-to-wishlist {
   position: absolute;
   bottom: 15px;
   right: 15px;
@@ -96,74 +96,75 @@
   cursor: pointer;
   transition-duration: 0.3s;
 }
-.Checkout .tiles .tile .move-to-wishlist:hover {
+.Cart .tiles .tile .move-to-wishlist:hover {
   background-color: rgb(255, 204, 204);
 }
-.Checkout .tiles .tile .move-to-wishlist:hover i {
+.Cart .tiles .tile .move-to-wishlist:hover i {
   color: red;
   scale: 1.25;
   transform: rotate(30deg);
 }
-.Checkout .tiles .tile .move-to-wishlist p {
+.Cart .tiles .tile .move-to-wishlist p {
   color: black;
   font-weight: 500;
 }
-.Checkout .tiles .tile .move-to-wishlist i {
+.Cart .tiles .tile .move-to-wishlist i {
   scale: 1.1;
   margin-right: 5px;
   transition-duration: 0.3s;
 }
-.Checkout .overview {
+.Cart .overview {
   background-color: #ffb904;
   width: 30%;
-  height: 85vh;
+  height: 60vh;
   border-radius: 5px;
   outline: 2px solid black;
   padding: 10px;
-  position: fixed;
-  right: 20px;
+  position: sticky;
+  top: 10px;
+  margin-left: auto;
   display: flex;
   flex-direction: column;
 }
-.Checkout .overview .breakdown {
+.Cart .overview .breakdown {
   display: flex;
   flex-direction: column;
   height: 100%;
   align-items: center;
   justify-content: space-around;
 }
-.Checkout .overview .breakdown .line {
+.Cart .overview .breakdown .line {
   width: 90%;
   background-color: rgb(29, 28, 28);
   height: 2px;
 }
-.Checkout .overview .breakdown table {
+.Cart .overview .breakdown table {
   width: 100%;
   border: 1px solid black;
   padding: 1rem;
 }
-.Checkout .overview .breakdown table tr {
+.Cart .overview .breakdown table tr {
   display: flex;
   justify-content: center;
   justify-content: space-between;
   height: 2rem;
 }
-.Checkout .overview .breakdown table tr th {
+.Cart .overview .breakdown table tr th {
   display: flex;
   width: 50%;
   justify-content: start;
 }
-.Checkout .overview .breakdown table tr td {
+.Cart .overview .breakdown table tr td {
   display: flex;
   width: 50%;
   justify-content: first baseline;
 }
-.Checkout .overview .breakdown .totalline {
+.Cart .overview .breakdown .totalline {
   display: flex;
   padding: 10px;
   justify-content: space-between;
 }
-.Checkout .overview button {
+.Cart .overview button {
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 1rem;
@@ -172,21 +173,21 @@
   font-weight: bold;
   transition-duration: 0.5s;
 }
-.Checkout .overview button:hover {
+.Cart .overview button:hover {
   background-color: black;
   color: white;
 }
-.Checkout .overview button:hover i {
+.Cart .overview button:hover i {
   transform: translateX(0px) rotate(-20deg);
   color: greenyellow;
 }
-.Checkout .overview button i {
+.Cart .overview button i {
   scale: 1.25;
   margin-left: 5px;
   transform: translateX(15px);
   transition-duration: 0.5s;
 }
-.Checkout .emptyCart {
+.Cart .emptyCart {
   position: absolute;
   top: 7rem;
   left: 0;
@@ -202,7 +203,7 @@
   align-items: center;
   justify-content: space-evenly;
 }
-.Checkout .emptyCart button {
+.Cart .emptyCart button {
   width: 10rem;
   padding: 10px 20px;
   font-weight: bold;
@@ -211,15 +212,15 @@
   cursor: pointer;
   transition: all ease-in-out 0.35s;
 }
-.Checkout .emptyCart button:hover {
+.Cart .emptyCart button:hover {
   background-color: black;
   color: white;
 }
-.Checkout .emptyCart button:hover i {
+.Cart .emptyCart button:hover i {
   transform: translateX(0px) rotate(-20deg);
   color: greenyellow;
 }
-.Checkout .emptyCart button i {
+.Cart .emptyCart button i {
   scale: 1.25;
   margin: 0 10px;
   transform: translateX(15px);

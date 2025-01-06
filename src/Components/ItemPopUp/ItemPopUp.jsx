@@ -64,13 +64,20 @@ function ItemPop({ setPopUp }) {
                     <h2>{idMealDetails.strMeal}</h2>
 
                     <div className="sourcebuttons">
-                        {idMealDetails.strSource ? <button><a href={idMealDetails.strSource}> ↗️ </a>Website</button> : null}
-                        {idMealDetails.strYoutube ? <button><a href={idMealDetails.strYoutube}> ▶️ </a>Youtube</button> : null}
+                        {[
+                            { label: '↗️ Website', url: idMealDetails.strSource },
+                            { label: '▶️ Youtube', url: idMealDetails.strYoutube }
+                        ]
+                            .filter((item) => item.url)
+                            .map((link, index) => (
+                                <button key={index}>
+                                    <a href={link.url} target='_blank' rel='noopener noreferrer'>{link.label}</a>
+                                </button>
+                            ))}
                     </div>
                 </div>
 
                 <div className="recipe">
-
                     <div className="ingredients">
                         <table>
                             <thead>
@@ -135,7 +142,6 @@ function ItemPop({ setPopUp }) {
                             <button onClick={() => HandleAddToCart(idMealDetails)}> 🛒 </button>
                         </div>
                     </div>
-
                 </div>
 
             </div>

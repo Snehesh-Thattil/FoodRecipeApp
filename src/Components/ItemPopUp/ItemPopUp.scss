@@ -6,7 +6,7 @@
     right: 0;
     margin: auto;
     z-index: 5;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,9 +90,18 @@
                     color: white;
                     transition: all ease-in-out .25s;
 
+                    a {
+                        text-decoration: none;
+                        color: white;
+                    }
+
                     &:hover {
-                        background-color: white;
+                        background-color: rgb(255, 239, 239);
                         color: black;
+
+                        a {
+                            color: black;
+                        }
                     }
                 }
             }

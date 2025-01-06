@@ -10,6 +10,7 @@ import { Route, Routes } from 'react-router-dom'
 import Cart from '../Cart/Cart'
 import Footer from '../Footer/Footer'
 import Wishlists from '../Wishlists/Wishlists'
+import Checkout from '../Checkout/Checkout'
 
 function Menu() {
 
@@ -31,6 +32,7 @@ function Menu() {
 
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/wishlists' element={<Wishlists />} />
+                <Route path='/checkout' element={<Checkout />} />
 
             </Routes>
         </div>

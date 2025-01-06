@@ -34,7 +34,7 @@ function Checkout() {
     }
 
     return (
-        <div className='Checkout'>
+        <div className='Cart'>
 
             <div className="tiles">
                 {cartState.map((item, index) => {
