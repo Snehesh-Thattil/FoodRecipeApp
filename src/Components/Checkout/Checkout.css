@@ -11,8 +11,9 @@
 }
 .Checkout .contents .address {
   background-color: beige;
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 5px;
+  margin-top: 1rem;
 }
 .Checkout .contents .address form {
   display: flex;
@@ -52,19 +53,170 @@
 .Checkout .contents .address form .radios .radio label {
   cursor: pointer;
 }
-.Checkout .overview {
+.Checkout .contents .tiles {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.Checkout .contents .tiles .tile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 10rem;
+  padding: 10px;
   background-color: #ffb904;
+  border-radius: 5px;
+  outline: 0.5px solid black;
+  position: relative;
+}
+.Checkout .contents .tiles .tile .imgdiv {
   width: 30%;
-  height: 60vh;
+  height: 100%;
+  border-radius: 5px 0 0 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 1rem;
+}
+.Checkout .contents .tiles .tile .imgdiv img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Checkout .contents .tiles .tile .details {
+  width: 70%;
+}
+.Checkout .contents .tiles .tile .details h2 {
+  font-size: 20px;
+}
+.Checkout .contents .tiles .tile .details .dishtags {
+  display: flex;
+}
+.Checkout .contents .tiles .tile .details .dishtags button {
+  width: 100px;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border: none;
+  background-color: wheat;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.Checkout .contents .tiles .tile .remove {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgb(44, 44, 44);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Checkout .contents .tiles .tile .remove li {
+  transition-duration: 0.35s;
+}
+.Checkout .contents .tiles .tile .remove:hover {
+  background-color: black;
+}
+.Checkout .contents .tiles .tile .remove:hover li {
+  transform: rotate(-30deg);
+}
+.Checkout .contents .tiles .tile .move-to-wishlist {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  padding: 5px 7.5px;
+  background-color: white;
+  color: rgb(255, 98, 98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.Checkout .contents .tiles .tile .move-to-wishlist:hover {
+  background-color: rgb(255, 204, 204);
+}
+.Checkout .contents .tiles .tile .move-to-wishlist:hover i {
+  color: red;
+  scale: 1.25;
+  transform: rotate(30deg);
+}
+.Checkout .contents .tiles .tile .move-to-wishlist p {
+  color: black;
+  font-weight: 500;
+}
+.Checkout .contents .tiles .tile .move-to-wishlist i {
+  scale: 1.1;
+  margin-right: 5px;
+  transition-duration: 0.3s;
+}
+.Checkout .cartvalue {
+  width: 30%;
+  height: 75vh;
+}
+.Checkout .cartvalue .overview {
+  background-color: #ffb904;
+  width: 100%;
+  height: 100%;
   padding: 10px;
   border-radius: 5px;
   outline: 2px solid black;
+  margin-top: 1rem;
   position: sticky;
   top: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
-.Checkout .overview button {
+.Checkout .cartvalue .overview .breakdown {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.Checkout .cartvalue .overview .breakdown .line {
+  width: 90%;
+  background-color: rgb(29, 28, 28);
+  height: 2px;
+}
+.Checkout .cartvalue .overview .breakdown table {
+  width: 100%;
+  border: 1px solid black;
+  padding: 1rem;
+}
+.Checkout .cartvalue .overview .breakdown table tr {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  height: 2rem;
+}
+.Checkout .cartvalue .overview .breakdown table tr th {
+  display: flex;
+  width: 50%;
+  justify-content: start;
+}
+.Checkout .cartvalue .overview .breakdown table tr td {
+  display: flex;
+  width: 50%;
+  justify-content: first baseline;
+}
+.Checkout .cartvalue .overview .breakdown .totalline {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+.Checkout .cartvalue .overview button {
   width: 100%;
   padding: 10px 20px;
   font-weight: bold;
@@ -73,15 +225,15 @@
   cursor: pointer;
   transition: all ease-in-out 0.35s;
 }
-.Checkout .overview button:hover {
+.Checkout .cartvalue .overview button:hover {
   background-color: black;
   color: white;
 }
-.Checkout .overview button:hover i {
+.Checkout .cartvalue .overview button:hover i {
   transform: translateX(0px) rotate(-20deg);
   color: greenyellow;
 }
-.Checkout .overview button i {
+.Checkout .cartvalue .overview button i {
   scale: 1.25;
   margin: 0 10px;
   transform: translateX(15px);

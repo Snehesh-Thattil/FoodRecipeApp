@@ -8,6 +8,7 @@ import { DefCategoryContextWrapper } from './Contexts/DefCategoryContext'
 import { CategoriesContextWrapper } from './Contexts/CategoriesContext'
 import { MealIdDetailsContextWrapper } from './Contexts/MealIdDetailsContext';
 import { BrowserRouter as Router } from 'react-router-dom'
+import { OrderContextWrapper } from './Contexts/OrderContext';
 
 function App() {
   return (
@@ -25,9 +26,11 @@ function App() {
                     <CartToggleContextWrapper>
                       <CartContextWrapper>
                         <WishlistsContextWrapper>
+                          <OrderContextWrapper>
 
-                          <Menu />
+                            <Menu />
 
+                          </OrderContextWrapper>
                         </WishlistsContextWrapper>
                       </CartContextWrapper>
                     </CartToggleContextWrapper>

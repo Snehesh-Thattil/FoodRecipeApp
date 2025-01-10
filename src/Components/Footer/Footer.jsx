@@ -26,7 +26,7 @@ function Footer() {
         <div className="universe">
           <h4>Universe</h4>
           <a href="/">TheFoodCourt</a>
-          <a href="https://www.zomato/">Zomato</a>
+          <a href="https://www.zomato.com/">Zomato</a>
           <a href="https://www.blinkit.com/">Blikit</a>
           <a href="https://www.hyperpure.com/">Hyperpure</a>
           <a href="https://www.feedingindia.org/">Feeding Inida</a>
@@ -99,7 +99,7 @@ function Footer() {
 
       <div className="bottom">
         <div className="line"></div>
-        <p>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2024 © Zomato™ Ltd. All rights reserved.</p>
+        <p>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2026 © TheFoodCourt™ Ltd. All rights reserved.</p>
       </div>
 
     </div>

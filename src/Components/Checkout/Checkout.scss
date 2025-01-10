@@ -11,8 +11,9 @@
 
         .address {
             background-color: beige;
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 5px;
+            margin-top: 1rem;
 
             form {
                 display: flex;
@@ -60,47 +61,220 @@
                 }
             }
         }
-    }
 
-    .overview {
-        background-color: #ffb904;
-        width: 30%;
-        height: 60vh;
-        padding: 10px;
-        border-radius: 5px;
-        outline: 2px solid black;
-
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-direction: column;
-
-
-        button {
+        .tiles {
             width: 100%;
-            padding: 10px 20px;
-            font-weight: bold;
-            border: none;
-            border-radius: 2.5px;
-            cursor: pointer;
-            transition: all ease-in-out 0.35s;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 1rem;
 
-            &:hover {
-                i {
-                    transform: translateX(0px) rotate(-20deg);
-                    color: greenyellow;
+            .tile {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                height: 10rem;
+                padding: 10px;
+                background-color: #ffb904;
+                border-radius: 5px;
+                outline: 0.5px solid black;
+                position: relative;
 
+                .imgdiv {
+                    width: 30%;
+                    height: 100%;
+                    border-radius: 5px 0 0 5px;
+                    object-fit: cover;
+                    margin-right: 1rem;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 5px;
+                        object-fit: cover;
+                    }
                 }
 
-                background-color: black;
-                color: white;
+                .details {
+                    width: 70%;
+
+                    h2 {
+                        font-size: 20px;
+                    }
+
+                    .dishtags {
+                        display: flex;
+
+                        button {
+                            width: 100px;
+                            padding: 5px 10px;
+                            margin: 5px 0;
+                            border: none;
+                            background-color: wheat;
+                            border-radius: 5px;
+                            margin-right: 10px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .remove {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    width: 2rem;
+                    height: 2rem;
+                    background-color: rgb(44, 44, 44);
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    li {
+                        transition-duration: .35s;
+                    }
+
+                    &:hover {
+                        background-color: black;
+
+                        li {
+                            transform: rotate(-30deg);
+                        }
+                    }
+                }
+
+                .move-to-wishlist {
+                    position: absolute;
+                    bottom: 15px;
+                    right: 15px;
+                    padding: 5px 7.5px;
+                    background-color: white;
+                    color: rgb(255, 98, 98);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition-duration: .3s;
+
+                    &:hover {
+                        background-color: rgb(255, 204, 204);
+
+                        i {
+                            color: red;
+                            scale: 1.25;
+                            transform: rotate(30deg);
+                        }
+                    }
+
+                    p {
+                        color: black;
+                        font-weight: 500;
+                    }
+
+                    i {
+                        scale: 1.1;
+                        margin-right: 5px;
+                        transition-duration: 0.3s;
+                    }
+                }
+            }
+        }
+    }
+
+    .cartvalue {
+        width: 30%;
+        height: 75vh;
+
+        .overview {
+            background-color: #ffb904;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            outline: 2px solid black;
+            margin-top: 1rem;
+
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .breakdown {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                align-items: center;
+                justify-content: space-around;
+
+                .line {
+                    width: 90%;
+                    background-color: rgb(29, 28, 28);
+                    height: 2px;
+                }
+
+                table {
+                    width: 100%;
+                    border: 1px solid black;
+                    padding: 1rem;
+
+                    tr {
+                        display: flex;
+                        justify-content: center;
+                        justify-content: space-between;
+                        height: 2rem;
+
+                        th {
+                            display: flex;
+                            width: 50%;
+                            justify-content: start;
+                        }
+
+                        td {
+                            display: flex;
+                            width: 50%;
+                            justify-content: first baseline;
+                        }
+                    }
+                }
+
+                .totalline {
+                    display: flex;
+                    padding: 10px;
+                    justify-content: space-between;
+                }
             }
 
-            i {
-                scale: 1.25;
-                margin: 0 10px;
-                transform: translateX(15px);
-                transition-duration: 0.5s;
+            button {
+                width: 100%;
+                padding: 10px 20px;
+                font-weight: bold;
+                border: none;
+                border-radius: 2.5px;
+                cursor: pointer;
+                transition: all ease-in-out 0.35s;
+
+                &:hover {
+                    i {
+                        transform: translateX(0px) rotate(-20deg);
+                        color: greenyellow;
+
+                    }
+
+                    background-color: black;
+                    color: white;
+                }
+
+                i {
+                    scale: 1.25;
+                    margin: 0 10px;
+                    transform: translateX(15px);
+                    transition-duration: 0.5s;
+                }
             }
         }
     }

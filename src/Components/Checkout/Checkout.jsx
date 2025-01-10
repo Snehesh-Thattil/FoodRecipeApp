@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import './Checkout.css'
+import { orderContext } from '../../Contexts/OrderContext'
 
 function Checkout() {
+    const { orderState } = useContext(orderContext)
+    const [totalValue, setTotalValue] = useState(0)
+
+    useEffect(() => {
+        let totalValue = orderState.reduce((acc, item) => {
+            return acc + (item.dishPrice * item.dishQuantity)
+        }, 0)
+        setTotalValue(totalValue)
+    }, [orderState])
+
+    console.log('|| FROM CHECKOUT ||', orderState)
+
     return (
         <div className='Checkout'>
             <div className="contents">
+                <h4>Delivery Address</h4>
                 <div className="address">
                     <form action="">
                         <input type="text" placeholder='Addressline 1' />
@@ -30,7 +44,8 @@ function Checkout() {
                 </div>
 
                 <div className="tiles">
-                    {/* {cartState.map((item, index) => {
+                    <h4>Summary of Items</h4>
+                    {orderState.map((item, index) => {
                         return (
                             item &&
                             <div className="tile" key={index}>
@@ -52,58 +67,46 @@ function Checkout() {
                                     </div>
                                     <h2>{item.dishPrice * item.dishQuantity}</h2>
                                 </div>
-
-                                <div className="remove" onClick={() => cartDispatch({
-                                    type: 'remove-from-cart',
-                                    removeId: item.dishArr.idMeal
-                                })}>
-                                    <li><i className="fa-solid fa-trash"></i></li>
-                                </div>
-
-                                <div className="move-to-wishlist" onClick={() => HandleMoveToWishlists(item)}>
-                                    <p>Move to wishlist</p>
-                                    <i className="fa-solid fa-heart"></i>
-                                </div>
-
                             </div>
                         )
-                    })} */}
+                    })}
                 </div>
             </div>
 
-            <div className="overview">
-                <div className="breakdown">
+            <div className="cartvalue">
+                <h4>Cart Value</h4>
+                <div className="overview">
+                    <div className="breakdown">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Cart value</th>
+                                    <td>: {totalValue}</td>
+                                </tr>
+                                <tr>
+                                    <th>Discount</th>
+                                    <td>: {totalValue !== 0 ? 299 : 0}</td>
+                                </tr>
+                                <tr>
+                                    <th>Coupon applied</th>
+                                    <td>: {totalValue !== 0 ? 'GET199' : 'Not-available'}</td>
+                                </tr>
+                                <tr>
+                                    <th>Coupon value</th>
+                                    <td>: {totalValue !== 0 ? 199 : 0}</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                    {/* <table>
-                        <tbody>
-                            <tr>
-                                <th>Cart value</th>
-                                <td>: {totalValue}</td>
-                            </tr>
-                            <tr>
-                                <th>Discount</th>
-                                <td>: {totalValue !== 0 ? 299 : 0}</td>
-                            </tr>
-                            <tr>
-                                <th>Coupon applied</th>
-                                <td>: {totalValue !== 0 ? 'GET199' : 'Not-available'}</td>
-                            </tr>
-                            <tr>
-                                <th>Coupon value</th>
-                                <td>: {totalValue !== 0 ? 199 : 0}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <div className="line"></div>
 
-                    <div className="line"></div>
-
-                    <div className="totalline">
-                        <h3>Total</h3>
-                        <h3>: {totalValue ? totalValue - (299 + 199) : 0}</h3>
-                    </div> */}
-
+                        <div className="totalline">
+                            <h3>Total</h3>
+                            <h3>: {totalValue ? totalValue - (299 + 199) : 0}</h3>
+                        </div>
+                    </div>
+                    <button> Place Order <i className="fa-solid fa-bag-shopping"></i></button>
                 </div>
-                <button> Place Order <i className="fa-solid fa-bag-shopping"></i></button>
             </div>
         </div>
     )

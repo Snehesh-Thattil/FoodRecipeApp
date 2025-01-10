@@ -4,16 +4,21 @@ import { cartToggleContext, MealIdContext } from '../../Contexts/OtherContexts'
 import { MealIdDetailsContext } from '../../Contexts/MealIdDetailsContext'
 import { cartContext } from '../../Contexts/CartContext'
 import { wishlistsContext } from '../../Contexts/WishlistsContext'
+import { orderContext } from '../../Contexts/OrderContext'
+import { useNavigate } from 'react-router-dom'
 
 function ItemPop({ setPopUp }) {
 
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
+    const { orderDispatch } = useContext(orderContext)
     const { setMealId } = useContext(MealIdContext)
     const { cartDispatch } = useContext(cartContext)
     const { setToggle } = useContext(cartToggleContext)
     const { wishlistDispatch } = useContext(wishlistsContext)
 
-    // Order Button
+    const navigate = useNavigate()
+
+    // Cart Button
     function HandleAddToCart(idMealDetails) {
         cartDispatch({
             type: 'add-to-cart',
@@ -26,6 +31,15 @@ function ItemPop({ setPopUp }) {
 
         // Cartpanel div showup and remove
         setToggle(true)
+    }
+
+    // Order Button
+    function HandleOrder(idMealDetails) {
+        orderDispatch({
+            type: 'direct-order',
+            payload: idMealDetails
+        })
+        navigate('/checkout')
     }
 
     // Wishlists Button
@@ -138,7 +152,7 @@ function ItemPop({ setPopUp }) {
                         </div>
                         <div className="order">
                             <button onClick={() => HandleAddToWishlist(idMealDetails)}> 🩶 </button>
-                            <button className='buyButton'> 🛍️ Order Now</button>
+                            <button onClick={() => HandleOrder(idMealDetails)} className='buyButton'> 🛍️ Order Now</button>
                             <button onClick={() => HandleAddToCart(idMealDetails)}> 🛒 </button>
                         </div>
                     </div>

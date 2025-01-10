@@ -89,15 +89,15 @@ function Checkout() {
                                 </tr>
                                 <tr>
                                     <th>Discount</th>
-                                    <td>: {totalValue !== 0 ? 299 : 0}</td>
+                                    <td>: {totalValue !== 0 ? 300 : 0}</td>
                                 </tr>
                                 <tr>
-                                    <th>Coupon applied</th>
-                                    <td>: {totalValue !== 0 ? 'GET199' : 'Not-available'}</td>
+                                    <th>Coupon Code</th>
+                                    <td>: {totalValue !== 0 ? 'GET200' : 'Not-available'}</td>
                                 </tr>
                                 <tr>
-                                    <th>Coupon value</th>
-                                    <td>: {totalValue !== 0 ? 199 : 0}</td>
+                                    <th>Coupon Value</th>
+                                    <td>: {totalValue !== 0 ? 200 : 0}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -106,7 +106,7 @@ function Checkout() {
 
                         <div className="totalline">
                             <h3>Total</h3>
-                            <h3>: {totalValue ? totalValue - (299 + 199) : 0}</h3>
+                            <h3>: {totalValue ? totalValue - (300 + 200) : 0}</h3>
                         </div>
 
                     </div>
