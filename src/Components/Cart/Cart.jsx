@@ -4,9 +4,11 @@ import { wishlistsContext } from '../../Contexts/WishlistsContext'
 import { cartContext } from '../../Contexts/CartContext'
 import { cartToggleContext } from '../../Contexts/OtherContexts'
 import { useNavigate } from 'react-router-dom'
+import { orderContext } from '../../Contexts/OrderContext'
 
 function Checkout() {
     const { cartState, cartDispatch } = useContext(cartContext)
+    const { orderDispatch } = useContext(orderContext)
     const { wishlistDispatch } = useContext(wishlistsContext)
     const { setToggle } = useContext(cartToggleContext)
     const [totalValue, setTotalValue] = useState(0)
@@ -31,6 +33,14 @@ function Checkout() {
             type: 'remove-from-cart',
             removeId: item.dishArr.idMeal
         })
+    }
+
+    function HandleOrderNow(Items) {
+        orderDispatch({
+            type: 'cart-order',
+            payload: Items
+        })
+        navigate('/checkout')
     }
 
     return (
@@ -110,7 +120,7 @@ function Checkout() {
                         </div>
 
                     </div>
-                    <button> Order Now <i className="fa-solid fa-bag-shopping"></i></button>
+                    <button onClick={() => HandleOrderNow(cartState)}> Order Now <i className="fa-solid fa-bag-shopping"></i></button>
                 </div>
                 :
                 <div className="emptyCart">

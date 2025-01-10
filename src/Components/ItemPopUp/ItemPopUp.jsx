@@ -34,12 +34,13 @@ function ItemPop({ setPopUp }) {
     }
 
     // Order Button
-    function HandleOrder(idMealDetails) {
+    function HandleOrderNow(idMealDetails) {
         orderDispatch({
             type: 'direct-order',
             payload: idMealDetails
         })
         navigate('/checkout')
+        setPopUp(false)
     }
 
     // Wishlists Button
@@ -152,7 +153,7 @@ function ItemPop({ setPopUp }) {
                         </div>
                         <div className="order">
                             <button onClick={() => HandleAddToWishlist(idMealDetails)}> 🩶 </button>
-                            <button onClick={() => HandleOrder(idMealDetails)} className='buyButton'> 🛍️ Order Now</button>
+                            <button onClick={() => HandleOrderNow(idMealDetails)} className='buyButton'> 🛍️ Order Now</button>
                             <button onClick={() => HandleAddToCart(idMealDetails)}> 🛒 </button>
                         </div>
                     </div>

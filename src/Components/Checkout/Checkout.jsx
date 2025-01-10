@@ -13,17 +13,18 @@ function Checkout() {
         setTotalValue(totalValue)
     }, [orderState])
 
-    console.log('|| FROM CHECKOUT ||', orderState)
-
     return (
         <div className='Checkout'>
             <div className="contents">
                 <h4>Delivery Address</h4>
                 <div className="address">
                     <form action="">
-                        <input type="text" placeholder='Addressline 1' />
-                        <input type="text" placeholder='Addressline 2' />
-                        <input type="tel" maxLength={10} placeholder='Mobile' />
+                        <input type="text" placeholder='Address line 1' />
+                        <input type="text" placeholder='Address line 2' />
+                        <div className='contacts'>
+                            <input type="tel" maxLength={10} placeholder='Mobile' />
+                            <input type="email" placeholder='Email' />
+                        </div>
                         <div className='small'>
                             <input type="number" placeholder='Pincode' className='no-arrows' />
                             <input type="text" placeholder='District' />
@@ -74,13 +75,13 @@ function Checkout() {
             </div>
 
             <div className="cartvalue">
-                <h4>Cart Value</h4>
+                <h4>Cart Summary</h4>
                 <div className="overview">
                     <div className="breakdown">
                         <table>
                             <tbody>
                                 <tr>
-                                    <th>Cart value</th>
+                                    <th>Cart total</th>
                                     <td>: {totalValue}</td>
                                 </tr>
                                 <tr>
@@ -105,7 +106,7 @@ function Checkout() {
                             <h3>: {totalValue ? totalValue - (299 + 199) : 0}</h3>
                         </div>
                     </div>
-                    <button> Place Order <i className="fa-solid fa-bag-shopping"></i></button>
+                    <button onClick={() => alert('Order Placed Successfully')}> Place Order <i className="fa-solid fa-bag-shopping"></i></button>
                 </div>
             </div>
         </div>

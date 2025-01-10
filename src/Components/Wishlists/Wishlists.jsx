@@ -3,9 +3,11 @@ import './Wishlists.css'
 import { wishlistsContext } from '../../Contexts/WishlistsContext'
 import { useNavigate } from 'react-router-dom'
 import { cartContext } from '../../Contexts/CartContext'
+import { orderContext } from '../../Contexts/OrderContext'
 
 function Wishlists() {
     const { wishlistsState, wishlistDispatch } = useContext(wishlistsContext)
+    const { orderDispatch } = useContext(orderContext)
     const { cartDispatch } = useContext(cartContext)
     const navigate = useNavigate()
 
@@ -19,6 +21,14 @@ function Wishlists() {
             type: 'remove-from-wishlists',
             removeId: item.dishArr.idMeal
         })
+    }
+
+    function HandleOrderNow(item) {
+        orderDispatch({
+            type: 'direct-order',
+            payload: item.dishArr
+        })
+        navigate('/checkout')
     }
 
     return (
@@ -41,7 +51,7 @@ function Wishlists() {
                                 <h4>Price : {item.dishPrice}</h4>
                                 <div className="checkouts">
                                     <button onClick={() => HandleMoveToCart(item)}>Add to Cart <i className="fa-solid fa-cart-shopping"></i></button>
-                                    <button> Order Now <i className="fa-solid fa-bag-shopping"></i></button>
+                                    <button onClick={() => HandleOrderNow(item)}> Order Now <i className="fa-solid fa-bag-shopping"></i></button>
                                 </div>
                             </div>
 

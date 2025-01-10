@@ -20,6 +20,14 @@
   flex-direction: column;
   gap: 10px;
 }
+.Checkout .contents .address form .contacts {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+.Checkout .contents .address form .contacts input {
+  width: 50%;
+}
 .Checkout .contents .address form input {
   outline: none;
   border: none;
@@ -34,13 +42,14 @@
   justify-content: space-between;
 }
 .Checkout .contents .address form .small input {
-  width: 50rem;
+  width: 33.3333333333%;
 }
 .Checkout .contents .address form .radios {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
-  margin: 10px 0;
+  margin: 7.5px;
+  margin-bottom: 0;
 }
 .Checkout .contents .address form .radios .radio {
   display: flex;
@@ -162,7 +171,9 @@
 }
 .Checkout .cartvalue {
   width: 30%;
-  height: 75vh;
+  height: 80vh;
+  position: sticky;
+  top: 10px;
 }
 .Checkout .cartvalue .overview {
   background-color: #ffb904;
@@ -172,8 +183,6 @@
   border-radius: 5px;
   outline: 2px solid black;
   margin-top: 1rem;
-  position: sticky;
-  top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

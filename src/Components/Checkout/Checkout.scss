@@ -20,6 +20,16 @@
                 flex-direction: column;
                 gap: 10px;
 
+                .contacts {
+                    width: 100%;
+                    display: flex;
+                    gap: 10px;
+
+                    input {
+                        width: calc(100%/2);
+                    }
+                }
+
                 input {
                     outline: none;
                     border: none;
@@ -35,7 +45,7 @@
                     justify-content: space-between;
 
                     input {
-                        width: 50rem;
+                        width: calc(100%/3);
                     }
                 }
 
@@ -43,7 +53,8 @@
                     display: flex;
                     justify-content: flex-start;
                     gap: 20px;
-                    margin: 10px 0;
+                    margin: 7.5px;
+                    margin-bottom: 0;
 
                     .radio {
                         display: flex;
@@ -187,7 +198,10 @@
 
     .cartvalue {
         width: 30%;
-        height: 75vh;
+        height: 80vh;
+
+        position: sticky;
+        top: 10px;
 
         .overview {
             background-color: #ffb904;
@@ -198,8 +212,6 @@
             outline: 2px solid black;
             margin-top: 1rem;
 
-            position: sticky;
-            top: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;

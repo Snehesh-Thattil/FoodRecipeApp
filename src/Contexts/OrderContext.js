@@ -17,14 +17,11 @@ export function OrderContextWrapper({ children }) {
                 }
                 return [Item]
             case 'cart-order':
-                return orderState
+                return action.payload
             default:
-                console.log('default')
                 return orderState
         }
     }, orderItems)
-
-    console.log(orderState)
 
     return (
         <orderContext.Provider value={{ orderState, orderDispatch }}>
