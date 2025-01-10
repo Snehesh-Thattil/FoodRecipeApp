@@ -32,6 +32,12 @@ export function CartContextWrapper({ children }) {
             case 'remove-from-cart':
                 return cartState.filter((Item) => Item.dishArr.idMeal !== action.removeId)
 
+            case 'remove-from-checkout':
+                let filteredCart = cartState.filter((cartItem) => {
+                    return !action.toRemove.some((orderedItem) => orderedItem.dishArr.idMeal === cartItem.dishArr.idMeal)
+                })
+                return filteredCart;
+
             case 'add-to-cart-from-wishlists':
                 let isExists = cartState.some((Item) => Item.dishArr.idMeal === action.newItem.dishArr.idMeal)
 

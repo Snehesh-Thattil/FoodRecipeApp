@@ -152,6 +152,7 @@ function ItemPop({ setPopUp }) {
                             {idMealDetails.strInstructions}
                         </div>
                         <div className="order">
+                            <p>Rs.799/-</p>
                             <button onClick={() => HandleAddToWishlist(idMealDetails)}> 🩶 </button>
                             <button onClick={() => HandleOrderNow(idMealDetails)} className='buyButton'> 🛍️ Order Now</button>
                             <button onClick={() => HandleAddToCart(idMealDetails)}> 🛒 </button>

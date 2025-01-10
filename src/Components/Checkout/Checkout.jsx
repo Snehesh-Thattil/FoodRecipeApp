@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react'
 import './Checkout.css'
 import { orderContext } from '../../Contexts/OrderContext'
+import { cartContext } from '../../Contexts/CartContext'
 
 function Checkout() {
     const { orderState } = useContext(orderContext)
+    const { cartDispatch } = useContext(cartContext)
     const [totalValue, setTotalValue] = useState(0)
 
     useEffect(() => {
@@ -12,6 +14,14 @@ function Checkout() {
         }, 0)
         setTotalValue(totalValue)
     }, [orderState])
+
+    function HandlePlaceOrder(orderState) {
+        cartDispatch({
+            type: 'remove-from-checkout',
+            toRemove: orderState
+        })
+        alert('Order Placed Successfully')
+    }
 
     return (
         <div className='Checkout'>
@@ -106,7 +116,7 @@ function Checkout() {
                             <h3>: {totalValue ? totalValue - (299 + 199) : 0}</h3>
                         </div>
                     </div>
-                    <button onClick={() => alert('Order Placed Successfully')}> Place Order <i className="fa-solid fa-bag-shopping"></i></button>
+                    <button onClick={() => HandlePlaceOrder(orderState)}> Place Order <i className="fa-solid fa-bag-shopping"></i></button>
                 </div>
             </div>
         </div>
