@@ -25,7 +25,8 @@
         display: flex;
         height: 100%;
 
-        li {
+        li,
+        .location {
             min-width: 7.5rem;
             font-weight: 600;
             height: 100%;
@@ -39,6 +40,50 @@
 
             &:hover {
                 background-color: orange;
+            }
+        }
+
+        .location {
+            padding: 0;
+
+            .locations {
+                display: none;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                max-width: 35rem;
+                background-color: rgba(255, 255, 255, 0.856);
+                outline: solid black 2px;
+                border-radius: 2.5px;
+
+                position: absolute;
+                top: 4rem;
+                right: 5rem;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-style: italic;
+                    width: 5.5rem;
+                    height: 2rem;
+                    background-color: #ffb904;
+                    border-radius: 2.5px;
+                    border: none;
+                    margin: 10px;
+                    cursor: pointer;
+                    transition: all ease-in-out 0.25s;
+
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                    }
+                }
+            }
+
+            &:hover .locations {
+                display: flex;
             }
         }
     }

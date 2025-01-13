@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Footer.css'
 import appstoreImg from '../../Resources/appstore_link.jpg'
 import playstoreImg from '../../Resources/playstore_link.jpg'
 
 function Footer() {
+  const [country, setCountry] = useState('India')
+  const [lang, setLang] = useState('English')
+
   return (
     <div className='footer'>
 
@@ -57,22 +60,23 @@ function Footer() {
         <div className="dropdowns">
 
           <div className="dropdown">
-            <button>Country <i className="fa-solid fa-caret-down"></i> </button>
+            <button>{country} <i className="fa-solid fa-caret-down"></i> </button>
             <div className="items">
-              <li>India</li>
-              <li>Australia</li>
-              <li>USA</li>
-              <li>UAE</li>
+              <li onClick={() => setCountry('India')}>India</li>
+              <li onClick={() => setCountry('Australia')}>England</li>
+              <li onClick={() => setCountry('Germany')}>Germany</li>
+              <li onClick={() => setCountry('USA')}>USA</li>
+              <li onClick={() => setCountry('UAE')}>UAE</li>
             </div>
           </div>
 
           <div className="dropdown">
-            <button>Language <i className="fa-solid fa-caret-down"></i> </button>
+            <button>{lang} <i className="fa-solid fa-caret-down"></i> </button>
             <div className="items">
-              <li>English</li>
-              <li>Malayalam</li>
-              <li>German</li>
-              <li>Arabic</li>
+              <li onClick={() => setLang('English')}>English</li>
+              <li onClick={() => setLang('Hindi')}>Hindi</li>
+              <li onClick={() => setLang('German')}>German</li>
+              <li onClick={() => setLang('Arabic')}>Arabic</li>
             </div>
           </div>
 
