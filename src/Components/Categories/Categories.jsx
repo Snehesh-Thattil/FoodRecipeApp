@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Categories.css'
-import { DefCategoryContext } from '../../Contexts/DefCategoryContext'
 import { CategoriesContext } from '../../Contexts/CategoriesContext'
 import Pagination from '../Pagination/Pagination'
 import ItemCards from '../ItemCards/ItemCards'
@@ -10,11 +9,9 @@ import { MealsDataContext } from '../../Contexts/MealsDataContext'
 function Categories() {
     // From Contexts.js
     const { mealsData } = useContext(MealsDataContext)
-    const { defCategoryData, setDefCategoryData } = useContext(DefCategoryContext)
     const { allCategoriesList } = useContext(CategoriesContext)
 
     const [categoryDishes, setCategoryDishes] = useState([])
-    const [defCategoryDishes, SetDefCategoryDishes] = useState([])
     const [activeCategory, setActiveCategory] = useState('Vegetarian')
     const [popUp, setPopUp] = useState(false)
 
@@ -27,49 +24,34 @@ function Categories() {
         let IndexOfLastItem = currentPage * numberOfItems
         let IndexOfFirstItem = IndexOfLastItem - numberOfItems
 
-        if (defCategoryData.length !== 0) {
-            let pageItems = defCategoryDishes.slice(IndexOfFirstItem, IndexOfLastItem)
-            setCurrentPgItems(pageItems)
-        } else {
+        if (categoryDishes.length !== 0) {
             let pageItems = categoryDishes.slice(IndexOfFirstItem, IndexOfLastItem)
             setCurrentPgItems(pageItems)
+        } else {
+            setCurrentPgItems([])
         }
-    }, [categoryDishes, currentPage, numberOfItems, defCategoryData, defCategoryDishes])
+    }, [categoryDishes, currentPage, numberOfItems])
 
     // Buttons of Categories
     let categoryLists = allCategoriesList.map((item, index) => {
         return (
             <li className={activeCategory === item.strCategory ? 'active' : ''} key={index}
-                onClick={(e) => CategoryDishesFilter(e, item.strCategory)}> {item.strCategory} </li>
+                onClick={(e) => setActiveCategory(item.strCategory)}> {item.strCategory} </li>
         )
     })
 
-    // Default Dishes List Filtering
+    // Filtering Selected Category Dishes
     useEffect(() => {
-        let DefDishes = defCategoryData.map((item, index) => {
-            return (
-                <ItemCards key={index} item={item} setPopUp={setPopUp} /> // Componentization of Cards
-            )
-        })
-        SetDefCategoryDishes(DefDishes)
-    }, [defCategoryData, SetDefCategoryDishes])
-
-    // Selected Category Dishes List Filtering
-    function CategoryDishesFilter(e, Category) {
-        e.preventDefault()
-        setActiveCategory(Category) // for css style class
-        setDefCategoryData([]) // for emptying while selecting
         setCurrentPage(1) // change pageNum on category change
-
         let Dishes = mealsData.filter((item) => {
-            return item.strCategory === Category
+            return item.strCategory === activeCategory
         }).map((item, index) => {
             return (
                 <ItemCards key={index} item={item} setPopUp={setPopUp} /> // Componentization of Cards
             )
         })
         setCategoryDishes(Dishes)
-    }
+    }, [activeCategory, mealsData])
 
     // Rendering
     return (
@@ -98,7 +80,6 @@ function Categories() {
             </div>
 
             <Pagination categoryDishes={categoryDishes}
-                defCategoryData={defCategoryData}
                 numberOfItems={numberOfItems}
                 setCurrentPage={setCurrentPage}
                 currentPage={currentPage}

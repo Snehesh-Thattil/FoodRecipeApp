@@ -8,19 +8,15 @@ export function CategoriesContextWrapper({ children }) {
     const [categoryLoaded, setCategoryLoaded] = useState(false)
 
     useEffect(() => {
-
         // Fetching Meal Categories with API
-        function getCategories() {
-            axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
-                .then((res) => {
-                    setAllCategoriesList(res.data.categories)
-                    setCategoryLoaded(true)
-                })
-                .catch((err) => {
-                    console.log(err.message)
-                })
-        }
-        getCategories()
+        axios.get('https://www.themealdb.com/api/json/v1/1/categories.php')
+            .then((res) => {
+                setAllCategoriesList(res.data.categories)
+                setCategoryLoaded(true)
+            })
+            .catch((err) => {
+                console.log(err.message)
+            })
 
     }, [setAllCategoriesList])
 

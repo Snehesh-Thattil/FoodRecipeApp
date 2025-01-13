@@ -1,0 +1,74 @@
+.areas {
+  display: flex;
+  flex-direction: column;
+}
+.areas_content {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+}
+.areas_list {
+  margin-top: 30px;
+}
+.areas_list ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.areas_list ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb904;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+}
+.areas_list ul li.active {
+  background-color: rgb(31, 29, 29);
+  color: white;
+}
+.areas_list ul li:hover {
+  color: white;
+}
+.areas_view {
+  margin-top: 30px;
+}
+.areas_view ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.areas_view ul .areas_view_empty {
+  width: 95%;
+  height: 7.5rem;
+  border-radius: 15px;
+  background-color: #ffb904;
+  color: rgb(31, 29, 29);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  outline: solid rgb(31, 29, 29);
+}
+.areas_view ul li {
+  width: 18%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+}
+.areas_view ul li:hover {
+  transform: scale(0.95);
+}
+.areas_view ul li img {
+  width: 100%;
+  border-radius: 10px;
+}
+.areas_view ul li h5 {
+  margin-left: 5px;
+}/*# sourceMappingURL=Areas.css.map */

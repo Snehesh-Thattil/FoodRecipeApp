@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import Landing from '../Landing/Landing'
 import SpecialDishes from '../SpecialDishes/SpecialDishes'
 import Categories from '../Categories/Categories'
+import Areas from '../Areas/Areas'
 import PanelCart from '../PanelCart/PanelCart'
 import CartToggle from '../CartToggle/CartToggle'
 import { Route, Routes } from 'react-router-dom'
@@ -15,7 +16,6 @@ import Checkout from '../Checkout/Checkout'
 function Menu() {
 
     return (
-
         <div className="Menu">
             <Header />
             <Routes>
@@ -26,6 +26,7 @@ function Menu() {
                         <PanelCart />
                         <SpecialDishes />
                         <Categories />
+                        <Areas />
                         <Footer />
                     </>
                 } />

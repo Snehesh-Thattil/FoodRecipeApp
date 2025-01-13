@@ -4,11 +4,11 @@ import { CartToggleContextWrapper, ItemViewContextWrapper, MealIdContextWrapper 
 import { MealDataContextWrapper } from './Contexts/MealsDataContext';
 import { CartContextWrapper } from './Contexts/CartContext';
 import { WishlistsContextWrapper } from './Contexts/WishlistsContext';
-import { DefCategoryContextWrapper } from './Contexts/DefCategoryContext'
 import { CategoriesContextWrapper } from './Contexts/CategoriesContext'
 import { MealIdDetailsContextWrapper } from './Contexts/MealIdDetailsContext';
 import { BrowserRouter as Router } from 'react-router-dom'
 import { OrderContextWrapper } from './Contexts/OrderContext';
+import { AreasContextWrapper } from './Contexts/AreasContext';
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
       }}>
 
         <MealDataContextWrapper>
-          <DefCategoryContextWrapper>
-            <CategoriesContextWrapper>
+          <CategoriesContextWrapper>
+            <AreasContextWrapper>
               <ItemViewContextWrapper>
                 <MealIdContextWrapper>
                   <MealIdDetailsContextWrapper>
@@ -37,8 +37,8 @@ function App() {
                   </MealIdDetailsContextWrapper>
                 </MealIdContextWrapper>
               </ItemViewContextWrapper>
-            </CategoriesContextWrapper>
-          </DefCategoryContextWrapper>
+            </AreasContextWrapper>
+          </CategoriesContextWrapper>
         </MealDataContextWrapper>
 
       </Router>
