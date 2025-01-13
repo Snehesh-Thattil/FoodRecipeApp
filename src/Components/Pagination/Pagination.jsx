@@ -1,19 +1,19 @@
 import React from 'react'
 import './Pagination.css'
 
-function Pagination({ categoryDishes, numberOfItems, currentPage, setCurrentPage, setNumberOfItems }) {
+function Pagination({ dishesArray, numberOfItems, currentPg, setCurrentPg, setNumberOfItems }) {
 
     let numberOfPages = [];
 
-    if (categoryDishes.length !== 0) { // pages nums with selected category items
-        for (let i = 1; i <= (Math.ceil(categoryDishes.length / numberOfItems)); i++) {
+    if (dishesArray.length !== 0) { // pages nums with selected category items
+        for (let i = 1; i <= (Math.ceil(dishesArray.length / numberOfItems)); i++) {
             numberOfPages.push(i)
         }
     }
 
     let pagesList = numberOfPages.map((pageNumber, index) => {
         return (
-            <li className={pageNumber === currentPage ? 'active' : ''} onClick={() => setCurrentPage(pageNumber)} key={index}>
+            <li className={pageNumber === currentPg ? 'active' : ''} onClick={() => setCurrentPg(pageNumber)} key={index}>
                 {pageNumber}
             </li>
         )
@@ -23,7 +23,7 @@ function Pagination({ categoryDishes, numberOfItems, currentPage, setCurrentPage
     function handleCountChange(selection) {
         if (selection !== numberOfItems) {
             setNumberOfItems(selection)
-            setCurrentPage(1)
+            setCurrentPg(1)
         }
     }
 

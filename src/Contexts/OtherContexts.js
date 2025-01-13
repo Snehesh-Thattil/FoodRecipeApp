@@ -47,3 +47,16 @@ export function CartToggleContextWrapper({ children }) {
         </cartToggleContext.Provider>
     )
 }
+
+// PopUp Context
+export const PopUpContext = createContext(null)
+
+export function PopUpContextWrapper({ children }) {
+    const [popUp, setPopUp] = useState(false)
+
+    return (
+        <PopUpContext.Provider value={{ popUp, setPopUp }}>
+            {children}
+        </PopUpContext.Provider>
+    )
+}

@@ -12,7 +12,7 @@ export function MealDataContextWrapper({ children }) {
     // Fetching Special Dishes with API
     useEffect(() => {
         function getMenu() {
-            axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=c')
+            axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=s')
                 .then((res) => {
                     setMealsData(res.data.meals)
                     setSpecialDishesLoaded(true)

@@ -1,18 +1,18 @@
 import React, { useContext } from 'react'
-import { MealIdContext } from '../../Contexts/OtherContexts'
+import { MealIdContext, PopUpContext } from '../../Contexts/OtherContexts'
 
-function ItemCards({ item, setPopUp }) {
+function ItemCards({ item }) {
     const { setMealId } = useContext(MealIdContext)
+    const { setPopUp } = useContext(PopUpContext)
 
-    function cardClickHandle(e, item) {
-        e.preventDefault()
+    function HandleCardClick(item) {
         setMealId(item.idMeal)
         setPopUp(true)
     }
 
     // Rendering
     return (
-        <li onClick={(e) => cardClickHandle(e, item)}>
+        <li onClick={() => HandleCardClick(item)}>
             <img src={item.strMealThumb} alt="cousine-img" />
             <h5>{item.strMeal}</h5>
         </li>

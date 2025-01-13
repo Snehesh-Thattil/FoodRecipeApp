@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import './ItemPopUp.css'
-import { cartToggleContext, MealIdContext } from '../../Contexts/OtherContexts'
+import { cartToggleContext, MealIdContext, PopUpContext } from '../../Contexts/OtherContexts'
 import { MealIdDetailsContext } from '../../Contexts/MealIdDetailsContext'
 import { cartContext } from '../../Contexts/CartContext'
 import { wishlistsContext } from '../../Contexts/WishlistsContext'
 import { orderContext } from '../../Contexts/OrderContext'
 import { useNavigate } from 'react-router-dom'
 
-function ItemPop({ setPopUp }) {
+function ItemPop() {
 
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
     const { orderDispatch } = useContext(orderContext)
@@ -15,6 +15,7 @@ function ItemPop({ setPopUp }) {
     const { cartDispatch } = useContext(cartContext)
     const { setToggle } = useContext(cartToggleContext)
     const { wishlistDispatch } = useContext(wishlistsContext)
+    const { setPopUp } = useContext(PopUpContext)
 
     const navigate = useNavigate()
 

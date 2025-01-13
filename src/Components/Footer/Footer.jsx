@@ -63,7 +63,7 @@ function Footer() {
             <button>{country} <i className="fa-solid fa-caret-down"></i> </button>
             <div className="items">
               <li onClick={() => setCountry('India')}>India</li>
-              <li onClick={() => setCountry('Australia')}>England</li>
+              <li onClick={() => setCountry('England')}>England</li>
               <li onClick={() => setCountry('Germany')}>Germany</li>
               <li onClick={() => setCountry('USA')}>USA</li>
               <li onClick={() => setCountry('UAE')}>UAE</li>

@@ -1,6 +1,6 @@
 import './App.css';
 import Menu from './Components/Menu/Menu';
-import { CartToggleContextWrapper, ItemViewContextWrapper, MealIdContextWrapper } from './Contexts/OtherContexts';
+import { CartToggleContextWrapper, ItemViewContextWrapper, MealIdContextWrapper, PopUpContextWrapper } from './Contexts/OtherContexts';
 import { MealDataContextWrapper } from './Contexts/MealsDataContext';
 import { CartContextWrapper } from './Contexts/CartContext';
 import { WishlistsContextWrapper } from './Contexts/WishlistsContext';
@@ -20,23 +20,25 @@ function App() {
         <MealDataContextWrapper>
           <CategoriesContextWrapper>
             <AreasContextWrapper>
-              <ItemViewContextWrapper>
-                <MealIdContextWrapper>
-                  <MealIdDetailsContextWrapper>
-                    <CartToggleContextWrapper>
-                      <CartContextWrapper>
-                        <WishlistsContextWrapper>
-                          <OrderContextWrapper>
+              <PopUpContextWrapper>
+                <ItemViewContextWrapper>
+                  <MealIdContextWrapper>
+                    <MealIdDetailsContextWrapper>
+                      <CartToggleContextWrapper>
+                        <CartContextWrapper>
+                          <WishlistsContextWrapper>
+                            <OrderContextWrapper>
 
-                            <Menu />
+                              <Menu />
 
-                          </OrderContextWrapper>
-                        </WishlistsContextWrapper>
-                      </CartContextWrapper>
-                    </CartToggleContextWrapper>
-                  </MealIdDetailsContextWrapper>
-                </MealIdContextWrapper>
-              </ItemViewContextWrapper>
+                            </OrderContextWrapper>
+                          </WishlistsContextWrapper>
+                        </CartContextWrapper>
+                      </CartToggleContextWrapper>
+                    </MealIdDetailsContextWrapper>
+                  </MealIdContextWrapper>
+                </ItemViewContextWrapper>
+              </PopUpContextWrapper>
             </AreasContextWrapper>
           </CategoriesContextWrapper>
         </MealDataContextWrapper>

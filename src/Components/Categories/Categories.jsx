@@ -5,23 +5,24 @@ import Pagination from '../Pagination/Pagination'
 import ItemCards from '../ItemCards/ItemCards'
 import ItemPop from '../ItemPopUp/ItemPopUp'
 import { MealsDataContext } from '../../Contexts/MealsDataContext'
+import { PopUpContext } from '../../Contexts/OtherContexts'
 
 function Categories() {
     // From Contexts.js
     const { mealsData } = useContext(MealsDataContext)
     const { allCategoriesList } = useContext(CategoriesContext)
+    const { popUp, setPopUp } = useContext(PopUpContext)
 
     const [categoryDishes, setCategoryDishes] = useState([])
     const [activeCategory, setActiveCategory] = useState('Vegetarian')
-    const [popUp, setPopUp] = useState(false)
 
     // Pagination Codes
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPg, setCurrentPg] = useState(1)
     const [numberOfItems, setNumberOfItems] = useState(10)
     const [currentPgItems, setCurrentPgItems] = useState([])
 
     useEffect(() => {
-        let IndexOfLastItem = currentPage * numberOfItems
+        let IndexOfLastItem = currentPg * numberOfItems
         let IndexOfFirstItem = IndexOfLastItem - numberOfItems
 
         if (categoryDishes.length !== 0) {
@@ -30,7 +31,7 @@ function Categories() {
         } else {
             setCurrentPgItems([])
         }
-    }, [categoryDishes, currentPage, numberOfItems])
+    }, [categoryDishes, currentPg, numberOfItems])
 
     // Buttons of Categories
     let categoryLists = allCategoriesList.map((item, index) => {
@@ -42,12 +43,12 @@ function Categories() {
 
     // Filtering Selected Category Dishes
     useEffect(() => {
-        setCurrentPage(1) // change pageNum on category change
+        setCurrentPg(1) // change pageNum on category change
         let Dishes = mealsData.filter((item) => {
             return item.strCategory === activeCategory
         }).map((item, index) => {
             return (
-                <ItemCards key={index} item={item} setPopUp={setPopUp} /> // Componentization of Cards
+                <ItemCards key={index} item={item} /> // Componentization of Cards
             )
         })
         setCategoryDishes(Dishes)
@@ -79,10 +80,10 @@ function Categories() {
                 </ul>
             </div>
 
-            <Pagination categoryDishes={categoryDishes}
+            <Pagination dishesArray={categoryDishes}
                 numberOfItems={numberOfItems}
-                setCurrentPage={setCurrentPage}
-                currentPage={currentPage}
+                setCurrentPg={setCurrentPg}
+                currentPg={currentPg}
                 setNumberOfItems={setNumberOfItems} />
         </section>
     )
