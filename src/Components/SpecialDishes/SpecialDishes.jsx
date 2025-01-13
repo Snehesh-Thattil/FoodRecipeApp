@@ -9,7 +9,7 @@ function SpecialDishes() {
     const { mealsData } = useContext(MealsDataContext)
 
     let specialDishes = mealsData.map((item, index) => {
-        if (index > 10 && index < 19) {
+        if (index > 2 && index < 11) {
             return (
                 <ItemCards key={index} item={item} setPopUp={setPopUp} /> // Componentization of Cards
             )

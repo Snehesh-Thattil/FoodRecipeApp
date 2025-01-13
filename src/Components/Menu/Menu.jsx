@@ -12,6 +12,7 @@ import Cart from '../Cart/Cart'
 import Footer from '../Footer/Footer'
 import Wishlists from '../Wishlists/Wishlists'
 import Checkout from '../Checkout/Checkout'
+import Seperator from '../../Resources/Seperator'
 
 function Menu() {
 
@@ -24,9 +25,16 @@ function Menu() {
                         <CartToggle />
                         <Landing />
                         <PanelCart />
+
                         <SpecialDishes />
+                        <Seperator />
+
                         <Categories />
+                        <Seperator />
+
                         <Areas />
+                        <Seperator />
+                        
                         <Footer />
                     </>
                 } />

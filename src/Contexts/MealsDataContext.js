@@ -7,29 +7,32 @@ export const MealsDataContext = createContext(null)
 
 export function MealDataContextWrapper({ children }) {
     const [mealsData, setMealsData] = useState()
-    const [specialDishesLoaded, setSpecialDishesLoaded] = useState(false)
+    const [dishesLoaded, setDishesLoaded] = useState(false)
 
     // Fetching Dishes with API
     useEffect(() => {
-        axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=s')
-            .then((res) => {
-                setMealsData(res.data.meals)
-                setSpecialDishesLoaded(true)
-            })
-            .then(() => {
-                axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=c')
-                    .then((res) => {
-                        setMealsData((prevMeals) => [...prevMeals, ...res.data.meals])
-                    })
-            })
-            .catch((err) => {
+        async function getMealData() {
+            try {
+                const [res1, res2, res3, res4] = await Promise.all([ // API doesn't allow to access all meals together
+                    axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=f'),
+                    axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=c'),
+                    axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=b'),
+                    axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=s')
+                ])
+                setMealsData([...res1.data.meals, ...res2.data.meals, ...res3.data.meals, ...res4.data.meals])
+                setDishesLoaded(true)
+            }
+            catch (err) {
                 console.log(err.message)
-            })
-    }, [setSpecialDishesLoaded, setMealsData])
+            }
+        }
+        getMealData()
+
+    }, [setDishesLoaded, setMealsData])
 
     return (
         <MealsDataContext.Provider value={{ mealsData, setMealsData }}>
-            {specialDishesLoaded ? children : <Loader />}
+            {dishesLoaded ? children : <Loader />}
         </MealsDataContext.Provider>
     )
 }
