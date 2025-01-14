@@ -1,10 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Header.css'
 import { useNavigate } from 'react-router-dom'
 
 function Header() {
-  const [location, setLocation] = useState('Bangalore')
+  const [location, setLocation] = useState('Location')
   const navigate = useNavigate()
+
+  function HandleLocationChange(location) {
+    setLocation(location)
+    localStorage.setItem("location", location)
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("location")) {
+      let locationFetch = localStorage.getItem("location")
+      setLocation(locationFetch)
+    }
+  }, [])
+
   return (
     <div className='Navbar'>
       <li className='icon' onClick={() => navigate('/')}>🧑‍🍳</li>
@@ -12,26 +25,26 @@ function Header() {
         <li onClick={() => navigate('/')}> Home 🏠</li>
 
         <div className="location">
-          <li onClick={() => navigate('/location')}> {location} 🔍</li>
+          <li onClick={() => navigate('/')}> {location} 🔍</li>
           <div className="locations">
-            <button onClick={() => setLocation('Kochi')}>Kochi</button>
-            <button onClick={() => setLocation('Calicut')}>Calicut</button>
-            <button onClick={() => setLocation('Bangalore')}>Bangalore</button>
-            <button onClick={() => setLocation('Chennai')}>Chennai</button>
-            <button onClick={() => setLocation('Delhi')}>Delhi</button>
-            <button onClick={() => setLocation('Mumbai')}>Mumbai</button>
-            <button onClick={() => setLocation('Pune')}>Pune</button>
-            <button onClick={() => setLocation('Kolkata')}>Kolkata</button>
-            <button onClick={() => setLocation('Hyderabad')}>Hyderabad</button>
-            <button onClick={() => setLocation('Jaipur')}>Jaipur</button>
-            <button onClick={() => setLocation('Ahmedabad')}>Ahmedabad</button>
-            <button onClick={() => setLocation('Lucknow')}>Lucknow</button>
-            <button onClick={() => setLocation('Bhopal')}>Bhopal</button>
-            <button onClick={() => setLocation('Coimbatore')}>Coimbatore</button>
-            <button onClick={() => setLocation('Amritsar')}>Amritsar</button>
+            <button onClick={() => HandleLocationChange('Kochi')}>Kochi</button>
+            <button onClick={() => HandleLocationChange('Calicut')}>Calicut</button>
+            <button onClick={() => HandleLocationChange('Bangalore')}>Bangalore</button>
+            <button onClick={() => HandleLocationChange('Chennai')}>Chennai</button>
+            <button onClick={() => HandleLocationChange('Delhi')}>Delhi</button>
+            <button onClick={() => HandleLocationChange('Mumbai')}>Mumbai</button>
+            <button onClick={() => HandleLocationChange('Pune')}>Pune</button>
+            <button onClick={() => HandleLocationChange('Kolkata')}>Kolkata</button>
+            <button onClick={() => HandleLocationChange('Hyderabad')}>Hyderabad</button>
+            <button onClick={() => HandleLocationChange('Jaipur')}>Jaipur</button>
+            <button onClick={() => HandleLocationChange('Ahmedabad')}>Ahmedabad</button>
+            <button onClick={() => HandleLocationChange('Lucknow')}>Lucknow</button>
+            <button onClick={() => HandleLocationChange('Bhopal')}>Bhopal</button>
+            <button onClick={() => HandleLocationChange('Coimbatore')}>Coimbatore</button>
+            <button onClick={() => HandleLocationChange('Amritsar')}>Amritsar</button>
           </div>
         </div>
-        
+
         <li onClick={() => navigate('/wishlists')}> Wishlists 🩶</li>
         <li onClick={() => navigate('/cart')}> Cart 🛒</li>
       </ul>

@@ -1,12 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Footer.css'
 import appstoreImg from '../../Resources/appstore_link.jpg'
 import playstoreImg from '../../Resources/playstore_link.jpg'
 
 function Footer() {
-  const [country, setCountry] = useState('India')
-  const [lang, setLang] = useState('English')
+  const [country, setCountry] = useState('Country')
+  const [lang, setLang] = useState('Language')
 
+  function HandleCountryChange(country) {
+    setCountry(country)
+    localStorage.setItem("country", country)
+  }
+
+  function HandleLanguageChange(language) {
+    setLang(language)
+    localStorage.setItem("language", language)
+  }
+
+  useEffect(() => {
+    let fetchCountry = localStorage.getItem("country")
+    if (fetchCountry) {
+      setCountry(fetchCountry)
+    }
+
+    let fetchLanguage = localStorage.getItem("language")
+    if (fetchLanguage) {
+      setLang(fetchLanguage)
+    }
+  }, [])
+
+  // Rendering
   return (
     <div className='footer'>
 
@@ -62,21 +85,21 @@ function Footer() {
           <div className="dropdown">
             <button>{country} <i className="fa-solid fa-caret-down"></i> </button>
             <div className="items">
-              <li onClick={() => setCountry('India')}>India</li>
-              <li onClick={() => setCountry('England')}>England</li>
-              <li onClick={() => setCountry('Germany')}>Germany</li>
-              <li onClick={() => setCountry('USA')}>USA</li>
-              <li onClick={() => setCountry('UAE')}>UAE</li>
+              <li onClick={() => HandleCountryChange('India')}>India</li>
+              <li onClick={() => HandleCountryChange('England')}>England</li>
+              <li onClick={() => HandleCountryChange('Germany')}>Germany</li>
+              <li onClick={() => HandleCountryChange('USA')}>USA</li>
+              <li onClick={() => HandleCountryChange('UAE')}>UAE</li>
             </div>
           </div>
 
           <div className="dropdown">
             <button>{lang} <i className="fa-solid fa-caret-down"></i> </button>
             <div className="items">
-              <li onClick={() => setLang('English')}>English</li>
-              <li onClick={() => setLang('Hindi')}>Hindi</li>
-              <li onClick={() => setLang('German')}>German</li>
-              <li onClick={() => setLang('Arabic')}>Arabic</li>
+              <li onClick={() => HandleLanguageChange('English')}>English</li>
+              <li onClick={() => HandleLanguageChange('Hindi')}>Hindi</li>
+              <li onClick={() => HandleLanguageChange('German')}>German</li>
+              <li onClick={() => HandleLanguageChange('Arabic')}>Arabic</li>
             </div>
           </div>
 
