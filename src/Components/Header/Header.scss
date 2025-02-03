@@ -26,8 +26,7 @@ header {
         display: flex;
         height: 100%;
 
-        li,
-        .location {
+        li {
             width: 100%;
             min-width: 10rem;
             font-weight: 600;
@@ -39,14 +38,6 @@ header {
             cursor: pointer;
             color: white;
             transition: all ease-in-out .35s;
-
-            &:hover {
-                background-color: orange;
-            }
-        }
-
-        .location {
-            padding: 0;
 
             .locations {
                 display: none;
@@ -84,13 +75,17 @@ header {
                 }
             }
 
-            &_clicked {
-                display: flex;
+            &:hover {
+                background-color: orange;
             }
 
             &:hover .locations {
                 display: flex;
             }
+        }
+
+        .location {
+            padding: 0;
         }
     }
 }
@@ -164,6 +159,10 @@ header {
                     left: 1rem;
                     right: 1rem;
                 }
+
+                &_clicked .locations {
+                    display: flex;
+                }
             }
         }
     }
@@ -179,6 +178,10 @@ header {
                     top: 35vh;
                     left: 10rem;
                     right: 10rem;
+                }
+
+                &_clicked .locations {
+                    display: flex;
                 }
             }
         }

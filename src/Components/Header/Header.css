@@ -23,8 +23,7 @@ header ul {
   display: flex;
   height: 100%;
 }
-header ul li,
-header ul .location {
+header ul li {
   width: 100%;
   min-width: 10rem;
   font-weight: 600;
@@ -37,14 +36,7 @@ header ul .location {
   color: white;
   transition: all ease-in-out 0.35s;
 }
-header ul li:hover,
-header ul .location:hover {
-  background-color: orange;
-}
-header ul .location {
-  padding: 0;
-}
-header ul .location .locations {
+header ul li .locations {
   display: none;
   flex-wrap: wrap;
   align-items: center;
@@ -57,7 +49,7 @@ header ul .location .locations {
   top: 4rem;
   right: 5rem;
 }
-header ul .location .locations button {
+header ul li .locations button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,15 +64,18 @@ header ul .location .locations button {
   cursor: pointer;
   transition: all ease-in-out 0.25s;
 }
-header ul .location .locations button:hover {
+header ul li .locations button:hover {
   background-color: black;
   color: white;
 }
-header ul .location_clicked {
+header ul li:hover {
+  background-color: orange;
+}
+header ul li:hover .locations {
   display: flex;
 }
-header ul .location:hover .locations {
-  display: flex;
+header ul .location {
+  padding: 0;
 }
 
 .nav-btn {
@@ -146,6 +141,9 @@ header ul .location:hover .locations {
     left: 1rem;
     right: 1rem;
   }
+  header .nav-items .location_clicked .locations {
+    display: flex;
+  }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   header .nav-items .location .locations {
@@ -154,5 +152,8 @@ header ul .location:hover .locations {
     top: 35vh;
     left: 10rem;
     right: 10rem;
+  }
+  header .nav-items .location_clicked .locations {
+    display: flex;
   }
 }/*# sourceMappingURL=Header.css.map */

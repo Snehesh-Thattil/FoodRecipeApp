@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 function Header() {
   const [location, setLocation] = useState('Location')
   const navRef = useRef()
+  const locationLiRef = useRef()
   const navigate = useNavigate()
 
   // Change location by selection
@@ -21,22 +22,26 @@ function Header() {
     }
   }, [])
 
-  // Handle Navbar collapse when clicking outside
+  // Handle Navbar collapsing
   useEffect(() => {
-    const HandleClickOutside = (event) => {
+    const HandleClickOutside = (event) => { // Click outside nav panel
       if (navRef.current && !navRef.current.contains(event.target)) {
         navRef.current.classList.remove('toggle')
+        locationLiRef.current.classList.remove('location_clicked')
       }
     }
 
-    const HandleNavClick = (e) => {
-      console.log(e.target.classList[0])
-      if (e.target.classList[0] !== 'location-li') {
+    const HandleNavClick = (event) => { // Click nav Li items
+      if (!event.target.classList.contains('location') && !event.target.classList.contains('span')) {
         navRef.current.classList.remove('toggle')
+        locationLiRef.current.classList.remove('location_clicked')
+      } else {
+        locationLiRef.current.classList.add('location_clicked')
       }
     }
 
     document.addEventListener('mousedown', HandleClickOutside)
+
     document.querySelectorAll('.nav-items li').forEach((link) => {
       link.addEventListener('click', (e) => HandleNavClick(e))
     })
@@ -56,8 +61,8 @@ function Header() {
 
       <ul className='nav-items' ref={navRef}>
         <li onClick={() => navigate('/')}> Home 🏠</li>
-        <div className="location">
-          <li onClick={() => navigate('/')}> {location} 🔍</li>
+        <li className="location" ref={locationLiRef}>
+          <span className='span' onClick={() => navigate('/')}> {location} 🔍</span>
           <div className="locations">
             <button onClick={() => HandleLocationChange('Kochi')}>Kochi</button>
             <button onClick={() => HandleLocationChange('Calicut')}>Calicut</button>
@@ -75,7 +80,7 @@ function Header() {
             <button onClick={() => HandleLocationChange('Coimbatore')}>Coimbatore</button>
             <button onClick={() => HandleLocationChange('Amritsar')}>Amritsar</button>
           </div>
-        </div>
+        </li>
         <li onClick={() => navigate('/wishlists')}> Wishlists 🩶</li>
         <li onClick={() => navigate('/cart')}> Cart 🛒</li>
 
