@@ -7,15 +7,13 @@ function Header() {
   const navRef = useRef()
   const navigate = useNavigate()
 
+  // Change location by selection
   function HandleLocationChange(location) {
     setLocation(location)
     localStorage.setItem("location", location)
   }
 
-  function HandleToggle() {
-    navRef.current.classList.toggle('toggle')
-  }
-
+  // Get Item from LocalStorage
   useEffect(() => {
     if (localStorage.getItem("location")) {
       let locationFetch = localStorage.getItem("location")
@@ -23,13 +21,41 @@ function Header() {
     }
   }, [])
 
+  // Handle Navbar collapse when clicking outside
+  useEffect(() => {
+    const HandleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        navRef.current.classList.remove('toggle')
+      }
+    }
+
+    const HandleNavClick = (e) => {
+      console.log(e.target.classList[0])
+      if (e.target.classList[0] !== 'location-li') {
+        navRef.current.classList.remove('toggle')
+      }
+    }
+
+    document.addEventListener('mousedown', HandleClickOutside)
+    document.querySelectorAll('.nav-items li').forEach((link) => {
+      link.addEventListener('click', (e) => HandleNavClick(e))
+    })
+
+    return () => {
+      document.addEventListener('mousedown', HandleClickOutside)
+      document.querySelectorAll('.nav-items li').forEach((link) => {
+        link.addEventListener('click', HandleNavClick)
+      })
+    }
+  }, [])
+
+  //Rendering
   return (
     <header>
       <li className='icon' onClick={() => navigate('/')}>🧑‍🍳</li>
 
       <ul className='nav-items' ref={navRef}>
         <li onClick={() => navigate('/')}> Home 🏠</li>
-
         <div className="location">
           <li onClick={() => navigate('/')}> {location} 🔍</li>
           <div className="locations">
@@ -50,15 +76,15 @@ function Header() {
             <button onClick={() => HandleLocationChange('Amritsar')}>Amritsar</button>
           </div>
         </div>
-
         <li onClick={() => navigate('/wishlists')}> Wishlists 🩶</li>
         <li onClick={() => navigate('/cart')}> Cart 🛒</li>
 
-        {/* <button className='nav-btn nav-close-btn' onClick={HandleToggle}>
-          <i className="fa-solid fa-circle-xmark" />
-        </button> */}
+        <button className='nav-btn nav-close-btn' onClick={() => navRef.current.classList.remove('toggle')}>
+          <i className="fa-solid fa-square-xmark"></i>
+        </button>
       </ul>
-      <button className='nav-btn' onClick={HandleToggle}>
+
+      <button className='nav-btn' onClick={() => navRef.current.classList.toggle('toggle')}>
         <i className="fa-solid fa-bars" />
       </button>
     </header>

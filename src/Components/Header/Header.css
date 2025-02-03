@@ -1,12 +1,12 @@
 header {
   width: 100%;
   height: 4rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.226);
-  z-index: 5;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,7 +25,8 @@ header ul {
 }
 header ul li,
 header ul .location {
-  min-width: 7.5rem;
+  width: 100%;
+  min-width: 10rem;
   font-weight: 600;
   height: 100%;
   display: flex;
@@ -75,6 +76,9 @@ header ul .location .locations button:hover {
   background-color: black;
   color: white;
 }
+header ul .location_clicked {
+  display: flex;
+}
 header ul .location:hover .locations {
   display: flex;
 }
@@ -84,15 +88,27 @@ header ul .location:hover .locations {
   visibility: hidden;
   opacity: 0;
   padding: 5px 7.5px;
-  scale: 2;
-  background-color: #ffb904;
-  margin: 0 2.5rem;
+  scale: 1.1;
+  background-color: rgb(236, 227, 227);
+  margin: 1rem;
   outline: none;
   border: none;
   border-radius: 2.5px;
 }
 
-@media (max-width: 1023px) {
+.nav-close-btn {
+  position: absolute;
+  top: 0.51rem;
+  right: 0.51rem;
+  scale: 2;
+  padding: 5px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
   .nav-btn {
     display: block;
     visibility: visible;
@@ -102,26 +118,41 @@ header ul .location:hover .locations {
     width: 100%;
   }
   header .nav-items {
+    z-index: 4;
     position: fixed;
     top: 0;
     right: 0;
     width: 100%;
-    height: 100%;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    background-color: #ffb904;
+    background-color: rgba(255, 196, 48, 0.9607843137);
     transition: 0.5s ease-in-out;
     transform: translateY(-100vh);
   }
   header .nav-items.toggle {
     transform: none;
   }
-  .nav-close-btn {
+  header .nav-items li {
+    width: 100%;
+    color: black;
+  }
+  header .nav-items .location .locations {
+    max-width: 95%;
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 35vh;
+    left: 1rem;
+    right: 1rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  header .nav-items .location .locations {
+    max-width: 95%;
+    position: absolute;
+    top: 35vh;
+    left: 10rem;
+    right: 10rem;
   }
 }/*# sourceMappingURL=Header.css.map */
