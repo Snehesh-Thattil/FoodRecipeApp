@@ -73,27 +73,20 @@
 .popUp_content .dishName .sourcebuttons {
   display: flex;
 }
-.popUp_content .dishName .sourcebuttons button {
+.popUp_content .dishName .sourcebuttons a {
   margin: 0 5px;
-  border-radius: 50%;
   border-radius: 15px 5px 15px 5px;
   padding: 10px;
   border: none;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: small;
   background-color: black;
   color: white;
   transition: all ease-in-out 0.25s;
 }
-.popUp_content .dishName .sourcebuttons button a {
-  text-decoration: none;
-  color: white;
-}
-.popUp_content .dishName .sourcebuttons button:hover {
+.popUp_content .dishName .sourcebuttons a:hover {
   background-color: rgb(255, 239, 239);
-  color: black;
-}
-.popUp_content .dishName .sourcebuttons button:hover a {
   color: black;
 }
 .popUp_content .recipe {

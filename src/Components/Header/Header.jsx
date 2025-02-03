@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Header.css'
 import { useNavigate } from 'react-router-dom'
 
 function Header() {
   const [location, setLocation] = useState('Location')
+  const navRef = useRef()
   const navigate = useNavigate()
 
   function HandleLocationChange(location) {
     setLocation(location)
     localStorage.setItem("location", location)
+  }
+
+  function HandleToggle() {
+    navRef.current.classList.toggle('toggle')
   }
 
   useEffect(() => {
@@ -19,9 +24,10 @@ function Header() {
   }, [])
 
   return (
-    <div className='Navbar'>
+    <header>
       <li className='icon' onClick={() => navigate('/')}>🧑‍🍳</li>
-      <ul>
+
+      <ul className='nav-items' ref={navRef}>
         <li onClick={() => navigate('/')}> Home 🏠</li>
 
         <div className="location">
@@ -47,8 +53,15 @@ function Header() {
 
         <li onClick={() => navigate('/wishlists')}> Wishlists 🩶</li>
         <li onClick={() => navigate('/cart')}> Cart 🛒</li>
+
+        <button className='nav-btn nav-close-btn' onClick={HandleToggle}>
+          <i className="fa-solid fa-circle-xmark" />
+        </button>
       </ul>
-    </div>
+      <button className='nav-btn' onClick={HandleToggle}>
+        <i class="fa-solid fa-bars" />
+      </button>
+    </header>
   )
 }
 

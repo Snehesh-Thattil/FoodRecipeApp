@@ -78,30 +78,21 @@
             .sourcebuttons {
                 display: flex;
 
-                button {
+                a {
                     margin: 0 5px;
-                    border-radius: 50%;
                     border-radius: 15px 5px 15px 5px;
                     padding: 10px;
                     border: none;
                     cursor: pointer;
-                    font-weight: bold;
+                    font-weight: 600;
+                    font-size: small;
                     background-color: black;
                     color: white;
                     transition: all ease-in-out .25s;
 
-                    a {
-                        text-decoration: none;
-                        color: white;
-                    }
-
                     &:hover {
                         background-color: rgb(255, 239, 239);
                         color: black;
-
-                        a {
-                            color: black;
-                        }
                     }
                 }
             }

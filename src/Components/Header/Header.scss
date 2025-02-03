@@ -1,5 +1,5 @@
-.Navbar {
-    width: 100vw;
+header {
+    width: 100%;
     height: 4rem;
     position: absolute;
     top: 0;
@@ -86,5 +86,56 @@
                 display: flex;
             }
         }
+    }
+}
+
+.nav-btn {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    padding: 5px 7.5px;
+    scale: 2;
+    background-color: #ffb904;
+    margin: 0 2.5rem;
+    outline: none;
+    border: none;
+    border-radius: 2.5px;
+}
+
+@media(max-width:1023px) {
+    .nav-btn {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header {
+        width: 100%;
+
+        .nav-items {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            background-color: #ffb904;
+            transition: .5s ease-in-out;
+            transform: translateY(-100vh);
+
+            &.toggle {
+                transform: none;
+            }
+        }
+    }
+
+    .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
     }
 }

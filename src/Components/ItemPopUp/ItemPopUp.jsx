@@ -80,15 +80,11 @@ function ItemPop() {
                     <h2>{idMealDetails.strMeal}</h2>
 
                     <div className="sourcebuttons">
-                        {[
-                            { label: '↗️ Website', url: idMealDetails.strSource },
-                            { label: '▶️ Youtube', url: idMealDetails.strYoutube }
-                        ]
+                        {[{ label: '↗️ Website', url: idMealDetails.strSource },
+                        { label: '▶️ Youtube', url: idMealDetails.strYoutube }]
                             .filter((item) => item.url)
                             .map((link, index) => (
-                                <button key={index}>
-                                    <a href={link.url} target='_blank' rel='noopener noreferrer'>{link.label}</a>
-                                </button>
+                                <a href={link.url} target='_blank' rel='noopener noreferrer' key={index}>{link.label}</a>
                             ))}
                     </div>
                 </div>

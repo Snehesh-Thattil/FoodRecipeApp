@@ -9,15 +9,13 @@
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transform: translateY(-30%);
 }
 .Landing_tagline {
   position: absolute;
   max-width: 400px;
   text-align: justify;
-  top: 50%;
+  top: 40%;
   left: 50px;
-  transform: translateY(-50%);
   color: rgb(231, 224, 224);
 }
 .Landing_tagline h2 {

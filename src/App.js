@@ -15,6 +15,7 @@ function App() {
     <div className="App">
       <Router future={{
         v7_relativeSplatPath: true,
+        v7_startTransition: true,
       }}>
 
         <MealDataContextWrapper>
