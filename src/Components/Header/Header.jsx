@@ -54,12 +54,12 @@ function Header() {
         <li onClick={() => navigate('/wishlists')}> Wishlists 🩶</li>
         <li onClick={() => navigate('/cart')}> Cart 🛒</li>
 
-        <button className='nav-btn nav-close-btn' onClick={HandleToggle}>
+        {/* <button className='nav-btn nav-close-btn' onClick={HandleToggle}>
           <i className="fa-solid fa-circle-xmark" />
-        </button>
+        </button> */}
       </ul>
       <button className='nav-btn' onClick={HandleToggle}>
-        <i class="fa-solid fa-bars" />
+        <i className="fa-solid fa-bars" />
       </button>
     </header>
   )

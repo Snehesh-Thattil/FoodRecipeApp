@@ -75,4 +75,19 @@
 
 .areaskajsv {
   background-color: rgba(255, 184, 4, 0.6901960784);
+}
+
+@media (max-width: 768px) {
+  .areas_view ul li {
+    width: 45%;
+  }
+}
+@media (max-width: 480px) {
+  .areas_list ul li {
+    padding: 10px 20px;
+    margin: 5px;
+  }
+  .areas_view ul li {
+    width: 30%;
+  }
 }/*# sourceMappingURL=Areas.css.map */

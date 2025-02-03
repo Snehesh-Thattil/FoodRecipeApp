@@ -1,6 +1,6 @@
 .cartTogglediv {
   position: absolute;
-  top: 61vh;
+  top: 71vh;
   right: 0;
   z-index: 1;
   transition: all ease-in-out 0.5;

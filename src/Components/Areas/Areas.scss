@@ -86,6 +86,24 @@
     }
 }
 
-.areaskajsv{
+.areaskajsv {
     background-color: #ffb804b0;
+}
+
+// MediaQueries
+@media (max-width: 768px) {
+    .areas_view ul li {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .areas_list ul li {
+        padding: 10px 20px;
+        margin: 5px;
+    }
+
+    .areas_view ul li {
+        width: 30%;
+    }
 }

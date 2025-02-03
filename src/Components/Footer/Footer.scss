@@ -1,6 +1,6 @@
 .footer {
     width: 100%;
-    height: 30rem;
+    height: auto;
     background-color: #ffb904;
     padding: 2rem 5rem;
 
@@ -179,6 +179,51 @@
             margin: auto;
             background-color: white;
             border-radius: 5px;
+        }
+    }
+}
+
+// MediaQueries
+@media (max-width: 768px) {
+    .footer {
+        height: auto;
+        padding: 2rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr .5fr .75fr .5fr;
+        gap: 0rem;
+
+        .brand,
+        .resturants,
+        .links,
+        .bottom {
+            grid-column: 1/1;
+        }
+
+        .brand,
+        .resturants {
+            border-radius: 15px;
+            padding: 0;
+            justify-content: space-evenly;
+            position: relative;
+            gap: .75rem;
+        }
+
+        .brand {
+            grid-row: 1/1;
+            padding-top: 2rem;
+        }
+
+        .resturants {
+            grid-row: 2/2;
+            margin-bottom: 2rem;
+        }
+
+        .links {
+            grid-row: 3/3;
+        }
+
+        .bottom {
+            grid-row: 4/4;
         }
     }
 }

@@ -71,4 +71,19 @@
 }
 .categories_view ul li h5 {
   margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .categories_view ul li {
+    width: 45%;
+  }
+}
+@media (max-width: 480px) {
+  .categories_list ul li {
+    padding: 10px 20px;
+    margin: 5px;
+  }
+  .categories_view ul li {
+    width: 30%;
+  }
 }/*# sourceMappingURL=Categories.css.map */

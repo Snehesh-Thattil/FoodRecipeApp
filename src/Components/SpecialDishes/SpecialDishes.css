@@ -31,4 +31,18 @@
 }
 .SpecialDishes_list ul li h4 {
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .SpecialDishes_list ul li {
+    width: 45%;
+  }
+}
+@media (max-width: 480px) {
+  .SpecialDishes {
+    margin-top: 50px;
+  }
+  .SpecialDishes_list ul li {
+    width: 45%;
+  }
 }/*# sourceMappingURL=SpecialDishes.css.map */
