@@ -75,4 +75,10 @@
   color: white;
   cursor: default;
   transform: scale(0.75);
+}
+
+@media screen and (max-width: 1024px) {
+  .editCount {
+    margin-bottom: 2rem;
+  }
 }/*# sourceMappingURL=Pagination.css.map */

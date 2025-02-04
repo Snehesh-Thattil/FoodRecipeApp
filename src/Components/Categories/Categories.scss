@@ -86,14 +86,9 @@
     }
 }
 
-// MediaQueries
-@media (max-width: 768px) {
-    .categories_view ul li {
-        width: 45%;
-    }
-}
 
-@media (max-width: 480px) {
+// MEDIA QUERIES - DESIGNING RESPONSIVENESS
+@media screen and (max-width: 1024px) {
     .categories_list ul li {
         padding: 10px 20px;
         margin: 5px;

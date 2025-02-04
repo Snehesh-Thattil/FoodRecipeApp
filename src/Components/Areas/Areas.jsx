@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import './Areas.css'
 import { AreasContext } from '../../Contexts/AreasContext'
 import { MealsDataContext } from '../../Contexts/MealsDataContext'
@@ -14,10 +14,11 @@ function Areas() {
 
     const [areaDishes, setAreaDishes] = useState([])
     const [activeArea, setActiveArea] = useState('Indian')
+    const areaDishesRef = useRef()
 
     // Pagination
-    const [numberOfItems, setNumberOfItems] = useState(10)
     const [currentPg, setCurrentPg] = useState(1)
+    const [numberOfItems, setNumberOfItems] = useState(() => window.innerWidth > 1024 ? 10 : 6)
     const [currentPgItems, setCurrentPgItems] = useState([])
 
     useEffect(() => {
@@ -32,11 +33,23 @@ function Areas() {
         }
     }, [areaDishes, currentPg, numberOfItems])
 
+
+    // Handle selection of an Area
+    function handleAreaClick(Area) {
+        setActiveArea(Area)
+        setCurrentPg(1)
+
+        areaDishesRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+    }
+
     // Buttons of Areas
     let areasLists = allAreasList.map((item, index) => {
         return (
             <li className={activeArea === item.strArea ? 'active' : ''} key={index}
-                onClick={() => setActiveArea(item.strArea)}>{item.strArea}</li>
+                onClick={() => handleAreaClick(item.strArea)}>{item.strArea}</li>
         )
     })
 
@@ -66,12 +79,12 @@ function Areas() {
                 </ul>
             </div>
 
-            <div className="areas_view">
+            <div className="areas_view" ref={areaDishesRef}>
                 <ul>
                     {currentPgItems.length !== 0 ? currentPgItems :
                         <div className='areas_view_empty'>
                             <h2>No Dishes Found</h2>
-                            <p> <strong>Try Another Category</strong></p>
+                            <p> <strong>Try Other Areas</strong></p>
                         </div>
                     }
                 </ul>

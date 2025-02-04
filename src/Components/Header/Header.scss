@@ -1,17 +1,21 @@
 header {
     width: 100%;
     height: 4rem;
-    // position: absolute;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.226);
+    background: rgba(0, 0, 0, 0.39);
     z-index: 3;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &.show {
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.904);
+    }
 
     .icon {
         margin: 0 30px;

@@ -91,3 +91,11 @@
         }
     }
 }
+
+
+// MEDIA QUERIES - DESIGNING RESPONSIVENESS
+@media screen and (max-width: 1024px) {
+    .editCount {
+        margin-bottom: 2rem;
+    }
+}

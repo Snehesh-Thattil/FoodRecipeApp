@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 function Header() {
   const [location, setLocation] = useState('Location')
+  const headerRef = useRef()
   const navRef = useRef()
   const locationLiRef = useRef()
   const navigate = useNavigate()
@@ -22,21 +23,21 @@ function Header() {
     }
   }, [])
 
-  // Handle Navbar collapsing
+  // Handle Navbar panel collapsing
   useEffect(() => {
     const HandleClickOutside = (event) => { // Click outside nav panel
       if (navRef.current && !navRef.current.contains(event.target)) {
-        navRef.current.classList.remove('toggle')
-        locationLiRef.current.classList.remove('location_clicked')
+        navRef.current?.classList.remove('toggle')
+        locationLiRef.current?.classList.remove('location_clicked')
       }
     }
 
     const HandleNavClick = (event) => { // Click nav Li items
       if (!event.target.classList.contains('location') && !event.target.classList.contains('span')) {
-        navRef.current.classList.remove('toggle')
-        locationLiRef.current.classList.remove('location_clicked')
+        navRef.current?.classList.remove('toggle')
+        locationLiRef.current?.classList.remove('location_clicked')
       } else {
-        locationLiRef.current.classList.add('location_clicked')
+        locationLiRef.current?.classList.add('location_clicked')
       }
     }
 
@@ -54,14 +55,41 @@ function Header() {
     }
   }, [])
 
+  // Navbar show-hide based on scroll direction
+  useEffect(() => {
+    let lastScroll = window.scrollY
+
+    function HandleNavbarOnScroll() {
+      let currentScroll = window.scrollY
+
+      if (currentScroll === 0) {
+        headerRef.current.classList?.remove('show') //On the top
+      }
+      else if (lastScroll > currentScroll) {
+        headerRef.current.classList?.add('show') //Scroll Up
+      }
+      else {
+        headerRef.current.classList?.remove('show') //Scroll down
+      }
+
+      lastScroll = currentScroll
+    }
+
+    document.addEventListener('scroll', HandleNavbarOnScroll)
+
+    return () => {
+      document.addEventListener('scroll', HandleNavbarOnScroll)
+    }
+  }, [])
+
   //Rendering
   return (
-    <header>
+    <header ref={headerRef}>
       <li className='icon' onClick={() => navigate('/')}>🧑‍🍳</li>
 
       <ul className='nav-items' ref={navRef}>
         <li onClick={() => navigate('/')}> Home 🏠</li>
-        <li className="location" ref={locationLiRef}>
+        <li className="location" ref={locationLiRef} onClick={() => navigate('/')}>
           <span className='span' onClick={() => navigate('/')}> {location} 🔍</span>
           <div className="locations">
             <button onClick={() => HandleLocationChange('Kochi')}>Kochi</button>
@@ -84,7 +112,7 @@ function Header() {
         <li onClick={() => navigate('/wishlists')}> Wishlists 🩶</li>
         <li onClick={() => navigate('/cart')}> Cart 🛒</li>
 
-        <button className='nav-btn nav-close-btn' onClick={() => navRef.current.classList.remove('toggle')}>
+        <button className='nav-btn nav-close-btn' onClick={() => navRef.current.classList.toggle('toggle')}>
           <i className="fa-solid fa-square-xmark"></i>
         </button>
       </ul>

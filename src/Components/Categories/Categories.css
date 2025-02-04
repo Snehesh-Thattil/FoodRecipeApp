@@ -73,12 +73,7 @@
   margin-left: 5px;
 }
 
-@media (max-width: 768px) {
-  .categories_view ul li {
-    width: 45%;
-  }
-}
-@media (max-width: 480px) {
+@media screen and (max-width: 1024px) {
   .categories_list ul li {
     padding: 10px 20px;
     margin: 5px;

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import './Categories.css'
 import { CategoriesContext } from '../../Contexts/CategoriesContext'
 import Pagination from '../Pagination/Pagination'
@@ -15,10 +15,11 @@ function Categories() {
 
     const [categoryDishes, setCategoryDishes] = useState([])
     const [activeCategory, setActiveCategory] = useState('Vegetarian')
+    const categoryDishesRef = useRef()
 
     // Pagination Codes
     const [currentPg, setCurrentPg] = useState(1)
-    const [numberOfItems, setNumberOfItems] = useState(10)
+    const [numberOfItems, setNumberOfItems] = useState(() => window.innerWidth > 1024 ? 10 : 6)
     const [currentPgItems, setCurrentPgItems] = useState([])
 
     useEffect(() => {
@@ -33,11 +34,22 @@ function Categories() {
         }
     }, [categoryDishes, currentPg, numberOfItems])
 
+    // Handle selection of a Category
+    function handleCategoryClick(Category) {
+        setActiveCategory(Category)
+        setCurrentPg(1)
+
+        categoryDishesRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+    }
+
     // Buttons of Categories
     let categoryLists = allCategoriesList.map((item, index) => {
         return (
             <li className={activeCategory === item.strCategory ? 'active' : ''} key={index}
-                onClick={(e) => setActiveCategory(item.strCategory)}> {item.strCategory} </li>
+                onClick={() => handleCategoryClick(item.strCategory)}> {item.strCategory} </li>
         )
     })
 
@@ -69,12 +81,12 @@ function Categories() {
                 </ul>
             </div>
 
-            <div className="categories_view">
+            <div className="categories_view" ref={categoryDishesRef}>
                 <ul>
                     {currentPgItems.length !== 0 ? currentPgItems :
                         <div className='categories_view_empty'>
                             <h2>No Dishes Found</h2>
-                            <p> <strong>Try Another Category</strong></p>
+                            <p> <strong>Try Other Categories</strong></p>
                         </div>
                     }
                 </ul>
