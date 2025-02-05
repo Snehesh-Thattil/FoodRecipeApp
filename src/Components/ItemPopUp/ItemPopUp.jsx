@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import './ItemPopUp.css'
 import { cartToggleContext, MealIdContext, PopUpContext } from '../../Contexts/OtherContexts'
 import { MealIdDetailsContext } from '../../Contexts/MealIdDetailsContext'
@@ -16,8 +16,27 @@ function ItemPop() {
     const { setToggle } = useContext(cartToggleContext)
     const { wishlistDispatch } = useContext(wishlistsContext)
     const { setPopUp } = useContext(PopUpContext)
-
     const navigate = useNavigate()
+
+    // Fetching ingredients and its measures
+    let ingredientsList = useMemo(() => {
+        return Array.from({ length: 10 }, (_, i) => i + 1)
+            .map((num) => {
+                let ingredient = idMealDetails[`strIngredient${num}`]
+                let measure = idMealDetails[`strMeasure${num}`]
+
+                return { ingredient, measure }
+            })
+            .filter((item) => item.ingredient)
+            .map((item) => {
+                return (
+                    <tr>
+                        <td>{item.ingredient}</td>
+                        <td>{item.measure}</td>
+                    </tr>
+                )
+            })
+    }, [idMealDetails])
 
     // Cart Button
     function HandleAddToCart(idMealDetails) {
@@ -99,46 +118,7 @@ function ItemPop() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient1}</td>
-                                    <td>{idMealDetails.strMeasure1}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient2}</td>
-                                    <td>{idMealDetails.strMeasure2}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient3}</td>
-                                    <td>{idMealDetails.strMeasure3}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient4}</td>
-                                    <td>{idMealDetails.strMeasure4}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient5}</td>
-                                    <td>{idMealDetails.strMeasure5}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient6}</td>
-                                    <td>{idMealDetails.strMeasure6}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient7}</td>
-                                    <td>{idMealDetails.strMeasure7}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient8}</td>
-                                    <td>{idMealDetails.strMeasure8}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient9}</td>
-                                    <td>{idMealDetails.strMeasure9}</td>
-                                </tr>
-                                <tr>
-                                    <td>{idMealDetails.strIngredient10}</td>
-                                    <td>{idMealDetails.strMeasure10}</td>
-                                </tr>
+                                {ingredientsList}
                             </tbody>
                         </table>
                     </div>

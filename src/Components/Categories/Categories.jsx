@@ -8,7 +8,7 @@ import { MealsDataContext } from '../../Contexts/MealsDataContext'
 import { PopUpContext } from '../../Contexts/OtherContexts'
 
 function Categories() {
-    // From Contexts.js
+    // From Contexts
     const { mealsData } = useContext(MealsDataContext)
     const { allCategoriesList } = useContext(CategoriesContext)
     const { popUp, setPopUp } = useContext(PopUpContext)
@@ -46,12 +46,16 @@ function Categories() {
     }
 
     // Buttons of Categories
-    let categoryLists = allCategoriesList.map((item, index) => {
-        return (
-            <li className={activeCategory === item.strCategory ? 'active' : ''} key={index}
-                onClick={() => handleCategoryClick(item.strCategory)}> {item.strCategory} </li>
-        )
-    })
+    let categoryLists = (
+        <ul>
+            {allCategoriesList.map((item, index) => {
+                return (
+                    <li className={activeCategory === item.strCategory ? 'active' : ''} key={index}
+                        onClick={() => handleCategoryClick(item.strCategory)}> {item.strCategory} </li>
+                )
+            })}
+        </ul>
+    )
 
     // Filtering Selected Category Dishes
     useEffect(() => {
@@ -70,15 +74,14 @@ function Categories() {
     return (
         <section className='categories'>
             {popUp && <ItemPop setPopUp={setPopUp} />}
+
             <div className="categories_content">
                 <h3>Categories</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem distinctio illum aspernatur, vero autem tempora, ipsum labore explicabo eum, deserunt amet. Dolorem soluta quod totam numquam perspiciatis.</p>
             </div>
 
             <div className="categories_list">
-                <ul>
-                    {categoryLists}
-                </ul>
+                {categoryLists}
             </div>
 
             <div className="categories_view" ref={categoryDishesRef}>

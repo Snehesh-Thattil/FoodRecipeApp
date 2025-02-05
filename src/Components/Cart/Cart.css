@@ -1,13 +1,16 @@
 .Cart {
   width: 100%;
   min-height: 100vh;
-  padding: 5rem 2rem 0 2rem;
+  padding: 5rem 2rem;
   display: flex;
-  justify-content: start;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
   background-color: rgb(231, 201, 146);
+  position: relative;
 }
 .Cart .tiles {
-  width: 65%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -119,54 +122,63 @@
 .Cart .overview {
   background-color: #ffb904;
   width: 30%;
-  max-height: 85vh;
-  min-height: 70vh;
+  min-height: 85vh;
+  max-height: calc(100vh - 40px);
   border-radius: 5px;
   outline: 2px solid black;
   padding: 10px;
   position: sticky;
-  top: 10px;
-  margin-left: auto;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-start;
+}
+.Cart .overview .breakdown {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.Cart .overview .breakdown table {
+  width: 100%;
+  min-height: 15rem;
+  padding: 0.75rem;
+  border: 1px solid black;
+  background-color: #e2a200;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
 }
-.Cart .overview .breakdown {
+.Cart .overview .breakdown table tr {
+  width: 100%;
+  height: 2.5rem;
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  align-items: center;
-  justify-content: space-around;
+}
+.Cart .overview .breakdown table tr th {
+  display: flex;
+  width: 60%;
+  justify-content: start;
+}
+.Cart .overview .breakdown table tr td {
+  display: flex;
+  width: 40%;
+  justify-content: start;
 }
 .Cart .overview .breakdown .line {
   width: 90%;
   background-color: rgb(29, 28, 28);
   height: 2px;
+  margin: 10px 0;
 }
-.Cart .overview .breakdown table {
+.Cart .overview .breakdown .total-div {
   width: 100%;
-  border: 1px solid black;
-  padding: 1rem;
-}
-.Cart .overview .breakdown table tr {
+  padding: 10px;
   display: flex;
   justify-content: center;
-  justify-content: space-between;
-  height: 2rem;
-}
-.Cart .overview .breakdown table tr th {
-  display: flex;
-  width: 50%;
-  justify-content: start;
-}
-.Cart .overview .breakdown table tr td {
-  display: flex;
-  width: 50%;
-  justify-content: first baseline;
-}
-.Cart .overview .breakdown .totalline {
-  display: flex;
-  padding: 10px;
-  justify-content: space-between;
+  align-items: center;
 }
 .Cart .overview button {
   padding: 15px;
@@ -231,7 +243,33 @@
   transition-duration: 0.5s;
 }
 
-@media screen and (max-width: 787px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .Cart {
+    gap: 15px;
+  }
+  .Cart .tiles {
+    width: 60%;
+  }
+  .Cart .tiles .tile {
+    padding: 7.5px;
+  }
+  .Cart .tiles .tile .imgdiv {
+    min-width: 35%;
+    margin-right: 0.7rem;
+  }
+  .Cart .tiles .tile .details .dishtags button {
+    min-width: 90px;
+    margin-right: 7.5px;
+  }
+  .Cart .tiles .tile .move-to-wishlist p {
+    font-size: small;
+  }
+  .Cart .overview {
+    width: 40%;
+    min-height: 50vh;
+  }
+}
+@media screen and (max-width: 767px) {
   .Cart {
     overflow: hidden;
     flex-direction: column;
@@ -260,7 +298,10 @@
     width: 100%;
     height: auto;
     min-height: auto;
-    margin-left: unset;
-    margin-top: 1rem;
+    max-height: none;
+    top: 0;
+    right: 0;
+    margin: 0;
+    overflow-y: visible;
   }
 }/*# sourceMappingURL=Cart.css.map */
