@@ -13,7 +13,7 @@ function Cart() {
     const { cartState, cartDispatch } = useContext(cartContext);
     const { orderDispatch } = useContext(orderContext);
     const { wishlistDispatch } = useContext(wishlistsContext);
-    const { setToggle } = useContext(cartToggleContext);
+    const { setPanelCartToggle } = useContext(cartToggleContext);
     const navigate = useNavigate();
 
     // Calculate total cart value
@@ -26,9 +26,9 @@ function Cart() {
     // Close panelCart when emptying
     useEffect(() => {
         if (cartState.length === 0) {
-            setToggle(false);
+            setPanelCartToggle(false);
         }
-    }, [cartState, setToggle]);
+    }, [cartState, setPanelCartToggle]);
 
     // Move item to wishlists from cart
     const handleMoveToWishlists = (item) => {

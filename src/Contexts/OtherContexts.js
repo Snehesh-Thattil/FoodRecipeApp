@@ -40,9 +40,9 @@ export function MealIdDetailsContextWrapper({ children }) {
 export const cartToggleContext = createContext(null)
 
 export function CartToggleContextWrapper({ children }) {
-    const [toggle, setToggle] = useState(false)
+    const [panelCartToggle, setPanelCartToggle] = useState(false)
     return (
-        <cartToggleContext.Provider value={{ toggle, setToggle }}>
+        <cartToggleContext.Provider value={{ panelCartToggle, setPanelCartToggle }}>
             {children}
         </cartToggleContext.Provider>
     )

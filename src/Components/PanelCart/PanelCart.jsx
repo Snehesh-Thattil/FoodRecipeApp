@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react'
+import React, { useContext, useMemo } from 'react'
 import './PanelCart.css'
 import { cartContext } from '../../Contexts/CartContext'
 import { cartToggleContext } from '../../Contexts/OtherContexts'
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 function CartPanel() {
     const { cartState } = useContext(cartContext)
-    const { toggle } = useContext(cartToggleContext)
+    const { panelCartToggle } = useContext(cartToggleContext)
     const navigate = useNavigate()
 
     // Calculate total value of cart
@@ -19,7 +19,7 @@ function CartPanel() {
     // Rendering
     return (
         cartState.length !== 0 &&
-        <div className={toggle ? "cartpanel-wrapper Enabled" : "cartpanel-wrapper"}>
+        <div className={panelCartToggle ? "cartpanel-wrapper Enabled" : "cartpanel-wrapper"}>
 
             {cartState.map((item, index) => {
                 return (

@@ -1,18 +1,18 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext, useMemo } from 'react'
 import './Checkout.css'
 import { orderContext } from '../../Contexts/OrderContext'
 import { cartContext } from '../../Contexts/CartContext'
+import { useNavigate } from 'react-router-dom'
 
 function Checkout() {
     const { orderState } = useContext(orderContext)
     const { cartDispatch } = useContext(cartContext)
-    const [totalValue, setTotalValue] = useState(0)
+    const navigate = useNavigate()
 
-    useEffect(() => {
-        let totalValue = orderState.reduce((acc, item) => {
+    let totalValue = useMemo(() => {
+        return orderState.reduce((acc, item) => {
             return acc + (item.dishPrice * item.dishQuantity)
         }, 0)
-        setTotalValue(totalValue)
     }, [orderState])
 
     function HandlePlaceOrder(orderState) {
@@ -21,6 +21,7 @@ function Checkout() {
             toRemove: orderState
         })
         alert('Order Placed Successfully')
+        navigate('/')
     }
 
     return (

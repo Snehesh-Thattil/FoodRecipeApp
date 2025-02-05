@@ -8,26 +8,27 @@ import { orderContext } from '../../Contexts/OrderContext'
 import { useNavigate } from 'react-router-dom'
 
 function ItemPop() {
-
     const { idMealDetails, setIdMealDetails } = useContext(MealIdDetailsContext)
     const { orderDispatch } = useContext(orderContext)
     const { setMealId } = useContext(MealIdContext)
     const { cartDispatch } = useContext(cartContext)
-    const { setToggle } = useContext(cartToggleContext)
+    const { setPanelCartToggle } = useContext(cartToggleContext)
     const { wishlistDispatch } = useContext(wishlistsContext)
     const { setPopUp } = useContext(PopUpContext)
     const navigate = useNavigate()
 
     // Fetching ingredients and its measures
     let ingredientsList = useMemo(() => {
-        return Array.from({ length: 10 }, (_, i) => i + 1)
-            .map((num) => {
-                let ingredient = idMealDetails[`strIngredient${num}`]
-                let measure = idMealDetails[`strMeasure${num}`]
+        return Object.keys(idMealDetails)
+            .filter((key) => key.startsWith('strIngredient') && idMealDetails[key])
+            .map((key) => {
+                const index = key.replace('strIngredient', '')
+
+                const ingredient = idMealDetails[`strIngredient${index}`]
+                const measure = idMealDetails[`strMeasure${index}`]
 
                 return { ingredient, measure }
             })
-            .filter((item) => item.ingredient)
             .map((item) => {
                 return (
                     <tr>
@@ -45,12 +46,8 @@ function ItemPop() {
             payload: idMealDetails
         })
 
-        setMealId(null)
-        setIdMealDetails([])
-        setPopUp(false)
-
-        // Cartpanel div showup and remove
-        setToggle(true)
+        resetPopUp()
+        setPanelCartToggle(true)
     }
 
     // Order Button
@@ -59,6 +56,7 @@ function ItemPop() {
             type: 'direct-order',
             payload: idMealDetails
         })
+
         navigate('/checkout')
         setPopUp(false)
     }
@@ -69,15 +67,11 @@ function ItemPop() {
             type: 'add-to-wishlists',
             payload: idMealDetails
         })
-
-        setMealId(null)
-        setIdMealDetails([])
-        setPopUp(false)
+        resetPopUp()
     }
 
     // On Closing PopUp
-    function HandleClosePopUp(e) {
-        e.preventDefault()
+    function resetPopUp() {
         setMealId(null)
         setIdMealDetails([])
         setPopUp(false)
@@ -118,7 +112,7 @@ function ItemPop() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {ingredientsList}
+                                {ingredientsList ? ingredientsList : 'No Ingredients found'}
                             </tbody>
                         </table>
                     </div>
@@ -139,7 +133,7 @@ function ItemPop() {
 
             </div>
 
-            <li className='popUp_close' onClick={(e) => HandleClosePopUp(e)}> ✖️ </li>
+            <li className='popUp_close' onClick={resetPopUp}> ✖️ </li>
         </div>
     )
 }
