@@ -3,7 +3,7 @@
     min-height: 100vh;
     padding: 5rem 2rem 0 2rem;
     display: flex;
-    align-items: flex-start;
+    // align-items: center;
     justify-content: start;
     background-color: rgb(231, 201, 146);
 
@@ -25,7 +25,7 @@
             position: relative;
 
             .imgdiv {
-                width: 30%;
+                min-width: 30%;
                 height: 100%;
                 border-radius: 5px 0 0 5px;
                 object-fit: cover;
@@ -44,6 +44,11 @@
 
                 h2 {
                     font-size: 20px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: block;
+                    width: 90%;
                 }
 
                 .dishtags {
@@ -52,11 +57,10 @@
                     button {
                         width: 100px;
                         padding: 5px 10px;
-                        margin: 5px 0;
+                        margin: 5px 10px 5px 0;
                         border: none;
                         background-color: wheat;
                         border-radius: 5px;
-                        margin-right: 10px;
                         font-weight: bold;
                     }
                 }
@@ -64,8 +68,8 @@
 
             .remove {
                 position: absolute;
-                top: 15px;
-                right: 15px;
+                bottom: 30%;
+                right: 7.5px;
                 width: 2rem;
                 height: 2rem;
                 background-color: rgb(44, 44, 44);
@@ -91,8 +95,8 @@
 
             .move-to-wishlist {
                 position: absolute;
-                bottom: 15px;
-                right: 15px;
+                bottom: 7.5px;
+                right: 7.5px;
                 padding: 5px 7.5px;
                 background-color: white;
                 color: rgb(255, 98, 98);
@@ -131,7 +135,8 @@
     .overview {
         background-color: #ffb904;
         width: 30%;
-        height: 80vh;
+        max-height: 85vh;
+        min-height: 70vh;
         border-radius: 5px;
         outline: 2px solid black;
         padding: 10px;
@@ -259,6 +264,54 @@
                 transform: translateX(15px);
                 transition-duration: 0.5s;
             }
+        }
+    }
+}
+
+
+// MEDIA QUERIES - DESIGNING RESPONSIVENESS
+@media screen and (max-width: 787px) {
+    .Cart {
+        overflow: hidden;
+        flex-direction: column;
+        align-items: center;
+        padding: 5rem 1rem 2rem 1rem;
+
+        .tiles {
+            width: 100%;
+
+            .tile {
+                padding: 7.5px;
+
+                .imgdiv {
+                    min-width: 35%;
+                    margin-right: .7rem;
+                }
+
+                .details {
+                    .dishtags {
+                        button {
+                            min-width: 90px;
+                            margin-right: 7.5px;
+                        }
+                    }
+                }
+
+                .move-to-wishlist {
+                    p {
+                        font-size: small;
+                    }
+                }
+            }
+        }
+
+        .overview {
+            position: relative;
+            width: 100%;
+            height: auto;
+            min-height: auto;
+            margin-left: unset;
+            margin-top: 1rem;
         }
     }
 }

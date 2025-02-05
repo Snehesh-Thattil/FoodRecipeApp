@@ -34,7 +34,7 @@ function Wishlists() {
     return (
         <div className='Wishlists'>
             <div className="tiles">
-                {wishlistsState.map((item, index) => {
+                {wishlistsState.slice().reverse().map((item, index) => {
                     return (
                         item &&
                         <div className="tile" key={index}>
@@ -65,6 +65,8 @@ function Wishlists() {
                     )
                 })}
             </div>
+
+
             {wishlistsState.length === 0
                 &&
                 <div className="emptyWishlist">

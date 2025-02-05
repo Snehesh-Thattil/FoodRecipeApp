@@ -1,46 +1,52 @@
 .Wishlists {
   width: 100vw;
   min-height: 100vh;
-  padding: 5rem 1rem;
+  padding: 5rem 2rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   background-color: rgb(231, 201, 146);
 }
 .Wishlists .tiles {
-  width: 90%;
+  width: 100%;
   display: flex;
-  gap: 10px;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
   position: relative;
 }
 .Wishlists .tiles .tile {
+  padding: 7.5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 26rem;
-  width: 18rem;
-  padding: 10px;
+  flex: 0 0 calc(25% - 7.5px);
+  max-width: calc(25% - 7.5px);
   border-radius: 5px;
   background-color: #ffb904;
-  outline: 2px solid black;
+  outline: 1.5px solid black;
   position: relative;
 }
 .Wishlists .tiles .tile .overview {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
   text-align: center;
 }
 .Wishlists .tiles .tile .overview h4 {
   margin: 7.5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  text-align: start;
+  width: 100%;
 }
 .Wishlists .tiles .tile .overview img {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px 0 0 5px;
-  width: 15rem;
   height: 10rem;
   width: 100%;
 }
@@ -49,18 +55,18 @@
   text-align: center;
 }
 .Wishlists .tiles .tile .details h4 {
-  margin: 10px 0;
+  margin: 7.5px 0;
 }
-.Wishlists .tiles .tile .details .dishtags,
-.Wishlists .tiles .tile .details .checkouts {
-  display: flex;
+.Wishlists .tiles .tile .details .dishtags {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.Wishlists .tiles .tile .details .dishtags button,
-.Wishlists .tiles .tile .details .checkouts button {
+.Wishlists .tiles .tile .details .dishtags button {
   min-width: 80px;
   padding: 5px 10px;
-  margin: 5px 5px 5px 0;
+  margin: 5px 5px;
   border: none;
   background-color: rgb(80, 80, 80);
   color: white;
@@ -68,15 +74,23 @@
   font-weight: bold;
 }
 .Wishlists .tiles .tile .details .checkouts {
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 .Wishlists .tiles .tile .details .checkouts button {
   width: 100%;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
   background-color: white;
   color: black;
-  padding: 10px 20px;
+  font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Wishlists .tiles .tile .details .checkouts button:hover {
   background-color: black;
@@ -157,4 +171,46 @@
   margin: 0 10px;
   transform: translateX(15px);
   transition-duration: 0.5s;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .Wishlists .tiles {
+    gap: 10px;
+  }
+  .Wishlists .tiles .tile {
+    flex: 0 0 calc(33.33% - 7px);
+    max-width: calc(33.33% - 7px);
+    min-width: 175px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .Wishlists {
+    padding: 5rem 0.75rem;
+  }
+  .Wishlists .tiles {
+    gap: 10px;
+  }
+  .Wishlists .tiles .tile {
+    flex: 0 0 calc(50% - 5px);
+    max-width: calc(50% - 5px);
+    min-width: 125px;
+  }
+  .Wishlists .tiles .tile .overview img {
+    height: 7rem;
+  }
+  .Wishlists .tiles .tile .details .dishtags button {
+    margin: 0;
+    margin-left: 2px;
+    min-width: unset;
+    max-width: 80px;
+    font-size: small;
+    scale: 0.75;
+  }
+  .Wishlists .tiles .tile .details .checkouts button {
+    padding: 7.5px 0;
+  }
+  .Wishlists .tiles .tile .details .checkouts button i {
+    margin-left: 2.5px;
+    transform: translateX(5px);
+  }
 }/*# sourceMappingURL=Wishlists.css.map */

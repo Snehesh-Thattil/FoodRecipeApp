@@ -48,9 +48,9 @@ function Header() {
     })
 
     return () => {
-      document.addEventListener('mousedown', HandleClickOutside)
+      document.removeEventListener('mousedown', HandleClickOutside)
       document.querySelectorAll('.nav-items li').forEach((link) => {
-        link.addEventListener('click', HandleNavClick)
+        link.removeEventListener('click', HandleNavClick)
       })
     }
   }, [])
@@ -60,6 +60,9 @@ function Header() {
     let lastScroll = window.scrollY
 
     function HandleNavbarOnScroll() {
+      if (!headerRef.current) return;
+      if (!headerRef.current.classList) return;
+
       let currentScroll = window.scrollY
 
       if (currentScroll === 0) {
@@ -78,7 +81,7 @@ function Header() {
     document.addEventListener('scroll', HandleNavbarOnScroll)
 
     return () => {
-      document.addEventListener('scroll', HandleNavbarOnScroll)
+      document.removeEventListener('scroll', HandleNavbarOnScroll)
     }
   }, [])
 

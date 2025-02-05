@@ -1,46 +1,52 @@
 .Wishlists {
     width: 100vw;
     min-height: 100vh;
-    padding: 5rem 1rem;
+    padding: 5rem 2rem;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     background-color: rgb(231, 201, 146);
 
     .tiles {
-        width: 90%;
+        width: 100%;
         display: flex;
-        gap: 10px;
         flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
         position: relative;
 
         .tile {
+            padding: 7.5px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            height: 26rem;
-            width: 18rem;
-            padding: 10px;
+            flex: 0 0 calc(25% - 7.5px);
+            max-width: calc(25% - 7.5px);
             border-radius: 5px;
             background-color: #ffb904;
-            outline: 2px solid black;
+            outline: 1.5px solid black;
             position: relative;
 
             .overview {
+                width: 100%;
                 display: flex;
                 flex-direction: column;
-                width: 100%;
                 text-align: center;
 
                 h4 {
                     margin: 7.5px 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: block;
+                    text-align: start;
+                    width: 100%;
                 }
 
                 img {
                     object-fit: cover;
                     border-radius: 5px 0 0 5px;
-                    width: 15rem;
                     height: 10rem;
                     width: 100%;
                 }
@@ -51,18 +57,19 @@
                 text-align: center;
 
                 h4 {
-                    margin: 10px 0;
+                    margin: 7.5px 0;
                 }
 
-                .dishtags,
-                .checkouts {
-                    display: flex;
+                .dishtags {
                     width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
                     button {
                         min-width: 80px;
                         padding: 5px 10px;
-                        margin: 5px 5px 5px 0;
+                        margin: 5px 5px;
                         border: none;
                         background-color: rgb(80, 80, 80);
                         color: white;
@@ -72,15 +79,23 @@
                 }
 
                 .checkouts {
+                    width: 100%;
                     display: flex;
                     flex-direction: column;
 
                     button {
                         width: 100%;
+                        padding: 10px 20px;
+                        margin-top: 10px;
+                        border: none;
+                        border-radius: 5px;
                         background-color: white;
                         color: black;
-                        padding: 10px 20px;
+                        font-weight: bold;
                         cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
 
                         &:hover {
                             i {
@@ -138,6 +153,7 @@
         }
     }
 
+
     .emptyWishlist {
         width: 90%;
         position: absolute;
@@ -180,6 +196,68 @@
                 margin: 0 10px;
                 transform: translateX(15px);
                 transition-duration: 0.5s;
+            }
+        }
+    }
+}
+
+
+// MEDIA QUERIES - DESIGNING RESPONSIVENESS
+@media (min-width:768px) and (max-width:1024px) {
+    .Wishlists {
+        .tiles {
+            gap: 10px;
+
+            .tile {
+                flex: 0 0 calc(33.33% - 7px);
+                max-width: calc(33.33% - 7px);
+                min-width: 175px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .Wishlists {
+        padding: 5rem .75rem;
+
+        .tiles {
+            gap: 10px;
+
+            .tile {
+                flex: 0 0 calc(50% - 5px);
+                max-width: calc(50% - 5px);
+                min-width: 125px;
+
+                .overview {
+                    img {
+                        height: 7rem;
+                    }
+                }
+
+                .details {
+                    .dishtags {
+                        button {
+                            margin: 0;
+                            margin-left: 2px;
+                            min-width: unset;
+                            max-width: 80px;
+                            font-size: small;
+                            scale: 0.75;
+                        }
+                    }
+
+                    .checkouts {
+                        button {
+                            padding: 7.5px 0;
+
+                            i {
+                                margin-left: 2.5px;
+                                transform: translateX(5px);
+                            }
+                        }
+                    }
+                }
             }
         }
     }

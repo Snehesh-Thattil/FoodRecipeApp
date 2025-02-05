@@ -47,7 +47,7 @@ function Checkout() {
         <div className='Cart'>
 
             <div className="tiles">
-                {cartState.map((item, index) => {
+                {cartState.slice().reverse().map((item, index) => {
                     return (
                         item &&
                         <div className="tile" key={index}>
