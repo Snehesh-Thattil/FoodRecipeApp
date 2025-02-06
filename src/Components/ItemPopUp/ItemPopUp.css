@@ -179,4 +179,17 @@
 }
 .popUp_close:hover {
   background-color: white;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .popUp_content {
+    width: 75%;
+    height: 75%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .popUp_content {
+    width: 80%;
+    height: 85%;
+  }
 }/*# sourceMappingURL=ItemPopUp.css.map */

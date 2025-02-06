@@ -203,3 +203,25 @@
         }
     }
 }
+
+
+// MEDIA QUERIES - DESIGNING RESPONSIVENESS
+@media (min-width: 768px) and (max-width: 1024px) {
+    .popUp {
+        &_content {
+            width: 75%;
+            height: 75%;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .popUp {
+        &_content {
+            width: 80%;
+            height: 85%;
+        }
+    }
+
+    // Not finished 
+}
