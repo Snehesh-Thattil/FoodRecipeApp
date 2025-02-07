@@ -77,6 +77,7 @@
 }
 .popUp_content .dishName .sourcebuttons {
   display: flex;
+  justify-content: center;
   width: 22rem;
 }
 .popUp_content .dishName .sourcebuttons a {
@@ -188,6 +189,7 @@
   padding: 10px;
   border: none;
   border-radius: 5px;
+  min-height: 60%;
   cursor: pointer;
   font-weight: bold;
   background-color: black;
@@ -216,11 +218,14 @@
     width: 75%;
     height: 75%;
   }
+  .popUp_content .recipe .instructions .order button {
+    padding: 10px 15px;
+  }
 }
 @media screen and (max-width: 767px) {
   .popUp_content {
     width: 80%;
-    height: 85%;
+    height: 80%;
   }
   .popUp_content .imageSection {
     height: 30%;

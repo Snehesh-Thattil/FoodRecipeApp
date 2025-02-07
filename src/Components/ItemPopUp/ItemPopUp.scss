@@ -82,6 +82,7 @@
 
             .sourcebuttons {
                 display: flex;
+                justify-content: center;
                 width: 22rem;
 
                 a {
@@ -205,6 +206,7 @@
                         padding: 10px;
                         border: none;
                         border-radius: 5px;
+                        min-height: 60%;
                         cursor: pointer;
                         font-weight: bold;
                         background-color: black;
@@ -243,6 +245,17 @@
         &_content {
             width: 75%;
             height: 75%;
+
+            .recipe {
+                .instructions {
+                    .order {
+
+                        button {
+                            padding: 10px 15px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -251,7 +264,7 @@
     .popUp {
         &_content {
             width: 80%;
-            height: 85%;
+            height: 80%;
 
             .imageSection {
                 height: 30%;

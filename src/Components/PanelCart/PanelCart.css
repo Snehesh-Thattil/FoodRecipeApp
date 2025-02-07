@@ -4,7 +4,7 @@
   right: 0;
   width: 10rem;
   max-height: 47.5rem;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   border-radius: 0 0 0 5px;
   overflow: scroll;
   background-color: #eeb118;
@@ -14,6 +14,7 @@
   justify-content: flex-start;
   transform: translateX(100%);
   transition: all ease-in-out 0.5s;
+  z-index: 2;
 }
 .cartpanel-wrapper::-webkit-scrollbar {
   display: none;
@@ -58,6 +59,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  bottom: 0px;
+  background-color: #eeb118;
+  padding: 5px 0;
+  outline: 2px double rgb(48, 48, 48);
 }
 .cartpanel-wrapper .cart_item_total button {
   width: 90%;
@@ -75,4 +81,10 @@
 .cartpanel-wrapper .cart_item_total button:hover {
   background-color: white;
   color: black;
+}
+
+@media screen and (max-width: 767px) {
+  .cartpanel-wrapper {
+    width: 7.5rem;
+  }
 }/*# sourceMappingURL=PanelCart.css.map */

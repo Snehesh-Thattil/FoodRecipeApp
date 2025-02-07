@@ -27,8 +27,8 @@ function Checkout() {
     return (
         <div className='Checkout'>
             <div className="contents">
-                <h4>Delivery Address</h4>
                 <div className="address">
+                <h4>Delivery Address</h4>
                     <form action="">
                         <input type="text" placeholder='Address line 1' />
                         <input type="text" placeholder='Address line 2' />
@@ -100,7 +100,7 @@ function Checkout() {
                                     <td>: {totalValue !== 0 ? 299 : 0}</td>
                                 </tr>
                                 <tr>
-                                    <th>Coupon applied</th>
+                                    <th>Coupon code</th>
                                     <td>: {totalValue !== 0 ? 'GET199' : 'Not-available'}</td>
                                 </tr>
                                 <tr>
@@ -112,7 +112,7 @@ function Checkout() {
 
                         <div className="line"></div>
 
-                        <div className="totalline">
+                        <div className="total-summary">
                             <h3>Total</h3>
                             <h3>: {totalValue ? totalValue - (299 + 199) : 0}</h3>
                         </div>

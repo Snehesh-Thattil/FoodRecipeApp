@@ -2,22 +2,28 @@
   width: 100vw;
   min-height: 100vh;
   background-color: rgb(231, 201, 146);
-  padding: 5rem 4rem;
+  padding: 5rem 3rem;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 .Checkout .contents {
-  width: 65%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .Checkout .contents .address {
-  background-color: beige;
-  padding: 1rem;
-  border-radius: 5px;
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .Checkout .contents .address form {
   display: flex;
   flex-direction: column;
+  background-color: beige;
+  padding: 1rem;
+  border-radius: 5px;
   gap: 10px;
 }
 .Checkout .contents .address form .contacts {
@@ -74,6 +80,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 10rem;
+  width: 100%;
   padding: 10px;
   background-color: #ffb904;
   border-radius: 5px;
@@ -96,10 +103,21 @@
      object-fit: cover;
 }
 .Checkout .contents .tiles .tile .details {
+  height: 95%;
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .Checkout .contents .tiles .tile .details h2 {
   font-size: 20px;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
 }
 .Checkout .contents .tiles .tile .details .dishtags {
   display: flex;
@@ -171,7 +189,11 @@
 }
 .Checkout .cartvalue {
   width: 30%;
-  height: 80vh;
+  height: 27.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
   position: sticky;
   top: 10px;
 }
@@ -182,45 +204,50 @@
   padding: 10px;
   border-radius: 5px;
   outline: 2px solid black;
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .Checkout .cartvalue .overview .breakdown {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+}
+.Checkout .cartvalue .overview .breakdown table {
+  width: 100%;
+  min-height: 15rem;
+  padding: 0.75rem;
+  border: 1px solid black;
+  background-color: #e2a200;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.Checkout .cartvalue .overview .breakdown table tr {
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+}
+.Checkout .cartvalue .overview .breakdown table tr th {
+  display: flex;
+  width: 60%;
+  justify-content: start;
+}
+.Checkout .cartvalue .overview .breakdown table tr td {
+  display: flex;
+  width: 40%;
+  justify-content: start;
 }
 .Checkout .cartvalue .overview .breakdown .line {
   width: 90%;
   background-color: rgb(29, 28, 28);
   height: 2px;
+  margin: 15px 0;
 }
-.Checkout .cartvalue .overview .breakdown table {
-  width: 100%;
-  border: 1px solid black;
-  padding: 1rem;
-}
-.Checkout .cartvalue .overview .breakdown table tr {
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
-  height: 2rem;
-}
-.Checkout .cartvalue .overview .breakdown table tr th {
-  display: flex;
-  width: 50%;
-  justify-content: start;
-}
-.Checkout .cartvalue .overview .breakdown table tr td {
-  display: flex;
-  width: 50%;
-  justify-content: first baseline;
-}
-.Checkout .cartvalue .overview .breakdown .totalline {
+.Checkout .cartvalue .overview .breakdown .total-summary {
   display: flex;
   padding: 10px;
   justify-content: space-between;
@@ -262,4 +289,70 @@
 .no-arrows::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .Checkout {
+    padding: 5rem 2.5rem 3rem 2.5rem;
+    gap: 25px;
+  }
+  .Checkout .contents {
+    width: 60%;
+  }
+  .Checkout .contents .tiles .tile .imgdiv {
+    width: 35%;
+  }
+  .Checkout .contents .tiles .tile .details {
+    width: 65%;
+  }
+  .Checkout .contents .tiles .tile .details h2 {
+    font-size: 17.5px;
+  }
+  .Checkout .cartvalue {
+    width: 40%;
+    height: 25rem;
+  }
+  .Checkout .cartvalue .overview .breakdown table {
+    min-height: 10rem;
+  }
+  .Checkout .cartvalue .overview .breakdown table th {
+    width: 65%;
+  }
+  .Checkout .cartvalue .overview .breakdown table td {
+    width: 35;
+  }
+}
+@media screen and (max-width: 767px) {
+  .Checkout {
+    padding: 5rem 1.5rem 3rem 1.5rem;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .Checkout .contents {
+    width: 100%;
+  }
+  .Checkout .contents .tiles .tile .imgdiv {
+    width: 40%;
+  }
+  .Checkout .contents .tiles .tile .details {
+    width: 60%;
+  }
+  .Checkout .contents .tiles .tile .details h2 {
+    font-size: 17.5px;
+  }
+  .Checkout .cartvalue {
+    width: 100%;
+    height: 25rem;
+    position: unset;
+    top: unset;
+  }
+  .Checkout .cartvalue .overview .breakdown table {
+    min-height: 10rem;
+  }
+  .Checkout .cartvalue .overview .breakdown table th {
+    width: 65%;
+  }
+  .Checkout .cartvalue .overview .breakdown table td {
+    width: 35;
+  }
 }/*# sourceMappingURL=Checkout.css.map */

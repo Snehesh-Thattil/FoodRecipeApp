@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import './ItemPopUp.css'
 import { cartToggleContext, MealIdContext, PopUpContext } from '../../Contexts/OtherContexts'
 import { MealIdDetailsContext } from '../../Contexts/MealIdDetailsContext'
@@ -20,6 +20,7 @@ function ItemPop() {
     const changeContentBtnRef = useRef()
     const ingredientsRef = useRef()
     const instructionRef = useRef()
+    const popUpContentRef = useRef()
 
     // Fetching ingredients and its measures
     let ingredientsList = useMemo(() => {
@@ -33,9 +34,9 @@ function ItemPop() {
 
                 return { ingredient, measure }
             })
-            .map((item) => {
+            .map((item, index) => {
                 return (
-                    <tr>
+                    <tr key={index}>
                         <td>{item.ingredient}</td>
                         <td>{item.measure}</td>
                     </tr>
@@ -75,11 +76,11 @@ function ItemPop() {
     }
 
     // On Closing PopUp
-    function resetPopUp() {
+    const resetPopUp = useCallback(() => {
         setMealId(null)
         setIdMealDetails([])
         setPopUp(false)
-    }
+    }, [setMealId, setIdMealDetails, setPopUp])
 
     // Show ingredient Button
     function handleChangeContent() {
@@ -90,11 +91,23 @@ function ItemPop() {
         }
     }
 
+    // Clicks outside the PopUp box
+    useEffect(() => {
+        function handleClickOutside(e) {
+            if (e.target.classList.contains('popUp')) resetPopUp()
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [resetPopUp])
+
     // Rendering
     return (
         <div className='popUp'>
-            <div className="popUp_content">
-
+            <div className="popUp_content" ref={popUpContentRef}>
                 <div className="imageSection">
                     <img src={idMealDetails.strMealThumb} alt="recipe-image" />
                     <div className="imageTags">
