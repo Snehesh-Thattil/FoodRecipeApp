@@ -23,6 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 10px;
 }
 .popUp_content .imageSection {
   display: flex;
@@ -56,33 +57,41 @@
   padding: 10px;
 }
 .popUp_content .dishName {
-  text-align: center;
+  width: 100%;
+  height: 12.5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.25rem 2rem;
+  padding: 0.25rem 1rem;
   background-color: #ffb902;
-  width: 100%;
-  height: 10%;
   border-radius: 30px 5px 30px 5px;
 }
 .popUp_content .dishName h2 {
   color: rgb(17, 16, 16);
   font-size: medium;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: block;
 }
 .popUp_content .dishName .sourcebuttons {
   display: flex;
+  width: 22rem;
 }
 .popUp_content .dishName .sourcebuttons a {
-  margin: 0 5px;
-  border-radius: 15px 5px 15px 5px;
+  margin-left: 10px;
   padding: 10px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
   font-size: small;
+  font-weight: 500;
   background-color: black;
   color: white;
+  border: none;
+  border-radius: 15px 5px 15px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all ease-in-out 0.25s;
 }
 .popUp_content .dishName .sourcebuttons a:hover {
@@ -93,16 +102,38 @@
   display: flex;
   gap: 10px;
   width: 100%;
-  height: 45%;
+  height: 47.5%;
   border-radius: 30px 5px 30px 5px;
+  position: relative;
+}
+.popUp_content .recipe .change-content {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  outline: 0.1px double #dda107;
+  border: none;
+  border-radius: 12.5px 2.5px 12.5px 2.5px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 .popUp_content .recipe .ingredients {
   width: 30%;
   height: 100%;
-  padding: 2.5px;
+  padding: 5px;
   border-radius: 30px 5px 30px 5px;
   outline: 1px solid #ffb902;
   overflow-x: scroll;
+}
+.popUp_content .recipe .ingredients h2 {
+  font-size: medium;
+  font-weight: 600;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
 }
 .popUp_content .recipe .ingredients::-webkit-scrollbar {
   display: none;
@@ -112,7 +143,7 @@
   height: 100%;
   text-align: left;
   font-size: 10px;
-  padding: 5px 15px;
+  padding: 5px;
 }
 .popUp_content .recipe .instructions {
   width: 70%;
@@ -120,6 +151,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
   justify-content: space-between;
   border-radius: 30px 5px 30px 5px;
 }
@@ -139,10 +171,10 @@
 .popUp_content .recipe .instructions .order {
   width: 100%;
   height: 25%;
-  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   background-color: #ffb902;
   border-radius: 30px 5px 30px 5px;
   padding: 10px;
@@ -151,10 +183,8 @@
   color: black;
   font-size: 22px;
   font-weight: 799;
-  margin: 0 1rem;
 }
 .popUp_content .recipe .instructions .order button {
-  margin: 0 3px;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -191,5 +221,66 @@
   .popUp_content {
     width: 80%;
     height: 85%;
+  }
+  .popUp_content .imageSection {
+    height: 30%;
+  }
+  .popUp_content .dishName {
+    height: 12.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+  }
+  .popUp_content .dishName h2 {
+    justify-content: center;
+  }
+  .popUp_content .dishName .sourcebuttons {
+    width: 100%;
+  }
+  .popUp_content .dishName .sourcebuttons a {
+    width: 7rem;
+    height: 1.5rem;
+  }
+  .popUp_content .recipe {
+    height: 55%;
+  }
+  .popUp_content .recipe .change-content {
+    display: flex;
+    z-index: 2;
+  }
+  .popUp_content .recipe .ingredients {
+    display: none;
+    width: 100%;
+    height: 72%;
+    position: absolute;
+  }
+  .popUp_content .recipe .ingredients.show {
+    display: unset;
+  }
+  .popUp_content .recipe .instructions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .popUp_content .recipe .instructions .instruction {
+    font-size: small;
+  }
+  .popUp_content .recipe .instructions .instruction.hide {
+    display: none;
+  }
+  .popUp_content .recipe .instructions .order {
+    padding: 5px;
+    gap: 5px;
+  }
+  .popUp_content .recipe .instructions .order p {
+    font-size: 16px;
+    font-weight: 799;
+    margin-right: 5px;
+  }
+  .popUp_content .recipe .instructions .order button {
+    min-height: 65%;
+    max-height: 90%;
+    padding: 8px;
   }
 }/*# sourceMappingURL=ItemPopUp.css.map */

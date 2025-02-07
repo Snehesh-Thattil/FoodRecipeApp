@@ -24,6 +24,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        gap: 10px;
 
         .imageSection {
             display: flex;
@@ -60,34 +61,42 @@
         }
 
         .dishName {
-            text-align: center;
+            width: 100%;
+            height: 12.5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: .25rem 2rem;
+            padding: .25rem 1rem;
             background-color: #ffb902;
-            width: 100%;
-            height: 10%;
             border-radius: 30px 5px 30px 5px;
 
             h2 {
                 color: rgb(17, 16, 16);
                 font-size: medium;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 100%;
+                display: block;
             }
 
             .sourcebuttons {
                 display: flex;
+                width: 22rem;
 
                 a {
-                    margin: 0 5px;
-                    border-radius: 15px 5px 15px 5px;
+                    margin-left: 10px;
                     padding: 10px;
-                    border: none;
-                    cursor: pointer;
-                    font-weight: 600;
                     font-size: small;
+                    font-weight: 500;
                     background-color: black;
                     color: white;
+                    border: none;
+                    border-radius: 15px 5px 15px 5px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     transition: all ease-in-out .25s;
 
                     &:hover {
@@ -102,16 +111,40 @@
             display: flex;
             gap: 10px;
             width: 100%;
-            height: 45%;
+            height: 47.5%;
             border-radius: 30px 5px 30px 5px;
+            position: relative;
+
+            .change-content {
+                display: none;
+                align-items: center;
+                justify-content: center;
+                padding: 5px;
+                font-weight: bold;
+                color: white;
+                background-color: black;
+                outline: .1px double #dda107;
+                border: none;
+                border-radius: 12.5px 2.5px 12.5px 2.5px;
+                position: absolute;
+                right: 5px;
+                top: 5px;
+            }
 
             .ingredients {
                 width: 30%;
                 height: 100%;
-                padding: 2.5px;
+                padding: 5px;
                 border-radius: 30px 5px 30px 5px;
                 outline: 1px solid #ffb902;
                 overflow-x: scroll;
+
+                h2 {
+                    font-size: medium;
+                    font-weight: 600;
+                    padding-left: 1rem;
+                    margin-bottom: .5rem;
+                }
 
                 &::-webkit-scrollbar {
                     display: none;
@@ -122,7 +155,7 @@
                     height: 100%;
                     text-align: left;
                     font-size: 10px;
-                    padding: 5px 15px;
+                    padding: 5px;
                 }
             }
 
@@ -132,6 +165,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                gap: 10px;
                 justify-content: space-between;
                 border-radius: 30px 5px 30px 5px;
 
@@ -153,10 +187,10 @@
                 .order {
                     width: 100%;
                     height: 25%;
-                    margin-top: 10px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    gap: 10px;
                     background-color: #ffb902;
                     border-radius: 30px 5px 30px 5px;
                     padding: 10px;
@@ -165,11 +199,9 @@
                         color: black;
                         font-size: 22px;
                         font-weight: 799;
-                        margin: 0 1rem;
                     }
 
                     button {
-                        margin: 0 3px;
                         padding: 10px;
                         border: none;
                         border-radius: 5px;
@@ -220,8 +252,82 @@
         &_content {
             width: 80%;
             height: 85%;
+
+            .imageSection {
+                height: 30%;
+            }
+
+            .dishName {
+                height: 12.5%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                justify-content: space-evenly;
+
+                h2 {
+                    justify-content: center;
+                }
+
+                .sourcebuttons {
+                    width: 100%;
+
+                    a {
+                        width: 7rem;
+                        height: 1.5rem;
+                    }
+                }
+            }
+
+            .recipe {
+                height: 55%;
+
+                .change-content {
+                    display: flex;
+                    z-index: 2;
+                }
+
+                .ingredients {
+                    display: none;
+                    width: 100%;
+                    height: 72%;
+                    position: absolute;
+
+                    &.show {
+                        display: unset;
+                    }
+                }
+
+                .instructions {
+                    width: 100%;
+                    justify-content: flex-end;
+
+                    .instruction {
+                        font-size: small;
+
+                        &.hide {
+                            display: none;
+                        }
+                    }
+
+                    .order {
+                        padding: 5px;
+                        gap: 5px;
+
+                        p {
+                            font-size: 16px;
+                            font-weight: 799;
+                            margin-right: 5px;
+                        }
+
+                        button {
+                            min-height: 65%;
+                            max-height: 90%;
+                            padding: 8px;
+                        }
+                    }
+                }
+            }
         }
     }
-
-    // Not finished 
 }

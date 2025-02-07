@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react'
+import React, { useContext, useMemo, useRef, useState } from 'react'
 import './ItemPopUp.css'
 import { cartToggleContext, MealIdContext, PopUpContext } from '../../Contexts/OtherContexts'
 import { MealIdDetailsContext } from '../../Contexts/MealIdDetailsContext'
@@ -16,6 +16,10 @@ function ItemPop() {
     const { wishlistDispatch } = useContext(wishlistsContext)
     const { setPopUp } = useContext(PopUpContext)
     const navigate = useNavigate()
+    const [buttonText, setButtonText] = useState('Show Ingredients')
+    const changeContentBtnRef = useRef()
+    const ingredientsRef = useRef()
+    const instructionRef = useRef()
 
     // Fetching ingredients and its measures
     let ingredientsList = useMemo(() => {
@@ -77,6 +81,16 @@ function ItemPop() {
         setPopUp(false)
     }
 
+    // Show ingredient Button
+    function handleChangeContent() {
+        ingredientsRef.current.classList.toggle('show')
+        instructionRef.current.classList.toggle('hide')
+        if (ingredientsRef.current) {
+            ingredientsRef.current.classList.contains('show') ? setButtonText('Show Recipe') : setButtonText('Show Ingredients')
+        }
+    }
+
+    // Rendering
     return (
         <div className='popUp'>
             <div className="popUp_content">
@@ -103,11 +117,14 @@ function ItemPop() {
                 </div>
 
                 <div className="recipe">
-                    <div className="ingredients">
+                    <button className='change-content' onClick={handleChangeContent} ref={changeContentBtnRef}>{buttonText}</button>
+
+                    <div className="ingredients" ref={ingredientsRef}>
+                        <h2>Ingredients :-</h2>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Ingredients</th>
+                                    <th>Ingredient</th>
                                     <th>Quantity</th>
                                 </tr>
                             </thead>
@@ -118,7 +135,7 @@ function ItemPop() {
                     </div>
 
                     <div className="instructions">
-                        <div className="instruction">
+                        <div className="instruction" ref={instructionRef}>
                             <h2>Recipe :-</h2>
                             {idMealDetails.strInstructions}
                         </div>
